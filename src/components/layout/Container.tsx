@@ -1,3 +1,4 @@
+'use client';
 import { ReactNode } from 'react';
 import Header from '@/components/navigation/header/Header';
 import SideBar from '../navigation/sidebar/Sidebar';
@@ -10,5 +11,3 @@ export default function Container({ children }: { children: ReactNode }) {
     </div>
   );
 }
-
-//262A33

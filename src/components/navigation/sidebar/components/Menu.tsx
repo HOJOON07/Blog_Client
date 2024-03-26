@@ -1,3 +1,3 @@
 export default function Menu() {
-  return <div>Menu</div>;
+  return <div className="flex">menu</div>;
 }

@@ -10,7 +10,7 @@ export default function Search() {
         <div className="text-2xl w-[480px]">
           <input
             type="text"
-            className="outline-none w-full bg-white dark:bg-transparent"
+            className="outline-none w-full bg-transparent dark:bg-transparent"
             placeholder="검색어를 입력해 주세요"
           />
         </div>
