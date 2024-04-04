@@ -39,7 +39,7 @@ export const NextLayout = ({ children }: Props) => {
   return (
     <ThemeProvider
       attribute="class"
-      defaultTheme="system"
+      defaultTheme="light"
       enableSystem
       disableTransitionOnChange
     >

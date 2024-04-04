@@ -3,10 +3,5 @@ import Sidebar from '@/components/sidebar/Sidebar';
 import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <main>
-      <Nav />
-      <Sidebar />
-    </main>
-  );
+  return <main></main>;
 }
