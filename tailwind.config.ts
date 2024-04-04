@@ -74,6 +74,7 @@ const config = {
       },
       content: {
         top: 'url("/topArrow.svg")',
+        down: 'url("/downArrow.svg")',
       },
     },
   },
