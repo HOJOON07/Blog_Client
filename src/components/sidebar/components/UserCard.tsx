@@ -25,7 +25,7 @@ export default function UserCard() {
         <h4 className="text-lg font-bold text-navy-700 dark:text-white mt-6">
           Kim Ho Joon
         </h4>
-        <p className="text-base font-light text-gray-600">FrontEnd Developer</p>
+        <p className="text-sm font-light text-gray-600">FrontEnd Developer</p>
       </div>
       <div className="mt-4 mb-2 flex w-full gap-6 justify-center">
         <div className="flex flex-col items-center justify-center">
