@@ -8,6 +8,7 @@ export default function Nav() {
         <div>
           <NavBreadcrumb />
           <ViewState />
+          <ViewState />
         </div>
         <div></div>
       </div>
