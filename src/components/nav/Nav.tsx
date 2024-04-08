@@ -16,7 +16,7 @@ export default function Nav() {
     setShowNotiCard((open) => !open);
   };
   return (
-    <nav className="relative flex items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl h-20">
+    <nav className="relative flex items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 h-20">
       <div>
         <NavBreadcrumb />
         <ViewState />
