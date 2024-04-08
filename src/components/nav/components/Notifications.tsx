@@ -1,10 +1,14 @@
-import Icon from '@/assets/icon/Icon';
 import { Button } from '@/components/ui/button';
+import { BellIcon } from '@radix-ui/react-icons';
 
-export default function Notifications() {
+interface NotiIconProps {
+  onClick: () => void;
+}
+
+export default function Notifications({ onClick }: NotiIconProps) {
   return (
-    <Button variant="ghost" size="icon">
-      <Icon name="bell" className='className="h-[1.3rem] w-[1.3rem]' />
+    <Button variant="ghost" size="icon" onClick={onClick}>
+      <BellIcon className="h-[1.2rem] w-[1.2rem]" />
     </Button>
   );
 }

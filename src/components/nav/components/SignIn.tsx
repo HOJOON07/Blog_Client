@@ -1,10 +1,11 @@
 import Icon from '@/assets/icon/Icon';
 import { Button } from '@/components/ui/button';
+import { EnterIcon } from '@radix-ui/react-icons';
 
 export default function SignIn() {
   return (
     <Button variant="ghost" size="icon">
-      <Icon name="user" className="h-[1.3rem] w-[1.3rem]" />
+      <EnterIcon className="h-[1.3rem] w-[1.3rem]" />
     </Button>
   );
 }
