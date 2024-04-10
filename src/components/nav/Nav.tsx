@@ -28,7 +28,7 @@ export default function Nav() {
         <Notifications onClick={handleNotiCard} />
       </div>
       {showNotiCard && (
-        <NotiCard className="absolute right-[10px] top-[80px]" />
+        <NotiCard className="absolute right-0 top-[80px] z-30" />
       )}
     </nav>
   );
