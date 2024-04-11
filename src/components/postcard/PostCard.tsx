@@ -14,6 +14,7 @@ export default function PostCard({
   date,
   userName,
 }: PostCardProps) {
+  // props 받는 방식을 변경하자
   return (
     <div
       data-name="block"

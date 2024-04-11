@@ -69,6 +69,7 @@ export default function ContentsWrap() {
       userName: '김호준',
     },
   ];
+
   return (
     <main className="relative h-full max-h-screen transition-all duration-200 ease-in-out lg:ml-[250px] rounded-xl">
       <Nav />
