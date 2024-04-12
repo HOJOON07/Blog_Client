@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      aspectRatio: {
+        postCard: '9/10',
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
