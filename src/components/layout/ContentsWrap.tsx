@@ -1,6 +1,6 @@
 import Nav from '../nav/Nav';
 import { PostCardProps } from '../postcard/PostCard';
-import PostCard from '../postcard/PostCard.1';
+import PostCard from '../postcard/PostCard';
 
 export default function ContentsWrap() {
   const MOCK_DATE: PostCardProps[] = [

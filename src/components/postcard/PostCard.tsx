@@ -1,5 +1,5 @@
-import { Separator } from '../ui/separator';
-
+import Image from 'next/image';
+import Link from 'next/link';
 export interface PostCardProps {
   title: string;
   subTitle: string;
@@ -7,24 +7,31 @@ export interface PostCardProps {
   userName: string;
 }
 
-{
-  /* <div className="shadow-2xl rounded-lg" tag-name="Block">
-<div className="relative w-full h-0 pb-[50%]">
-  <Image
-    src="/post-thumbnail.jpeg"
-    layout="fill"
-    alt="post-thumbnail"
-    objectFit="cover"
-    className="rounded-lg rounded-b-none"
-  />
-</div>
-<div className="p-1">
-  <h1>{title}</h1>
-  <div>
-    <p>{subTitle}</p>
-    <p>{date}</p>
-  </div>
-</div>
-<div className="px-[0.625rem] py-1">{userName}</div>
-</div> */
+export default function PostCard({
+  title,
+  subTitle,
+  date,
+  userName,
+}: PostCardProps) {
+  const test = true;
+  return (
+    <div className="flex flex-col hover:translate-y-[-12px] rounded-[4px] shadow-md transition-all overflow-hidden aspect-postCard">
+      {test && (
+        <Link className="relative w-full h-0 pb-[48%]" href={''}>
+          <Image
+            src="/post-thumbnail.jpeg"
+            layout="fill"
+            alt="post-thumbnail"
+            objectFit="cover"
+            className="rounded-lg rounded-b-none"
+          />
+        </Link>
+      )}
+      <div className="p-2 flex flex-col flex-1">
+        <div>{title}</div>
+        <div className="flex-1 mt-2">{subTitle}</div>
+        <div className="mt-auto">나는 푸터</div>
+      </div>
+    </div>
+  );
 }
