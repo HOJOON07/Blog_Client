@@ -20,7 +20,7 @@ export default function ContentsWrap() {
     {
       title: '제목',
       subTitle:
-        '세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀 네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀',
+        '세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀세줄짜리 서브탙이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀 네줄짜리서브타이틀네줄짜리서브타이틀네줄짜리서브타이틀 asdasdsadsadasdas',
       date: '2024년 3월 16일',
       userName: '김호준',
     },
@@ -70,7 +70,7 @@ export default function ContentsWrap() {
   ];
 
   return (
-    <main className="relative h-full max-h-screen transition-all duration-200 ease-in-out lg:ml-[250px] rounded-xl">
+    <main className="relative h-full transition-all duration-200 ease-in-out lg:ml-[250px] rounded-xl bg-slate-50">
       <Nav />
       <div className="grid grid-cols-4 gap-8 mx-6 p-5">
         {MOCK_DATE.map((post, idx) => (
