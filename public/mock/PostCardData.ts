@@ -1,3 +1,5 @@
+import { PostCardProps } from '@/components/postcard/PostCard';
+
 export const MOCK_DATE: PostCardProps[] = [
   {
     title: '제목',

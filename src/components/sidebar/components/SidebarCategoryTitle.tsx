@@ -7,12 +7,10 @@ interface Props {
 
 export default function SidebarCategoryTitle({ title, expand }: Props) {
   return (
-    <li className={clsx(`w-full my-4 ${!expand && 'flex justify-center'}`)}>
+    <li className={clsx(`w-full my-4`)}>
       <h6
         className={clsx(
-          `${
-            expand && 'pl-6 ml-2'
-          } text-xs font-bold leading-tight uppercase opacity-60 dark:text-white`,
+          `pl-4 ml-2 text-xs font-bold leading-tight uppercase opacity-60 dark:text-white`,
         )}
       >
         {title}

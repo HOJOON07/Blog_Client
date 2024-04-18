@@ -1,4 +1,4 @@
-import Icon from '@/assets/icon/Icon';
+import Icon from '@/components/icon/Icon';
 import Link from 'next/link';
 import { LucideProps } from 'lucide-react';
 import dynamicIconImports from 'lucide-react/dynamicIconImports';
@@ -9,7 +9,7 @@ import clsx from 'clsx';
 interface SidebarItemProps extends LucideProps {
   name: keyof typeof dynamicIconImports;
   title: string;
-  expand: boolean;
+  expand?: boolean;
 }
 
 export default function SidebarItem({ name, title, expand }: SidebarItemProps) {
@@ -21,22 +21,33 @@ export default function SidebarItem({ name, title, expand }: SidebarItemProps) {
       >
         <div
           className={clsx(
-            `flex h-8 w-8 items-center justify-center rounded-lg text-center text-black ${
-              !expand && 'mx-auto'
-            }`,
+            `flex h-8 w-8 items-center rounded-lg text-center text-black mr-1`,
           )}
         >
           <Icon name={name} size={18} className="dark:text-white" />
         </div>
-        {expand ? (
-          <Fragment>
-            <span className="ml-1 duration-300 pointer-events-none ease text-slate-700 dark:text-white opacity-100">
-              {title}
-            </span>
-            <ChevronDownIcon className="ml-auto dark:text-white" />
-          </Fragment>
-        ) : null}
+        <span
+          className={clsx(
+            `duration-300 pointer-events-none ease text-slate-700 dark:text-white opacity-100 ${
+              !expand && 'hidden'
+            }`,
+          )}
+        >
+          {title}
+        </span>
+        <ChevronDownIcon
+          className={clsx(`ml-auto dark:text-white ${!expand && 'hidden'}`)}
+        />
       </Link>
     </li>
   );
 }
+
+// {expand ? (
+//   <Fragment>
+//     <span className="ml-1 duration-300 pointer-events-none ease text-slate-700 dark:text-white opacity-100">
+//       {title}
+//     </span>
+//     <ChevronDownIcon className="ml-auto dark:text-white" />
+//   </Fragment>
+// ) : null}
