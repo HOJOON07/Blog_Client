@@ -1,4 +1,10 @@
-import { RefObject, useEffect, useReducer } from 'react';
+import {
+  RefObject,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+} from 'react';
 
 interface Options<T extends HTMLElement = HTMLElement> {
   ref: RefObject<T>;
@@ -40,6 +46,7 @@ const reducer: React.Reducer<State, Action> = (state, action) => {
   }
   const { className } = state;
   const { type, payload } = action;
+
   switch (type) {
     case '2xl':
       return { className: payload };
@@ -55,6 +62,7 @@ const reducer: React.Reducer<State, Action> = (state, action) => {
       return { className };
   }
 };
+
 function getContainerWidth_returnClassName(width: number): {
   type: keyof ResponsiveClassName;
   payload: string;
@@ -77,7 +85,7 @@ export function useResizeObserver({ ref }: Options) {
 
   console.log(state);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ref.current) return;
     if (typeof window === 'undefined' || !('ResizeObserver' in window)) return;
 
@@ -85,7 +93,11 @@ export function useResizeObserver({ ref }: Options) {
       const { type, payload } = getContainerWidth_returnClassName(
         entry.borderBoxSize[0].inlineSize,
       );
-      dispatch({ payload, type });
+      console.log('!!!', payload);
+      if (state.className !== payload) {
+        console.log('디스패치 호출 되는중');
+        dispatch({ payload, type });
+      }
       console.log(entry.borderBoxSize[0].inlineSize);
     });
     observer.observe(ref.current);
@@ -93,6 +105,6 @@ export function useResizeObserver({ ref }: Options) {
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [state.className]);
   return state;
 }
