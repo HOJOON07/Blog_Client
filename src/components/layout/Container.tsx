@@ -1,7 +1,6 @@
 import Sidebar from '@/components/sidebar/Sidebar';
 import { Fragment, ReactNode } from 'react';
-import MainContents from '@/components/layout/MainContents';
-import Nav from '../nav/Nav';
+import Nav from '@/components/nav/Nav';
 
 export default function Container({ children }: { children: ReactNode }) {
   return (
