@@ -3,7 +3,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 // import { SessionProvider } from 'next-auth/react';
-import { RecoilRoot } from 'recoil';
 import { useState } from 'react';
 import { ThemeProvider } from '@/theme/theme-provider';
 
@@ -24,14 +23,12 @@ export const NextProvider = ({ children }: Props) => {
   );
 
   return (
-    <RecoilRoot>
-      <QueryClientProvider client={queryClient}>
-        {/* <SessionProvider> */}
-        {children}
-        <ReactQueryDevtools />
-        {/* </SessionProvider> */}
-      </QueryClientProvider>
-    </RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+      {/* <SessionProvider> */}
+      {children}
+      <ReactQueryDevtools />
+      {/* </SessionProvider> */}
+    </QueryClientProvider>
   );
 };
 

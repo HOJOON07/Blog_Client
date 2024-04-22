@@ -2,10 +2,9 @@ import clsx from 'clsx';
 
 interface Props {
   title: string;
-  expand: boolean;
 }
 
-export default function SidebarCategoryTitle({ title, expand }: Props) {
+export default function SidebarCategoryTitle({ title }: Props) {
   return (
     <li className={clsx(`w-full my-4`)}>
       <h6

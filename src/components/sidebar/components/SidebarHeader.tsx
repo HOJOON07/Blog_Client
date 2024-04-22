@@ -1,14 +1,13 @@
-import Icon from '@/components/icon/Icon';
+import { useSidebarStore } from '@/store/sidebarStore';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import clsx from 'clsx';
-import { Fragment } from 'react';
 
 interface Props {
   onClick: () => void;
-  expand: boolean;
 }
 
-export default function SidebarHeader({ onClick, expand }: Props) {
+export default function SidebarHeader({ onClick }: Props) {
+  const expand = useSidebarStore((state) => state.expand);
   return (
     <div
       className={clsx(

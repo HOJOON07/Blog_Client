@@ -1,10 +1,4 @@
-import {
-  RefObject,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useReducer,
-} from 'react';
+import { RefObject, useLayoutEffect, useReducer } from 'react';
 
 interface Options<T extends HTMLElement = HTMLElement> {
   ref: RefObject<T>;
@@ -26,19 +20,40 @@ interface Action {
 interface State {
   className: string;
 }
+// 1190 맥북 (1440)
+// 1670 모니터 (1920)
+
+// 사이드바는 총 250을 빼야 함
 
 const responsiveClassNames: ResponsiveClassName = {
-  '2xl': 'grid-cols-4',
+  '2xl': 'grid-cols-5 gap-6',
   //1536
-  xl: 'grid-cols-3',
+  xl: 'grid-cols-4 gap-6',
   // 1280
-  lg: 'grid-cols-3',
+  lg: 'grid-cols-3 gap-6',
   //1024
-  md: 'grid-cols-3',
+  md: 'grid-cols-2 gap-6',
   //786
-  sm: 'grid-cols-2',
+  sm: 'grid-cols-1 gap-6',
   //640
 };
+
+function getContainerWidth_returnClassName(width: number): {
+  type: keyof ResponsiveClassName;
+  payload: (typeof responsiveClassNames)[keyof typeof responsiveClassNames];
+} {
+  if (width >= 1620) {
+    return { type: '2xl', payload: responsiveClassNames['2xl'] };
+  } else if (width >= 1240) {
+    return { type: 'xl', payload: responsiveClassNames['xl'] };
+  } else if (width >= 1024) {
+    return { type: 'lg', payload: responsiveClassNames['lg'] };
+  } else if (width >= 730) {
+    return { type: 'md', payload: responsiveClassNames['md'] };
+  } else {
+    return { type: 'sm', payload: responsiveClassNames['sm'] };
+  }
+}
 
 const reducer: React.Reducer<State, Action> = (state, action) => {
   if (!action) {
@@ -62,23 +77,6 @@ const reducer: React.Reducer<State, Action> = (state, action) => {
       return { className };
   }
 };
-
-function getContainerWidth_returnClassName(width: number): {
-  type: keyof ResponsiveClassName;
-  payload: string;
-} {
-  if (width >= 1536) {
-    return { type: '2xl', payload: responsiveClassNames['2xl'] };
-  } else if (width >= 1280) {
-    return { type: 'xl', payload: responsiveClassNames['xl'] };
-  } else if (width >= 1024) {
-    return { type: 'lg', payload: responsiveClassNames['lg'] };
-  } else if (width >= 786) {
-    return { type: 'md', payload: responsiveClassNames['md'] };
-  } else {
-    return { type: 'sm', payload: responsiveClassNames['sm'] };
-  }
-}
 
 export function useResizeObserver({ ref }: Options) {
   const [state, dispatch] = useReducer(reducer, { className: '' });

@@ -3,16 +3,18 @@ import Link from 'next/link';
 import { LucideProps } from 'lucide-react';
 import dynamicIconImports from 'lucide-react/dynamicIconImports';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
-import { Fragment } from 'react';
+
 import clsx from 'clsx';
+import { useSidebarStore } from '@/store/sidebarStore';
+import HoverTooltip from './HoverTooltip';
 
 interface SidebarItemProps extends LucideProps {
   name: keyof typeof dynamicIconImports;
   title: string;
-  expand?: boolean;
 }
 
-export default function SidebarItem({ name, title, expand }: SidebarItemProps) {
+export default function SidebarItem({ name, title }: SidebarItemProps) {
+  const expand = useSidebarStore((state) => state.expand);
   return (
     <li className="mt-0.5 w-full">
       <Link

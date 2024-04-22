@@ -1,6 +1,6 @@
 'use client';
 
-import { MOCK_DATE } from '../../../public/mock/PostCardData';
+import { MOCK_DATA } from '../../../public/mock/PostCardData';
 import PostCard from '@/components/postcard/PostCard';
 import { useResizeObserver } from '@/hooks/useResizeObserver';
 import clsx from 'clsx';
@@ -11,8 +11,8 @@ export default function PostFeed() {
   const { className } = useResizeObserver({ ref });
 
   return (
-    <div className={clsx(`grid gap-8 py-5 px-6 ${className}`)} ref={ref}>
-      {MOCK_DATE.map((post, idx) => (
+    <div className={clsx(`grid py-5 px-6 ${className}`)} ref={ref}>
+      {MOCK_DATA.map((post, idx) => (
         <PostCard
           key={idx}
           title={post.title}
