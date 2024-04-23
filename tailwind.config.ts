@@ -26,6 +26,7 @@ const config = {
       '2xl': '1536px',
       // => @media (min-width: 1536px) { ... }
       '3xl': '1920px',
+      noNav: { min: '0px', max: '1023px' },
     },
     container: {
       center: true,

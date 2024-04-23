@@ -3252,7 +3252,6 @@ __metadata:
     clsx: "npm:^2.1.0"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.1.4"
-    lucide-react: "npm:^0.364.0"
     next: "npm:14.1.4"
     next-themes: "npm:^0.3.0"
     postcss: "npm:^8"
@@ -5205,15 +5204,6 @@ __metadata:
   dependencies:
     yallist: "npm:^4.0.0"
   checksum: 10c0/cb53e582785c48187d7a188d3379c181b5ca2a9c78d2bce3e7dee36f32761d1c42983da3fe12b55cb74e1779fa94cdc2e5367c028a9b35317184ede0c07a30a9
-  languageName: node
-  linkType: hard
-
-"lucide-react@npm:^0.364.0":
-  version: 0.364.0
-  resolution: "lucide-react@npm:0.364.0"
-  peerDependencies:
-    react: ^16.5.1 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/07e519f700081f6d9f063dc39d9b58da940a976bfc368dd67c272544cfba226b4663eadf1839f41c5014561408200c595ce566b0f07a747e2a69449beb384749
   languageName: node
   linkType: hard
 

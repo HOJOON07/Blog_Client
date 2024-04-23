@@ -15,8 +15,8 @@ export default function Sidebar() {
   return (
     <aside
       className={clsx(
-        `fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 transition-all duration-200 ease-in-out -translate-x-full border-0 shadow-none dark:bg-postcard rounded-2xl lg:translate-x-0 ${
-          expand ? ' max-w-64 overflow-y-auto' : 'max-w-[68px] overflow-hidden'
+        `fixed inset-y-0 left-0 flex-wrap items-center justify-between block w-full p-0 transition-all duration-200 ease-in-out -translate-x-full border-0 shadow-none dark:bg-postcard rounded-2xl lg:translate-x-0 z-[999] ${
+          expand ? 'max-w-64 overflow-y-auto' : 'max-w-[68px]'
         }`,
       )}
     >
@@ -24,17 +24,17 @@ export default function Sidebar() {
       <Separator />
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0">
-          {expand && <SidebarCategoryTitle title="main" />}
+          {expand && <SidebarCategoryTitle title="home" />}
           <SidebarItem name="home" title="Posts" />
           {expand && <SidebarCategoryTitle title="apps" />}
-          <SidebarItem name="layout-dashboard" title="Dashboards" />
-          <SidebarItem name="folder-kanban" title="Projects" />
-          <SidebarItem name="message-square" title="Chat" />
-          <SidebarItem name="clapperboard" title="Video" />
+          <SidebarItem name="dashboard" title="Dashboard" />
+          <SidebarItem name="pairProgramming" title="Pair Programming" />
+          <SidebarItem name="chat" title="Chat" />
+          <SidebarItem name="email" title="E-mail" />
           {expand && <SidebarCategoryTitle title="my" />}
           <SidebarItem name="user" title="Profile" />
-          <SidebarItem name="credit-card" title="Payments" />
-          <SidebarItem name="list-checks" title="Tasks" />
+          <SidebarItem name="payment" title="Payments" />
+          <SidebarItem name="task" title="Tasks" />
         </ul>
       </div>
       <UserCard expand={expand} />

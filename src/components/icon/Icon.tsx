@@ -1,16 +1,14 @@
-import dynamic from 'next/dynamic';
-import { memo } from 'react';
-import { LucideProps } from 'lucide-react';
-import dynamicIconImports from 'lucide-react/dynamicIconImports';
+import { IconType, iconMap } from './IconMap';
 
-interface IconProps extends LucideProps {
-  name: keyof typeof dynamicIconImports;
-}
+export type Props = {
+  name: IconType;
+  size?: number;
+};
 
-const Icon = memo(({ name, ...props }: IconProps) => {
-  const LucideIcon = dynamic(dynamicIconImports[name]);
+const Icon = ({ name }: Props) => {
+  const IconSVGComponent = iconMap[name];
 
-  return <LucideIcon {...props} />;
-});
+  return <IconSVGComponent />;
+};
 
 export default Icon;

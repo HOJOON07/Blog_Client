@@ -30,6 +30,7 @@ export default function PostCard({
         <Image
           src="/post-thumbnail.jpeg"
           layout="fill"
+          sizes="33vw"
           alt="post-thumbnail"
           objectFit="cover"
           className="rounded-lg rounded-b-none"
@@ -47,7 +48,6 @@ export default function PostCard({
           <p className="text-gray-400 text-sm">
             {date} {`${commentCount}개의 댓글`}
           </p>
-          {/* <BookmarkIcon className="w-[1.5rem] h-[1.5rem]" /> */}
           <BookmarkFilledIcon className="w-[1.5rem] h-[1.5rem]" />
         </div>
         <Separator />

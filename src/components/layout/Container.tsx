@@ -12,7 +12,7 @@ export default function Container({ children }: { children: ReactNode }) {
       <div
         className={`relative h-full transition-all duration-200 ease-in-out rounded-xl ${
           expand ? 'ml-[250px]' : 'ml-[100px]'
-        }`}
+        } noNav:ml-0`}
       >
         <Nav />
         {children}

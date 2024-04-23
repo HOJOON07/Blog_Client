@@ -20,17 +20,13 @@ interface Action {
 interface State {
   className: string;
 }
-// 1190 맥북 (1440)
-// 1670 모니터 (1920)
-
-// 사이드바는 총 250을 빼야 함
 
 const responsiveClassNames: ResponsiveClassName = {
   '2xl': 'grid-cols-5 gap-6',
   //1536
-  xl: 'grid-cols-4 gap-6',
+  xl: 'grid-cols-4 gap-[23px]',
   // 1280
-  lg: 'grid-cols-3 gap-6',
+  lg: 'grid-cols-3 gap-4',
   //1024
   md: 'grid-cols-2 gap-6',
   //786
@@ -81,8 +77,6 @@ const reducer: React.Reducer<State, Action> = (state, action) => {
 export function useResizeObserver({ ref }: Options) {
   const [state, dispatch] = useReducer(reducer, { className: '' });
 
-  console.log(state);
-
   useLayoutEffect(() => {
     if (!ref.current) return;
     if (typeof window === 'undefined' || !('ResizeObserver' in window)) return;
@@ -91,12 +85,10 @@ export function useResizeObserver({ ref }: Options) {
       const { type, payload } = getContainerWidth_returnClassName(
         entry.borderBoxSize[0].inlineSize,
       );
-      console.log('!!!', payload);
+
       if (state.className !== payload) {
-        console.log('디스패치 호출 되는중');
         dispatch({ payload, type });
       }
-      console.log(entry.borderBoxSize[0].inlineSize);
     });
     observer.observe(ref.current);
 

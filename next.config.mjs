@@ -7,7 +7,6 @@ const nextConfig = {
     });
     return config;
   },
-  transpilePackages: ['lucide-react'],
 };
 
 export default nextConfig;
