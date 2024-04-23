@@ -3,7 +3,7 @@ import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 export default function Search() {
   return (
     <div className="relative">
-      <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+      <div className="absolute inset-y-0 start-0 flex items-center ps-3">
         <MagnifyingGlassIcon className="h-[1.2rem] w-[1.2rem]" />
       </div>
       <input

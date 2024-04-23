@@ -20,7 +20,7 @@ export default function SidebarHeader({ onClick }: Props) {
           onClick={onClick}
         />
       </div>
-      <span
+      {/* <span
         className={clsx(
           `ml-1 font-semibold transition-all duration-200 ease-in-out text-xl text-emerald-400 ${
             !expand && 'hidden'
@@ -37,6 +37,13 @@ export default function SidebarHeader({ onClick }: Props) {
         )}
       >
         H
+      </span> */}
+      <span
+        className={`text-blue-600 font-bold text-xl right-0 ml-auto ${
+          expand ? 'block' : 'hidden'
+        }`}
+      >
+        Dev World
       </span>
     </div>
   );

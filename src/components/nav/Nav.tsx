@@ -8,6 +8,7 @@ import SignIn from './components/SignIn';
 import ViewState from './components/ViewState';
 import { NotiCard } from './components/NotiCard';
 import { useState } from 'react';
+import { Button } from '../ui/button';
 
 export default function Nav() {
   const [showNotiCard, setShowNotiCard] = useState<boolean>(false);
@@ -22,6 +23,9 @@ export default function Nav() {
         <ViewState />
       </div>
       <div className="flex items-center mr-4 gap-2">
+        <Button variant="outline" className="hover:border-emerald-500">
+          새 글 작성
+        </Button>
         <Search />
         <SignIn />
         <ColorThemeMode />

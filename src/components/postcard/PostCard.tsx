@@ -29,11 +29,12 @@ export default function PostCard({
       <Link className="relative w-full h-0 pb-[48%]" href={''}>
         <Image
           src="/post-thumbnail.jpeg"
-          layout="fill"
+          fill
           sizes="33vw"
           alt="post-thumbnail"
-          objectFit="cover"
+          style={{ objectFit: 'cover' }}
           className="rounded-lg rounded-b-none"
+          priority
         />
       </Link>
       <div className="flex flex-col flex-1">
