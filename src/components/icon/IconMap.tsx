@@ -11,6 +11,9 @@ import Instagram from './assets/Instagram';
 import Moon from './assets/Moon';
 import Sun from './assets/Sun';
 import Next from './assets/Next';
+import React from './assets/React';
+import TailwindCSS from './assets/TailwindCSS';
+import FramerMotion from './assets/FramerMotion';
 
 export const iconMap = {
   home: Posts,
@@ -26,6 +29,9 @@ export const iconMap = {
   moon: Moon,
   sun: Sun,
   next: Next,
+  react: React,
+  tailwind: TailwindCSS,
+  framerMotion: FramerMotion,
 };
 
 export type IconType = keyof typeof iconMap;
