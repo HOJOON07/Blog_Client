@@ -3,13 +3,12 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 
 import { NextLayout, NextProvider } from './provider';
-import Container from '@/components/layout/Container';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'KHSU.com',
-  description: 'HoJoon Blog',
+  title: 'Dev World.com',
+  description: "HoJoon's Dev World",
 };
 
 export default function RootLayout({

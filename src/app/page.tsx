@@ -1,5 +1,5 @@
-import PostFeed from '@/components/template/PostFeed';
+import LandingPage from '@/landing/LandinPage';
 
 export default function Page() {
-  return <div>landing</div>;
+  return <LandingPage />;
 }
