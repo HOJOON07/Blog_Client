@@ -1,6 +1,7 @@
 import { useSidebarStore } from '@/store/sidebarStore';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import clsx from 'clsx';
+import Link from 'next/link';
 
 interface Props {
   onClick: () => void;
@@ -8,6 +9,7 @@ interface Props {
 
 export default function SidebarHeader({ onClick }: Props) {
   const expand = useSidebarStore((state) => state.expand);
+
   return (
     <div
       className={clsx(
@@ -20,31 +22,14 @@ export default function SidebarHeader({ onClick }: Props) {
           onClick={onClick}
         />
       </div>
-      {/* <span
-        className={clsx(
-          `ml-1 font-semibold transition-all duration-200 ease-in-out text-xl text-emerald-400 ${
-            !expand && 'hidden'
-          }`,
-        )}
-      >
-        Ho.Blog
-      </span>
-      <span
-        className={clsx(
-          `font-[Gluten-Semi] text-cyan-500 align-middle text-3xl pt-2  right-[10px] -translate-y-2/4 top-2/4 ${
-            expand ? 'absolute' : 'hidden'
-          }`,
-        )}
-      >
-        H
-      </span> */}
-      <span
-        className={`text-blue-600 font-bold text-xl right-0 ml-auto ${
+      <Link
+        href={'/'}
+        className={`text-blue-600 font-bold text-xl right-0 ml-auto cursor-pointer ${
           expand ? 'block' : 'hidden'
         }`}
       >
-        Dev World
-      </span>
+        <span>Dev World</span>
+      </Link>
     </div>
   );
 }

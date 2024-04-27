@@ -14,6 +14,7 @@ import Next from './assets/Next';
 import React from './assets/React';
 import TailwindCSS from './assets/TailwindCSS';
 import FramerMotion from './assets/FramerMotion';
+import Linkedin from './assets/Linkedin';
 
 export const iconMap = {
   home: Posts,
@@ -32,6 +33,7 @@ export const iconMap = {
   react: React,
   tailwind: TailwindCSS,
   framerMotion: FramerMotion,
+  linkedin: Linkedin,
 };
 
 export type IconType = keyof typeof iconMap;

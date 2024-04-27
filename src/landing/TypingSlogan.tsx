@@ -31,17 +31,23 @@ export const TypingSlogan = ({
       <div>
         {wordsArray.map((word, idx) => {
           return (
-            <div key={`word-${idx}`} className="inline-block">
-              {word.text.map((char, index) => (
-                <span
-                  key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
-                >
-                  {char}
-                </span>
-              ))}
-              &nbsp;
-            </div>
+            <Fragment key={`word-${idx}`}>
+              <div className="inline-block">
+                {word.text.map((char, index) => (
+                  <span
+                    key={`char-${index}`}
+                    className={cn(
+                      `dark:text-white text-black `,
+                      word.className,
+                    )}
+                  >
+                    {char}
+                  </span>
+                ))}
+                &nbsp;
+              </div>
+              {idx === 3 ? <br /> : null}
+            </Fragment>
           );
         })}
       </div>
@@ -65,7 +71,7 @@ export const TypingSlogan = ({
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-4xl font-bold"
+          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-4xl font-bold leading-10"
           style={{
             textAlign: 'center',
             whiteSpace: 'nowrap',

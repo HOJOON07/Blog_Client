@@ -50,10 +50,13 @@ function getContainerWidth_returnClassName(width: number): {
     return { type: 'sm', payload: responsiveClassNames['sm'] };
   }
 }
+const exhaustiveCheck = (param: never) => {
+  throw new Error('정의되지 않은 반응형 사이즈가 들어왔음.!');
+};
 
 const reducer: React.Reducer<State, Action> = (state, action) => {
   if (!action) {
-    throw new Error('디스패치 함수에 액션이 정의되지 않았습니다??');
+    throw new Error('액션이 없는디?');
   }
   const { className } = state;
   const { type, payload } = action;
@@ -70,6 +73,7 @@ const reducer: React.Reducer<State, Action> = (state, action) => {
     case 'sm':
       return { className: payload };
     default:
+      exhaustiveCheck(type);
       return { className };
   }
 };

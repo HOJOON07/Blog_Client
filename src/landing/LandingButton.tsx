@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
 
 type Direction = 'TOP' | 'LEFT' | 'BOTTOM' | 'RIGHT';
 
@@ -13,6 +14,7 @@ export function LandingButton({
   as: Tag = 'button',
   duration = 1,
   clockwise = true,
+  pathName,
   ...props
 }: React.PropsWithChildren<
   {
@@ -21,10 +23,17 @@ export function LandingButton({
     className?: string;
     duration?: number;
     clockwise?: boolean;
+    pathName?: string;
   } & React.HTMLAttributes<HTMLElement>
 >) {
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>('TOP');
+
+  const router = useRouter();
+
+  const navigation = () => {
+    if (pathName) router.push(pathName);
+  };
 
   const rotateDirection = (currentDirection: Direction): Direction => {
     const directions: Direction[] = ['TOP', 'LEFT', 'BOTTOM', 'RIGHT'];
@@ -61,6 +70,7 @@ export function LandingButton({
         setHovered(true);
       }}
       onMouseLeave={() => setHovered(false)}
+      onClick={navigation}
       className={cn(
         'relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit',
         containerClassName,
