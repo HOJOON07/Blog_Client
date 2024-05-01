@@ -34,6 +34,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@mdxeditor/editor": "^3.0.2",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
