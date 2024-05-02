@@ -26,6 +26,10 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
+          ["@codemirror/lang-markdown", "npm:6.2.5"],\
+          ["@codemirror/language", "npm:6.10.1"],\
+          ["@lezer/highlight", "npm:1.2.0"],\
+          ["@lezer/lr", "npm:1.4.0"],\
           ["@mdxeditor/editor", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.0.2"],\
           ["@radix-ui/react-avatar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:1.0.4"],\
           ["@radix-ui/react-dropdown-menu", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.6"],\
@@ -7137,6 +7141,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["client", "workspace:."],\
+          ["@codemirror/lang-markdown", "npm:6.2.5"],\
+          ["@codemirror/language", "npm:6.10.1"],\
+          ["@lezer/highlight", "npm:1.2.0"],\
+          ["@lezer/lr", "npm:1.4.0"],\
           ["@mdxeditor/editor", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.0.2"],\
           ["@radix-ui/react-avatar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:1.0.4"],\
           ["@radix-ui/react-dropdown-menu", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.6"],\
