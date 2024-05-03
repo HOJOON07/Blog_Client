@@ -26,7 +26,38 @@ import {
   InsertThematicBreak,
   sandpackPlugin,
   ShowSandpackInfo,
+  InsertSandpack,
+  MultipleChoiceToggleGroup,
+  InsertTable,
+  SandpackConfig,
 } from '@mdxeditor/editor';
+
+const defaultSnippetContent = `
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  );
+}
+`.trim();
+
+const simpleSandpackConfig: SandpackConfig = {
+  defaultPreset: 'react',
+  presets: [
+    {
+      label: 'React',
+      name: 'react',
+      meta: 'live react',
+      sandpackTemplate: 'react',
+      sandpackTheme: 'light',
+      snippetFileName: '/App.js',
+      snippetLanguage: 'jsx',
+      initialSnippetContent: defaultSnippetContent,
+    },
+  ],
+};
 
 // Only import this to the next file
 export default function InitializedMDXEditor({
@@ -75,7 +106,7 @@ export default function InitializedMDXEditor({
           diffMarkdown: props.markdown,
           viewMode: 'rich-text',
         }),
-        sandpackPlugin(),
+        sandpackPlugin({ sandpackConfig: simpleSandpackConfig }),
         toolbarPlugin({
           toolbarContents: () => (
             <>
@@ -84,6 +115,9 @@ export default function InitializedMDXEditor({
               <BlockTypeSelect />
               <InsertCodeBlock />
               <InsertThematicBreak />
+              <InsertTable />
+              {/* <UndoRedo /> */}
+              {/* <InsertSandpack /> */}
               {/* <ShowSandpackInfo /> */}
             </>
           ),
