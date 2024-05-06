@@ -1,6 +1,6 @@
 'use client';
 // InitializedMDXEditor.tsx
-import type { ForwardedRef } from 'react';
+import { useState, type ForwardedRef } from 'react';
 import {
   headingsPlugin,
   listsPlugin,
@@ -64,8 +64,10 @@ export default function InitializedMDXEditor({
   editorRef,
   ...props
 }: { editorRef: ForwardedRef<MDXEditorMethods> | null } & MDXEditorProps) {
+  const [markdown, setMarkdown] = useState();
   return (
     <MDXEditor
+      onChange={console.log}
       plugins={[
         // Example Plugin Usage
         headingsPlugin(),
