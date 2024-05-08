@@ -1,4 +1,4 @@
-import { MovingBorderButton } from '@/shared/ui';
+import { MovingBorderButton } from '@/shared';
 
 export const ButtonGroup = () => {
   return (

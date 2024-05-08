@@ -1,4 +1,4 @@
-import { IconType, iconMap } from './IconMap';
+import { IconType, iconMap } from '@/shared';
 import Link from 'next/link';
 
 export type Props = {
@@ -7,7 +7,7 @@ export type Props = {
   href?: string;
 };
 
-const Icon = ({ name, href }: Props) => {
+export const Icon = ({ name, href }: Props) => {
   const IconSVGComponent = iconMap[name];
 
   return href ? (
@@ -18,5 +18,3 @@ const Icon = ({ name, href }: Props) => {
     <IconSVGComponent />
   );
 };
-
-export default Icon;

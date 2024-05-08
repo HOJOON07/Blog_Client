@@ -1,29 +1,3 @@
-// 'use client';
-
-// import { ThemeProvider } from '@/theme/theme-provider';
-// import { usePathname } from 'next/navigation';
-
-// interface Props {
-//   children: React.ReactNode;
-// }
-
-// export const ColorModeProvider = ({ children }: Props) => {
-//   const pathname = usePathname();
-
-//   const forcedThemeFromPathname = pathname === '/' ? 'dark' : undefined;
-//   return (
-//     <ThemeProvider
-//       attribute="class"
-//       defaultTheme="light"
-//       enableSystem
-//       disableTransitionOnChange
-//       forcedTheme={forcedThemeFromPathname}
-//     >
-//       {children}
-//     </ThemeProvider>
-//   );
-// };
-
 'use client';
 
 import * as React from 'react';

@@ -1,4 +1,4 @@
-import Container from '@/components/layout/Container';
+import Container from '@/_pages/apps-layout/ui/Container';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

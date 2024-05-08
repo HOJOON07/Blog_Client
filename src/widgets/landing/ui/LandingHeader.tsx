@@ -1,3 +1,4 @@
+import { Icon } from '@/shared';
 import Link from 'next/link';
 
 export const LandingHeader = () => {

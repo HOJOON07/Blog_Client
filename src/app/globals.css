@@ -67,11 +67,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  @font-face {
-    font-family: 'Gluten-Semi';
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url('../assets/font/Gluten/Gluten-SemiBold.woff2') format('woff2');
-  }
 }
