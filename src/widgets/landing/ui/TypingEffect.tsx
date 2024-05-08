@@ -1,25 +1,20 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { motion } from 'framer-motion';
 import { Fragment } from 'react';
+import { TypingWords } from '../model/TypingWords';
 
-export const TypingSlogan = ({
-  words,
+export const TypingEffect = ({
   className,
   cursorClassName,
 }: {
-  words: {
-    text: string;
-    className?: string;
-    break?: boolean;
-  }[];
   className?: string;
   cursorClassName?: string;
 }) => {
   // split text inside of words into array of characters
 
-  const wordsArray = words.map((word) => {
+  const wordsArray = TypingWords.map((word) => {
     return {
       ...word,
       text: word.text.split(''),

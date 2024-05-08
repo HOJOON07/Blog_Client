@@ -6,7 +6,7 @@ import SidebarItem from './components/SidebarItem';
 import { Separator } from '../ui/separator';
 import UserCard from './components/UserCard';
 import clsx from 'clsx';
-import { useSidebarStore } from '@/store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/sidebarStore';
 
 export default function Sidebar() {
   const expand = useSidebarStore((state) => state.expand);

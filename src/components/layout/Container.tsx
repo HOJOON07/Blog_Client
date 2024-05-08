@@ -2,7 +2,7 @@
 import Sidebar from '@/components/sidebar/Sidebar';
 import { Fragment, ReactNode } from 'react';
 import Nav from '@/components/nav/Nav';
-import { useSidebarStore } from '@/store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/sidebarStore';
 
 export default function Container({ children }: { children: ReactNode }) {
   const expand = useSidebarStore((state) => state.expand);

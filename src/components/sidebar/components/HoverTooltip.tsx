@@ -1,4 +1,4 @@
-import { useSidebarStore } from '@/store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/sidebarStore';
 import clsx from 'clsx';
 
 interface Props {

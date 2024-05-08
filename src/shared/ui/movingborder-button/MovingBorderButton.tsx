@@ -2,12 +2,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { useRouter } from 'next/navigation';
 
 type Direction = 'TOP' | 'LEFT' | 'BOTTOM' | 'RIGHT';
 
-export function LandingButton({
+export const MovingBorderButton = ({
   children,
   containerClassName,
   className,
@@ -25,7 +25,7 @@ export function LandingButton({
     clockwise?: boolean;
     pathName?: string;
   } & React.HTMLAttributes<HTMLElement>
->) {
+>) => {
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>('TOP');
 
@@ -106,4 +106,4 @@ export function LandingButton({
       <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
     </Tag>
   );
-}
+};

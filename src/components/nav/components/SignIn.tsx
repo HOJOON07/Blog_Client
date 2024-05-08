@@ -1,4 +1,4 @@
-import Icon from '@/components/icon/Icon';
+import Icon from '@/shared/ui/icon/Icon';
 import { Button } from '@/components/ui/button';
 import { EnterIcon } from '@radix-ui/react-icons';
 

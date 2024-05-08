@@ -1,4 +1,4 @@
-import { useSidebarStore } from '@/store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/sidebarStore';
 import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 import clsx from 'clsx';
 import Link from 'next/link';

@@ -1,13 +1,13 @@
 'use client';
-import Icon from '@/components/icon/Icon';
+import Icon from '@/shared/ui/icon/Icon';
 import Link from 'next/link';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 import clsx from 'clsx';
-import { useSidebarStore } from '@/store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/sidebarStore';
 import HoverTooltip from './HoverTooltip';
 import { useState } from 'react';
-import { IconType } from '@/components/icon/IconMap';
+import { IconType } from '@/shared/ui/icon/IconMap';
 
 interface SidebarItemProps {
   name: IconType;

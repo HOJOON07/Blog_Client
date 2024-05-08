@@ -1,7 +1,6 @@
-import Icon from '@/components/icon/Icon';
 import Link from 'next/link';
 
-export default function LandingHeader() {
+export const LandingHeader = () => {
   return (
     <header className="z-50 fixed top-0 w-full bg-transparent border-b border-transparent">
       <div className="container flex h-20 items-center max-w-[88rem] mx-auto">
@@ -32,4 +31,4 @@ export default function LandingHeader() {
       </div>
     </header>
   );
-}
+};
