@@ -374,17 +374,17 @@ export const useMyEditorState = () => useEditorState<MyValue, MyEditor>();
  */
 export const createMyEditor = () => createTEditor() as MyEditor;
 export const createMyPlateEditor = (
-  options: CreatePlateEditorOptions<MyValue, MyEditor> = {}
+  options: CreatePlateEditorOptions<MyValue, MyEditor> = {},
 ) => createPlateEditor<MyValue, MyEditor>(options);
 export const createMyPluginFactory = <P = PluginOptions>(
-  defaultPlugin: PlatePlugin<NoInfer<P>, MyValue, MyEditor>
+  defaultPlugin: PlatePlugin<NoInfer<P>, MyValue, MyEditor>,
 ) => createPluginFactory(defaultPlugin);
 export const createMyPlugins = (
   plugins: PlatePlugin[],
   options?: {
     components?: Record<string, PlatePluginComponent>;
     overrideByKey?: OverrideByKey;
-  }
+  },
 ) => createPlugins<MyValue, MyEditor>(plugins, options);
 
 export type MyAutoformatRule = AutoformatRule<MyValue, MyEditor>;

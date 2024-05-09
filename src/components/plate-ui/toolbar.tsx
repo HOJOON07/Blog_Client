@@ -13,28 +13,28 @@ import { withTooltip } from './tooltip';
 
 export const Toolbar = withCn(
   ToolbarPrimitive.Root,
-  'relative flex select-none items-center gap-1 bg-background'
+  'relative flex select-none items-center gap-1 bg-background',
 );
 
 export const ToolbarToggleGroup = withCn(
   ToolbarPrimitive.ToolbarToggleGroup,
-  'flex items-center'
+  'flex items-center',
 );
 
 export const ToolbarLink = withCn(
   ToolbarPrimitive.Link,
-  'font-medium underline underline-offset-4'
+  'font-medium underline underline-offset-4',
 );
 
 export const ToolbarSeparator = withCn(
   ToolbarPrimitive.Separator,
-  'my-1 w-px shrink-0 bg-border'
+  'my-1 w-px shrink-0 bg-border',
 );
 
 const toolbarButtonVariants = cva(
   cn(
     'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-    '[&_svg:not([data-icon])]:size-5'
+    '[&_svg:not([data-icon])]:size-5',
   ),
   {
     defaultVariants: {
@@ -54,7 +54,7 @@ const toolbarButtonVariants = cva(
           'border border-input bg-transparent hover:bg-accent hover:text-accent-foreground',
       },
     },
-  }
+  },
 );
 
 const ToolbarButton = withTooltip(
@@ -72,7 +72,7 @@ const ToolbarButton = withTooltip(
   >(
     (
       { children, className, isDropdown, pressed, size, variant, ...props },
-      ref
+      ref,
     ) => {
       return typeof pressed === 'boolean' ? (
         <ToolbarToggleGroup
@@ -87,7 +87,7 @@ const ToolbarButton = withTooltip(
                 variant,
               }),
               isDropdown && 'my-1 justify-between pr-1',
-              className
+              className,
             )}
             ref={ref}
             value={pressed ? 'single' : ''}
@@ -113,7 +113,7 @@ const ToolbarButton = withTooltip(
               variant,
             }),
             isDropdown && 'pr-1',
-            className
+            className,
           )}
           ref={ref}
           {...props}
@@ -121,8 +121,8 @@ const ToolbarButton = withTooltip(
           {children}
         </ToolbarPrimitive.Button>
       );
-    }
-  )
+    },
+  ),
 );
 ToolbarButton.displayName = 'ToolbarButton';
 
@@ -131,7 +131,7 @@ export { ToolbarButton };
 export const ToolbarToggleItem = withVariants(
   ToolbarPrimitive.ToggleItem,
   toolbarButtonVariants,
-  ['variant', 'size']
+  ['variant', 'size'],
 );
 
 export const ToolbarGroup = withRef<

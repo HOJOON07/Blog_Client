@@ -3308,6 +3308,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/scheduler@npm:^0":
+  version: 0.23.0
+  resolution: "@types/scheduler@npm:0.23.0"
+  checksum: 10c0/5cf7f2ba3732b74877559eb20b19f95fcd0a20c17dcb20e75a7ca7c7369cd455aeb2d406b3ff5a38168a9750da3bad78dd20d96d11118468b78f4959b8e56090
+  languageName: node
+  linkType: hard
+
 "@types/unist@npm:^2, @types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2":
   version: 2.0.10
   resolution: "@types/unist@npm:2.0.10"
@@ -3588,6 +3595,21 @@ __metadata:
     slate-hyperscript: ">=0.66.0"
     slate-react: ">=0.99.0"
   checksum: 10c0/9d706f3000043f90dc343178a949cd18212fd6c7dfd3021d3785e3d74944074367597d91411722199b0f07b08b9caada20aa5c5c5b7476ad83fe42b4bbaaee9d
+  languageName: node
+  linkType: hard
+
+"@udecode/plate-cursor@npm:^33.0.2":
+  version: 33.0.2
+  resolution: "@udecode/plate-cursor@npm:33.0.2"
+  peerDependencies:
+    "@udecode/plate-common": ">=33.0.0"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    slate: ">=0.94.0"
+    slate-history: ">=0.93.0"
+    slate-hyperscript: ">=0.66.0"
+    slate-react: ">=0.99.0"
+  checksum: 10c0/b5a5cca8d8d2300ade276616cbdce0ccd86bed8441aa1a26210514f73947de1fb25fcae6468da21a0773bb227dfad6380ca5cd6c27edff13ddb68604b1709d0a
   languageName: node
   linkType: hard
 
@@ -4878,6 +4900,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^18"
     "@types/react-dom": "npm:^18"
+    "@types/scheduler": "npm:^0"
     "@udecode/cn": "npm:^33.0.0"
     "@udecode/plate-alignment": "npm:^33.0.0"
     "@udecode/plate-autoformat": "npm:^33.0.0"
@@ -4889,6 +4912,7 @@ __metadata:
     "@udecode/plate-combobox": "npm:^33.0.0"
     "@udecode/plate-comments": "npm:^33.0.2"
     "@udecode/plate-common": "npm:^33.0.0"
+    "@udecode/plate-cursor": "npm:^33.0.2"
     "@udecode/plate-dnd": "npm:^33.0.0"
     "@udecode/plate-emoji": "npm:^33.0.0"
     "@udecode/plate-excalidraw": "npm:^33.0.2"
@@ -4925,6 +4949,7 @@ __metadata:
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.0"
     cmdk: "npm:^1.0.0"
+    date-fns: "npm:^3.6.0"
     eslint: "npm:^8"
     eslint-config-next: "npm:14.1.4"
     framer-motion: "npm:^11.1.7"
@@ -4939,6 +4964,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     react-lite-youtube-embed: "npm:^2.4.0"
     react-tweet: "npm:^3.2.1"
+    scheduler: "npm:^0.23.2"
     slate: "npm:^0.103.0"
     slate-history: "npm:^0.100.0"
     slate-hyperscript: "npm:^0.100.0"
@@ -5234,6 +5260,13 @@ __metadata:
     es-errors: "npm:^1.3.0"
     is-data-view: "npm:^1.0.1"
   checksum: 10c0/21b0d2e53fd6e20cc4257c873bf6d36d77bd6185624b84076c0a1ddaa757b49aaf076254006341d35568e89f52eecd1ccb1a502cfb620f2beca04f48a6a62a8f
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "date-fns@npm:3.6.0"
+  checksum: 10c0/0b5fb981590ef2f8e5a3ba6cd6d77faece0ea7f7158948f2eaae7bbb7c80a8f63ae30b01236c2923cf89bb3719c33aeb150c715ea4fe4e86e37dcf06bed42fb6
   languageName: node
   linkType: hard
 

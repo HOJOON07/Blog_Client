@@ -33,7 +33,7 @@ export const formatList = (editor: PlateEditor, elementType: string) => {
   format(editor, () =>
     toggleList(editor, {
       type: elementType,
-    })
+    }),
   );
 };
 

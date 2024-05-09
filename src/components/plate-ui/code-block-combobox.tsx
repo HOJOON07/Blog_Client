@@ -77,7 +77,9 @@ export function CodeBlockCombobox() {
                 <Icons.check
                   className={cn(
                     'mr-2 size-4',
-                    state.value === language.value ? 'opacity-100' : 'opacity-0'
+                    state.value === language.value
+                      ? 'opacity-100'
+                      : 'opacity-0',
                   )}
                 />
                 {language.label}

@@ -24,5 +24,5 @@ export const ToggleElement = withRef<typeof PlateElement>(
         </div>
       </PlateElement>
     );
-  }
+  },
 );

@@ -11,6 +11,7 @@ import {
   Search,
   SignIn,
 } from '@/features/get-nav';
+import { NewPost } from '@/features/get-nav';
 
 export const Nav = () => {
   const [showNotiCard, setShowNotiCard] = useState<boolean>(false);
@@ -25,9 +26,7 @@ export const Nav = () => {
         <CurrentView />
       </div>
       <div className="flex items-center mr-4 gap-2">
-        <Button variant="outline" className="hover:border-emerald-500">
-          새 글 작성
-        </Button>
+        <NewPost />
         <Search />
         <SignIn />
         <ColorThemeMode />

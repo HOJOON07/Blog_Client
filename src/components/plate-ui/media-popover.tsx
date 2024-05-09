@@ -1,3 +1,4 @@
+'use client';
 import React, { useEffect } from 'react';
 
 import {
@@ -31,7 +32,7 @@ export function MediaPopover({ children, pluginKey }: MediaPopoverProps) {
 
   const selectionCollapsed = useEditorSelector(
     (editor) => !isSelectionExpanded(editor),
-    []
+    [],
   );
   const isOpen = !readOnly && selected && selectionCollapsed;
   const isEditing = useFloatingMediaSelectors().isEditing();

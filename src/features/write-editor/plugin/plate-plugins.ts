@@ -112,7 +112,7 @@ import { createSelectOnBackspacePlugin } from '@udecode/plate-select';
 import { createBlockSelectionPlugin } from '@udecode/plate-selection';
 import { createDeserializeDocxPlugin } from '@udecode/plate-serializer-docx';
 import { createDeserializeMdPlugin } from '@udecode/plate-serializer-md';
-import { createTabbablePlugin } from '@udecode/plate-tabbable';
+// import { createTabbablePlugin } from '@udecode/plate-tabbable';
 import {
   createTablePlugin,
   ELEMENT_TABLE,
@@ -122,8 +122,8 @@ import {
 } from '@udecode/plate-table';
 import { createTrailingBlockPlugin } from '@udecode/plate-trailing-block';
 
-import { autoformatPlugin } from '@/features/write-editor';
-import { dragOverCursorPlugin } from '@/features/write-editor';
+import { autoformatPlugin } from '@/features/write-editor/lib/autoformatPlugin';
+import { dragOverCursorPlugin } from '@/features/write-editor/lib/dragOverCursorPlugin';
 import { BlockquoteElement } from '@/components/plate-ui/blockquote-element';
 import { CodeBlockElement } from '@/components/plate-ui/code-block-element';
 import { CodeLeaf } from '@/components/plate-ui/code-leaf';
@@ -153,6 +153,7 @@ import { TableElement } from '@/components/plate-ui/table-element';
 import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { withDraggables } from '@/components/plate-ui/with-draggables';
+// import { TabbableElement } from '@/components/tabbable-element';
 
 const resetBlockTypesCommonRule = {
   types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
@@ -334,6 +335,33 @@ export const plugins = createPlugins(
         ],
       },
     }),
+    // createTabbablePlugin({
+    //   options: {
+    //     query: (editor) => {
+    //       if (isSelectionAtBlockStart(editor)) return false;
+
+    //       return !someNode(editor, {
+    //         match: (n) => {
+    //           return !!(
+    //             n.type &&
+    //             ([ELEMENT_TABLE, ELEMENT_LI, ELEMENT_CODE_BLOCK].includes(
+    //               n.type as string
+    //             ) ||
+    //               n[KEY_LIST_STYLE_TYPE])
+    //           );
+    //         },
+    //       });
+    //     },
+    //   },
+    //   plugins: [
+    //     {
+    //       key: 'tabbable_element',
+    //       isElement: true,
+    //       isVoid: true,
+    //       component: TabbableElement,
+    //     },
+    //   ],
+    // }),
     createTrailingBlockPlugin({
       options: { type: ELEMENT_PARAGRAPH },
     }),

@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import { cn } from '@udecode/cn';
@@ -34,7 +35,7 @@ export function Cursor({
           <div
             className={cn(
               'pointer-events-none absolute z-10 opacity-30',
-              classNames?.selectionRect
+              classNames?.selectionRect,
             )}
             key={i}
             style={{
@@ -47,7 +48,7 @@ export function Cursor({
         <div
           className={cn(
             'pointer-events-none absolute z-10 w-0.5',
-            classNames?.caret
+            classNames?.caret,
           )}
           style={{ ...caretPosition, ...style }}
         />

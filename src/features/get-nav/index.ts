@@ -6,3 +6,4 @@ export { NotiCard } from './ui/NotiCard';
 export { Notifications } from './ui/Notifications';
 export { Search } from './ui/Search';
 export { SignIn } from './ui/SignIn';
+export { NewPost } from './ui/NewPost';

@@ -29,7 +29,7 @@ export const ColumnGroupElement = withRef<typeof PlateElement>(
         </ColumnFloatingToolbar>
       </PlateElement>
     );
-  }
+  },
 );
 
 export function ColumnFloatingToolbar({ children }: React.PropsWithChildren) {
