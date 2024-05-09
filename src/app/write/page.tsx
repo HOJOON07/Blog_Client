@@ -1,6 +1,5 @@
-import { ForwardRefEditor } from '@/components/editor/ForwardRefEditor';
-import '@mdxeditor/editor/style.css';
+import React from 'react';
 
-export default function Home() {
-  return <ForwardRefEditor markdown="# 안녕하세요" />;
+export default function page() {
+  return <div>page</div>;
 }

@@ -1,4 +1,4 @@
-import { PostCardProps } from '@/components/postcard/PostCard';
+import { PostCardProps } from '@/features/get-postcard/ui/PostCard';
 
 export const MOCK_DATA: PostCardProps[] = [
   {
