@@ -35,13 +35,13 @@ export function ModeDropdownMenu(props: DropdownMenuProps) {
     editing: (
       <>
         <Icons.editing className="mr-2 size-5" />
-        <span className="hidden lg:inline">Editing</span>
+        <span className="hidden md:inline">Editing</span>
       </>
     ),
     viewing: (
       <>
         <Icons.viewing className="mr-2 size-5" />
-        <span className="hidden lg:inline">Viewing</span>
+        <span className="hidden md:inline">Viewing</span>
       </>
     ),
   };

@@ -43,6 +43,7 @@ export { Switch } from './ui/switch';
 
 // lib
 export { cn } from './lib/utils';
+export { TailwindIndicator } from './lib/tailwind-indicator';
 
 //model
 export { iconMap } from './model/IconMap';

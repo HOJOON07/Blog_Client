@@ -7,9 +7,9 @@ import {
   autoformatSmartQuotes,
 } from '@udecode/plate-autoformat';
 
-import { autoformatBlocks } from '@/features/write-editor';
-import { autoformatIndentLists } from '@/features/write-editor';
-import { autoformatMarks } from '@/features/write-editor';
+import { autoformatBlocks } from '@/features/write-editor/lib/autoformatBlocks';
+import { autoformatIndentLists } from '@/features/write-editor/lib/autoformatIndentLists';
+import { autoformatMarks } from '@/features/write-editor/lib/autoformatMarks';
 import { MyAutoformatRule } from '@/features/write-editor/model/plate-types';
 
 export const autoformatRules = [
