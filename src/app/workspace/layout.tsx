@@ -1,4 +1,3 @@
-import { cn } from '@udecode/cn';
 import { TooltipProvider } from '@/components/plate-ui/tooltip';
 import React, { ReactNode } from 'react';
 

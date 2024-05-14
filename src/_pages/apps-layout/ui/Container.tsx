@@ -6,7 +6,7 @@ import { useSidebarStore } from '@/app/_store/sidebarStore';
 import { Sidebar } from '@/widgets/sidebar';
 import { Nav } from '@/widgets/top-nav';
 
-export default function Container({ children }: { children: ReactNode }) {
+export function Container({ children }: { children: ReactNode }) {
   const expand = useSidebarStore((state) => state.expand);
   return (
     <Fragment>

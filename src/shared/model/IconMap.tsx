@@ -1,4 +1,5 @@
 import Chat from '../ui/icon/assets/Chat';
+import CircleProfile from '../ui/icon/assets/CircleProfile';
 import Dashboard from '../ui/icon/assets/Dashboard';
 import Email from '../ui/icon/assets/Email';
 import FramerMotion from '../ui/icon/assets/FramerMotion';
@@ -15,6 +16,7 @@ import Sun from '../ui/icon/assets/Sun';
 import TailwindCSS from '../ui/icon/assets/TailwindCSS';
 import Task from '../ui/icon/assets/Task';
 import User from '../ui/icon/assets/User';
+import WorkSpaceSidebarExpand from '../ui/icon/assets/WorkSpaceSidebarExpand';
 
 export const iconMap = {
   home: Posts,
@@ -34,6 +36,8 @@ export const iconMap = {
   tailwind: TailwindCSS,
   framerMotion: FramerMotion,
   linkedin: Linkedin,
+  workspaceSidebar: WorkSpaceSidebarExpand,
+  circleProfile: CircleProfile,
 };
 
 export type IconType = keyof typeof iconMap;
