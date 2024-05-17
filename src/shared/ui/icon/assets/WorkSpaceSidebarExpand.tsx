@@ -1,11 +1,14 @@
-import React from 'react';
+import clsx from 'clsx';
+import React, { SVGProps } from 'react';
 
-export default function WorkSpaceSidebarExpand() {
+export default function WorkSpaceSidebarExpand({
+  className,
+}: SVGProps<SVGSVGElement>) {
   return (
     <svg
+      className={clsx(className)}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      className="w-[22px] h-[22px] text-slate-700 dark:text-white"
       fill="none"
     >
       <path

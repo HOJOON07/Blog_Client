@@ -6,11 +6,11 @@ import clsx from 'clsx';
 import { useSidebarStore } from '@/app/_store/sidebarStore';
 
 import { useState } from 'react';
-import { IconType } from '@/shared';
+import { IconList } from '@/shared';
 import { HoverTooltip } from '../index';
 
 interface SidebarItemProps {
-  name: IconType;
+  name: IconList;
   title: string;
 }
 
@@ -37,7 +37,7 @@ export const SidebarItem = ({ name, title }: SidebarItemProps) => {
             `flex h-8 w-8 items-center rounded-lg text-center text-black mr-1`,
           )}
         >
-          <Icon name={name} size={20} />
+          <Icon name={name} width={5} height={5} />
         </div>
         <span
           className={clsx(

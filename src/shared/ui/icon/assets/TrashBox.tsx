@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export default function Sun({ className }: SVGProps<SVGSVGElement>) {
+export default function TrashBox({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       className={className}
@@ -13,8 +13,8 @@ export default function Sun({ className }: SVGProps<SVGSVGElement>) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
-        d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+        strokeWidth="1"
+        d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"
       />
     </svg>
   );

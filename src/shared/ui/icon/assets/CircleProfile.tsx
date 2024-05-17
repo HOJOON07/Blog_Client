@@ -1,10 +1,10 @@
-import React from 'react';
+import clsx from 'clsx';
+import React, { SVGProps } from 'react';
 
-export default function CircleProfile() {
+export default function CircleProfile({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      width="24"
-      height="24"
+      className={clsx(className)}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

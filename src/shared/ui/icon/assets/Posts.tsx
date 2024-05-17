@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-export default function Posts() {
+export default function Posts({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className="w-[20px] h-[20px] text-slate-700 dark:text-white"
+      className={className}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"

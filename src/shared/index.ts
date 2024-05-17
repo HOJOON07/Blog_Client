@@ -1,6 +1,6 @@
 // ui
-export { MovingBorderButton } from './ui/MovingBorderButton';
 export { Icon } from './ui/icon/Icon';
+export { MovingBorderButton } from './ui/MovingBorderButton';
 export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 export {
   Breadcrumb,
@@ -46,5 +46,5 @@ export { cn } from './lib/utils';
 export { TailwindIndicator } from './lib/tailwind-indicator';
 
 //model
-export { iconMap } from './model/IconMap';
-export type { IconType } from './model/IconMap';
+export { iconMap } from './model/Icon';
+export type { IconList, GenericIconComponentProps } from './model/Icon';
