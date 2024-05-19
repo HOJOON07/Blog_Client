@@ -91,7 +91,7 @@ export const WorkspaceSidebar = () => {
             <div>
               <Icon name="trashbox" width={5} height={5} />
             </div>
-            <p className="font-light">모든 페이지</p>
+            <p className="font-light">휴지통</p>
           </div>
           <div
             className={cn(
@@ -104,74 +104,14 @@ export const WorkspaceSidebar = () => {
             </div>
             <p className="font-light">임시 저장</p>
           </div>
-        </div>
-        <div className="w-full">
-          <button className="inline-flex h-12 animate-shimmer items-center justify-start rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-1 focus:ring-slate-400 gap-4">
-            <Icon name="plus" />
-            New Post
-          </button>
+          <div className="w-full mt-auto">
+            <button className="inline-flex h-12 animate-shimmer items-center justify-start rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-1 focus:ring-slate-400 gap-8 w-full">
+              <Icon name="plus" />
+              New Post
+            </button>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
-
-// import { cssVar } from '@toeverything/theme';
-// import { style } from '@vanilla-extract/css';
-// export const root = style({
-//   display: 'inline-flex',
-//   background: cssVar('white10'),
-//   alignItems: 'center',
-//   borderRadius: '8px',
-//   border: `1px solid ${cssVar('black10')}`,
-//   fontSize: cssVar('fontSm'),
-//   width: '100%',
-//   height: '36px',
-//   userSelect: 'none',
-//   cursor: 'pointer',
-//   padding: '0 12px',
-//   margin: '20px 0',
-//   position: 'relative',
-// });
-// export const icon = style({
-//   marginRight: '8px',
-//   color: cssVar('iconColor'),
-//   fontSize: '20px',
-// });
-// export const spacer = style({
-//   flex: 1,
-// });
-// export const shortcutHint = style({
-//   color: cssVar('black30'),
-//   fontSize: cssVar('fontBase'),
-// });
-
-// <nav className="relative flex flex-col h-screen px-4 min-w-[255px] pb-4 pt-2">
-//   {/* 사이드바가 확장되면 확장 버튼과 유저 아이콘 */}
-//   <div className="items-center justify-between w-full flex">
-//     <Button variant="ghost" size="icon">
-//       <Icon name="workspaceSidebar" />
-//     </Button>
-//     <Button variant="ghost" size="icon">
-//       <Icon name="circleProfile" />
-//     </Button>
-//   </div>
-//   <div>
-//     <Button
-//       variant="ghost"
-//       className="px-2 flex justify-between w-full h-14"
-//     >
-//       <div className="w-9 h-9 bg-white rounded-md"></div>
-//       <p className="text-sm font-medium tracking-wide text-slate-400">
-//         Hojoon's Workspace
-//       </p>
-//     </Button>
-//   </div>
-//   {/* 검색 */}
-//   <div>search</div>
-//   {/* 모든 페이지 */}
-//   {/* 즐겨찾기 */}
-//   {/* 컬렉션 */}
-//   {/* 기타 */}
-//   {/* 새 페이지 */}
-// </nav>

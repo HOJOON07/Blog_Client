@@ -1,9 +1,10 @@
+import clsx from 'clsx';
 import { SVGProps } from 'react';
 
 export default function TrashBox({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      className={className}
+      className={clsx(className)}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
