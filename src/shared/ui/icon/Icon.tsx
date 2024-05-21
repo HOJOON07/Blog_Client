@@ -1,5 +1,4 @@
-import { GenericIconComponentProps, iconMap } from '@/shared';
-import clsx from 'clsx';
+import { GenericIconComponentProps, cn, iconMap } from '@/shared';
 import Link from 'next/link';
 
 export const Icon = ({
@@ -13,9 +12,9 @@ export const Icon = ({
 
   return href ? (
     <Link href={href}>
-      <IconSVGComponent className={clsx(`w-${width} h-${height} ${color}`)} />
+      <IconSVGComponent className={cn(`w-${width} h-${height} ${color}`)} />
     </Link>
   ) : (
-    <IconSVGComponent className={clsx(`w-${width} h-${height} ${color}`)} />
+    <IconSVGComponent className={cn(`w-${width} h-${height} ${color}`)} />
   );
 };

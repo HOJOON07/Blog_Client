@@ -9,7 +9,7 @@ export default function CircleProfile({ className }: SVGProps<SVGSVGElement>) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_19485_742)">
+      <g clipPath="url(#clip0_19485_742)">
         <rect
           className="w-[20px] h-[20px] text-slate-700 dark:text-white"
           rx="10"
