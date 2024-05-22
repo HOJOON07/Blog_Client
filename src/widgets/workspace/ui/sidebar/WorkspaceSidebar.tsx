@@ -29,13 +29,9 @@ export const WorkspaceSidebar = () => {
               'justify-start px-1',
             )}
           >
-            <div>
-              <Icon name="rightArrow" width={4} height={4} />
-            </div>
-            <div className="mr-2">
-              <Icon name="document" width={5} height={5} />
-            </div>
-            <p className="font-light text-xs">즐겨 찾기 제목</p>
+            <Icon name="rightArrow" width={4} height={4} />
+            <Icon name="document" width={5} height={5} className="mr-2" />
+            <p className="font-light">즐겨 찾기 제목</p>
           </div>
           <Divider category="시리즈" />
           <div
@@ -44,13 +40,9 @@ export const WorkspaceSidebar = () => {
               'justify-start px-1',
             )}
           >
-            <div>
-              <Icon name="rightArrow" width={4} height={4} />
-            </div>
-            <div className="mr-2">
-              <Icon name="series" width={5} height={5} />
-            </div>
-            <p className="font-light text-xs">시리즈 제목</p>
+            <Icon name="rightArrow" width={4} height={4} />
+            <Icon name="series" width={5} height={5} className="mr-2" />
+            <p className="font-light">시리즈 제목</p>
           </div>
           <Divider category="기타" />
           <div

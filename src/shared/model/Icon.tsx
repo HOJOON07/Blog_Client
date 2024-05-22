@@ -62,4 +62,5 @@ export type GenericIconComponentProps = {
   height?: number;
   href?: string;
   color?: string;
+  className?: string;
 };
