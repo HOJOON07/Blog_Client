@@ -2,7 +2,7 @@
 
 import { Fragment, ReactNode } from 'react';
 
-import { useSidebarStore } from '@/app/_store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/main-sidebarStore';
 import { Sidebar } from '@/widgets/sidebar';
 import { Nav } from '@/widgets/top-nav';
 

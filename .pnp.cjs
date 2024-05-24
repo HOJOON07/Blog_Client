@@ -110,6 +110,7 @@ const RAW_RUNTIME_STATE =
           ["react-dnd-html5-backend", "npm:16.0.1"],\
           ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
           ["react-lite-youtube-embed", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.4.0"],\
+          ["react-resizable-panels", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19"],\
           ["react-tweet", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.2.1"],\
           ["scheduler", "npm:0.23.2"],\
           ["slate", "npm:0.103.0"],\
@@ -8527,6 +8528,7 @@ const RAW_RUNTIME_STATE =
           ["react-dnd-html5-backend", "npm:16.0.1"],\
           ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
           ["react-lite-youtube-embed", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.4.0"],\
+          ["react-resizable-panels", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19"],\
           ["react-tweet", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.2.1"],\
           ["scheduler", "npm:0.23.2"],\
           ["slate", "npm:0.103.0"],\
@@ -12603,6 +12605,32 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-resizable-panels", [\
+      ["npm:2.0.19", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-resizable-panels-npm-2.0.19-33ecf8f909-10c0.zip/node_modules/react-resizable-panels/",\
+        "packageDependencies": [\
+          ["react-resizable-panels", "npm:2.0.19"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19", {\
+        "packageLocation": "./.yarn/__virtual__/react-resizable-panels-virtual-08e33fc108/4/.yarn/berry/cache/react-resizable-panels-npm-2.0.19-33ecf8f909-10c0.zip/node_modules/react-resizable-panels/",\
+        "packageDependencies": [\
+          ["react-resizable-panels", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19"],\
+          ["@types/react", "npm:18.2.73"],\
+          ["@types/react-dom", "npm:18.2.23"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\

@@ -1,14 +1,20 @@
 import PlateEditor from '@/features/write-editor/ui/PlateEditor';
-import { WorkspaceSidebar } from '@/widgets/workspace';
+import { WorkspaceHeader, WorkspaceSidebar } from '@/widgets/workspace';
 
 export const WorkspacePage = () => {
   return (
     <div className="flex">
-      {/* sidebar */}
       <WorkspaceSidebar />
+      {/* view workspace list */}
+      <div className="flex flex-col flex-1">
+        <WorkspaceHeader />
+      </div>
+
       {/* <div className="max-w-[1440px] rounded-lg border bg-background shadow flex-1">
         <PlateEditor />
       </div> */}
+
+      {/* view workspace toolbar */}
     </div>
   );
 };

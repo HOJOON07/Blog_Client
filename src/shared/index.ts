@@ -40,6 +40,11 @@ export {
 export { Separator } from './ui/separator';
 export { Skeleton } from './ui/skeleton';
 export { Switch } from './ui/switch';
+export {
+  ResizablePanelGroup,
+  ResizablePanel,
+  ResizableHandle,
+} from './ui/resizable';
 
 // lib
 export { cn } from './lib/utils';

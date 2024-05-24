@@ -1,4 +1,4 @@
-import { useSidebarStore } from '@/app/_store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/main-sidebarStore';
 import clsx from 'clsx';
 
 interface HoverTooltipProps {

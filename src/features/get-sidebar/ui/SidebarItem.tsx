@@ -3,18 +3,18 @@ import { Icon } from '@/shared/ui/icon/Icon';
 import Link from 'next/link';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import clsx from 'clsx';
-import { useSidebarStore } from '@/app/_store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/main-sidebarStore';
 
 import { useState } from 'react';
 import { IconList } from '@/shared';
 import { HoverTooltip } from '../index';
 
 interface SidebarItemProps {
-  name: IconList;
+  icon: IconList;
   title: string;
 }
 
-export const SidebarItem = ({ name, title }: SidebarItemProps) => {
+export const SidebarItem = ({ icon, title }: SidebarItemProps) => {
   const expand = useSidebarStore((state) => state.expand);
   const [showToolTip, setShowTooltip] = useState<boolean>(false);
 
@@ -37,7 +37,7 @@ export const SidebarItem = ({ name, title }: SidebarItemProps) => {
             `flex h-8 w-8 items-center rounded-lg text-center text-black mr-1`,
           )}
         >
-          <Icon name={name} width={5} height={5} />
+          <Icon name={icon} width={5} height={5} />
         </div>
         <span
           className={clsx(

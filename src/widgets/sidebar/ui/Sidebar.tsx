@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-import { useSidebarStore } from '@/app/_store/sidebarStore';
+import { useSidebarStore } from '@/app/_store/main-sidebarStore';
 import { Separator } from '@/shared';
 import {
   SidebarCategoryTitle,
@@ -26,16 +26,16 @@ export const Sidebar = () => {
       <div className="items-center block w-full h-auto grow basis-full">
         <ul className="flex flex-col pl-0 mb-0">
           {expand && <SidebarCategoryTitle title="home" />}
-          <SidebarItem name="home" title="Posts" />
+          <SidebarItem icon="home" title="Posts" />
           {expand && <SidebarCategoryTitle title="apps" />}
-          <SidebarItem name="dashboard" title="Dashboard" />
-          <SidebarItem name="pairProgramming" title="Pair Programming" />
-          <SidebarItem name="chat" title="Chat" />
-          <SidebarItem name="email" title="E-mail" />
+          <SidebarItem icon="dashboard" title="Dashboard" />
+          <SidebarItem icon="pairProgramming" title="Pair Programming" />
+          <SidebarItem icon="chat" title="Chat" />
+          <SidebarItem icon="email" title="E-mail" />
           {expand && <SidebarCategoryTitle title="my" />}
-          <SidebarItem name="user" title="Profile" />
-          <SidebarItem name="payment" title="Payments" />
-          <SidebarItem name="task" title="Tasks" />
+          <SidebarItem icon="user" title="Profile" />
+          <SidebarItem icon="payment" title="Payments" />
+          <SidebarItem icon="task" title="Tasks" />
         </ul>
       </div>
       <UserCard expand={expand} />
