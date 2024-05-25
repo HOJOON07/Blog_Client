@@ -24,9 +24,8 @@ export const HeaderItem = ({ title }: HeaderItemProps) => {
   return (
     <div
       className={cn(
-        `py-[6px] px-7 rounded-[8px] text-sm flex-1 justify-center ${
-          viewMode === changeTitle(title) && 'bg-gray-900'
-        }`,
+        'py-[6px] px-7 rounded-[8px] text-sm flex-1 justify-center',
+        viewMode === changeTitle(title) && 'bg-gray-900',
       )}
       onClick={() => changeViewMode(changeTitle(title))}
     >

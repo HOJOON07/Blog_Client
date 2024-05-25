@@ -1,11 +1,5 @@
 import { Header, Search, UserInfo } from '@/features/get-workspace-sidebar';
-import { Icon, buttonVariants, cn } from '@/shared';
-import {
-  Divider,
-  Footer,
-  SidebarButton,
-  SidebarItem,
-} from '@/widgets/workspace';
+import { Divider, Footer, SidebarItem } from '@/widgets/workspace';
 
 export const WorkspaceSidebar = () => {
   return (
