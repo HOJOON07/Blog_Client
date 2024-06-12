@@ -2,7 +2,7 @@ import { Button } from '@/shared';
 import { BellIcon } from '@radix-ui/react-icons';
 
 interface NotificationsProps {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const Notifications = ({ onClick }: NotificationsProps) => {

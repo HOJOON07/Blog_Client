@@ -7,6 +7,8 @@ import Email from '../ui/icon/assets/Email';
 import Folder from '../ui/icon/assets/Folder';
 import FramerMotion from '../ui/icon/assets/FramerMotion';
 import Github from '../ui/icon/assets/Github';
+import Globe from '../ui/icon/assets/Globe';
+import Home from '../ui/icon/assets/Home';
 import Instagram from '../ui/icon/assets/Instagram';
 import Linkedin from '../ui/icon/assets/Linkedin';
 import Moon from '../ui/icon/assets/Moon';
@@ -26,7 +28,7 @@ import User from '../ui/icon/assets/User';
 import WorkSpaceSidebarExpand from '../ui/icon/assets/WorkSpaceSidebarExpand';
 
 export const iconMap = {
-  home: Posts,
+  post: Posts,
   dashboard: Dashboard,
   chat: Chat,
   email: Email,
@@ -52,14 +54,15 @@ export const iconMap = {
   trashbox: TrashBox,
   storage: Storage,
   plus: Plus,
+  home: Home,
+  globe: Globe,
 };
 
 export type IconList = keyof typeof iconMap;
 
 export type GenericIconComponentProps = {
   name: IconList;
-  width?: number;
-  height?: number;
+  size?: number;
   href?: string;
   color?: string;
   className?: string;

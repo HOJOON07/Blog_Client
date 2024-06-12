@@ -4,8 +4,7 @@ import Link from 'next/link';
 export const Icon = ({
   name,
   href,
-  width = 5,
-  height = 5,
+  size = 5,
   color = 'text-slate-700 dark:text-white',
   className,
 }: GenericIconComponentProps) => {
@@ -14,12 +13,12 @@ export const Icon = ({
   return href ? (
     <Link href={href}>
       <IconSVGComponent
-        className={cn(`w-${width} h-${height} ${color} ${className}`)}
+        className={cn(`w-${size} h-${size} ${color} ${className}`)}
       />
     </Link>
   ) : (
     <IconSVGComponent
-      className={cn(`w-${width} h-${height} ${color} ${className}`)}
+      className={cn(`w-${size} h-${size} ${color} ${className}`)}
     />
   );
 };

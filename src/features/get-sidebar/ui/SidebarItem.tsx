@@ -37,7 +37,7 @@ export const SidebarItem = ({ icon, title }: SidebarItemProps) => {
             `flex h-8 w-8 items-center rounded-lg text-center text-black mr-1`,
           )}
         >
-          <Icon name={icon} width={5} height={5} />
+          <Icon name={icon} size={5} />
         </div>
         <span
           className={clsx(
