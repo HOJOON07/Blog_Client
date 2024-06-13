@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export default function Plus({ className }: SVGProps<SVGSVGElement>) {
+export default function TrendArticles({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       className={className}
@@ -13,8 +13,8 @@ export default function Plus({ className }: SVGProps<SVGSVGElement>) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M5 12h14m-7 7V5"
+        strokeWidth="2"
+        d="M4 4v15a1 1 0 0 0 1 1h15M8 16l2.5-5.5 3 3L17.273 7 20 9.667"
       />
     </svg>
   );

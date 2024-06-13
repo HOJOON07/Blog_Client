@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export default function Plus({ className }: SVGProps<SVGSVGElement>) {
+export default function Dots({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       className={className}
@@ -12,9 +12,8 @@ export default function Plus({ className }: SVGProps<SVGSVGElement>) {
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M5 12h14m-7 7V5"
+        strokeWidth="2"
+        d="M6 12h.01m6 0h.01m5.99 0h.01"
       />
     </svg>
   );

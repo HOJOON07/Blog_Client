@@ -1,6 +1,6 @@
 import { SVGProps } from 'react';
 
-export default function Plus({ className }: SVGProps<SVGSVGElement>) {
+export default function RecentArticles({ className }: SVGProps<SVGSVGElement>) {
   return (
     <svg
       className={className}
@@ -13,8 +13,8 @@ export default function Plus({ className }: SVGProps<SVGSVGElement>) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="M5 12h14m-7 7V5"
+        strokeWidth="2"
+        d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
       />
     </svg>
   );

@@ -24,7 +24,6 @@ export const PostCard = ({
   commentCount = 5,
   category = 'React',
 }: PostCardProps) => {
-  const test = true;
   return (
     <div className="flex flex-col hover:translate-y-[-12px] rounded-lg shadow-md transition-all overflow-hidden aspect-postCard dark:bg-postcard">
       <Link className="relative w-full h-0 pb-[48%]" href={''}>

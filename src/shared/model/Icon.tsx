@@ -1,10 +1,14 @@
+import RecentArticles from '../ui/icon/RecentArticles';
 import Chat from '../ui/icon/assets/Chat';
 import ChevronRightArrow from '../ui/icon/assets/ChevronRightArrow';
 import CircleProfile from '../ui/icon/assets/CircleProfile';
+import Comments from '../ui/icon/assets/Comments';
 import Dashboard from '../ui/icon/assets/Dashboard';
 import Document from '../ui/icon/assets/Document';
+import Dots from '../ui/icon/assets/Dots';
 import Email from '../ui/icon/assets/Email';
 import Folder from '../ui/icon/assets/Folder';
+import FollowArticles from '../ui/icon/assets/FollowArticles';
 import FramerMotion from '../ui/icon/assets/FramerMotion';
 import Github from '../ui/icon/assets/Github';
 import Globe from '../ui/icon/assets/Globe';
@@ -24,6 +28,7 @@ import Sun from '../ui/icon/assets/Sun';
 import TailwindCSS from '../ui/icon/assets/TailwindCSS';
 import Task from '../ui/icon/assets/Task';
 import TrashBox from '../ui/icon/assets/TrashBox';
+import TrendArticles from '../ui/icon/assets/TrendArticles';
 import User from '../ui/icon/assets/User';
 import WorkSpaceSidebarExpand from '../ui/icon/assets/WorkSpaceSidebarExpand';
 
@@ -56,6 +61,11 @@ export const iconMap = {
   plus: Plus,
   home: Home,
   globe: Globe,
+  dots: Dots,
+  comments: Comments,
+  trending: TrendArticles,
+  recent: RecentArticles,
+  follow: FollowArticles,
 };
 
 export type IconList = keyof typeof iconMap;
