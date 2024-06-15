@@ -1,4 +1,34 @@
 // ui
+export {
+  Command,
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandShortcut,
+  CommandSeparator,
+} from './ui/command';
+export {
+  Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+} from './ui/dialog';
+export {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverAnchor,
+} from './ui/popover';
+
 export { Icon } from './ui/icon/Icon';
 export { MovingBorderButton } from './ui/MovingBorderButton';
 export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';

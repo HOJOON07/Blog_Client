@@ -21,14 +21,9 @@ export const SidebarItem = ({
       )}
     >
       {isSeries ? (
-        <Icon
-          name="rightArrow"
-          width={4}
-          height={4}
-          className="absolute left-0"
-        ></Icon>
+        <Icon name="rightArrow" size={4} className="absolute left-0"></Icon>
       ) : null}
-      <Icon name={icon} width={5} height={5} />
+      <Icon name={icon} size={4} />
       <p className="font-light">{title}</p>
       {children}
     </div>

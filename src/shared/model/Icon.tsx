@@ -15,6 +15,7 @@ import Globe from '../ui/icon/assets/Globe';
 import Home from '../ui/icon/assets/Home';
 import Instagram from '../ui/icon/assets/Instagram';
 import Linkedin from '../ui/icon/assets/Linkedin';
+import List from '../ui/icon/assets/List';
 import Moon from '../ui/icon/assets/Moon';
 import Next from '../ui/icon/assets/Next';
 import PairProgramming from '../ui/icon/assets/PairProgramming';
@@ -23,6 +24,7 @@ import Plus from '../ui/icon/assets/Plus';
 import Posts from '../ui/icon/assets/Posts';
 import React from '../ui/icon/assets/React';
 import Series from '../ui/icon/assets/Series';
+import Star from '../ui/icon/assets/Star';
 import Storage from '../ui/icon/assets/Storage';
 import Sun from '../ui/icon/assets/Sun';
 import TailwindCSS from '../ui/icon/assets/TailwindCSS';
@@ -66,6 +68,8 @@ export const iconMap = {
   trending: TrendArticles,
   recent: RecentArticles,
   follow: FollowArticles,
+  list: List,
+  star: Star,
 };
 
 export type IconList = keyof typeof iconMap;

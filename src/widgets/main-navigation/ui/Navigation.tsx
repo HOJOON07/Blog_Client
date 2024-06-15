@@ -1,6 +1,6 @@
 'use client';
 
-import { IconGroup, Search } from '@/features/get-main-nav';
+import { NavMenuGroup, Search } from '@/features/get-main-nav';
 import { ColorThemeMode, NotiCard, Notifications } from '@/features/get-nav';
 import { Avatar, AvatarFallback, AvatarImage, Skeleton } from '@/shared';
 import { Logo } from '@/widgets/main-navigation/index';
@@ -17,7 +17,7 @@ export const Navigation = () => {
     <nav className="w-full h-[60px] bg-black flex items-center px-6 justify-between relative">
       <div className="flex items-center gap-12">
         <Logo />
-        <IconGroup />
+        <NavMenuGroup />
       </div>
       <div className="flex items-center gap-1">
         <Search />
