@@ -22,6 +22,8 @@ import { FixedToolbarButtons } from '@/components/plate-ui/fixed-toolbar-buttons
 import { FloatingToolbar } from '@/components/plate-ui/floating-toolbar';
 import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-buttons';
 import { MentionCombobox } from '@/components/plate-ui/mention-combobox';
+import { ELEMENT_H1 } from '@udecode/plate-heading';
+import { ELEMENT_HR } from '@udecode/plate-horizontal-rule';
 
 export default function PlateEditor() {
   const containerRef = useRef(null);
@@ -29,8 +31,18 @@ export default function PlateEditor() {
   const initialValue = [
     {
       id: '1',
+      type: ELEMENT_H1,
+      children: [{ text: '제목을 입력하세요' }],
+    },
+    {
+      id: '2',
+      type: ELEMENT_HR,
+      children: [{ text: '' }],
+    },
+    {
+      id: '3',
       type: ELEMENT_PARAGRAPH,
-      children: [{ text: 'Hello, World!' }],
+      children: [{ text: '내용을 입력하세요' }],
     },
   ];
 
@@ -49,23 +61,18 @@ export default function PlateEditor() {
             <FixedToolbar>
               <FixedToolbarButtons />
             </FixedToolbar>
-
             <Editor
-              className="px-[96px] py-16"
+              className="px-[96px] pt-10 min-h-[100vh]"
               autoFocus
               focusRing={false}
               variant="ghost"
               size="md"
             />
-
             <FloatingToolbar>
               <FloatingToolbarButtons />
             </FloatingToolbar>
-
             <MentionCombobox items={MENTIONABLES} />
-
             <CommentsPopover />
-
             <CursorOverlay containerRef={containerRef} />
           </div>
         </Plate>

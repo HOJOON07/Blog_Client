@@ -11,13 +11,16 @@ import {
 } from '@udecode/plate-basic-marks';
 import { useEditorReadOnly } from '@udecode/plate-common';
 
-import { Icons } from '@/components/icons';
+import { Icons, iconVariants } from '@/components/icons';
 
 import { InsertDropdownMenu } from './insert-dropdown-menu';
 import { MarkToolbarButton } from './mark-toolbar-button';
 import { ModeDropdownMenu } from './mode-dropdown-menu';
 import { ToolbarGroup } from './toolbar';
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu';
+import { MARK_BG_COLOR, MARK_COLOR } from '@udecode/plate-font';
+import { ColorDropdownMenu } from './color-dropdown-menu';
+import { MARK_COMMENT } from '@udecode/plate-comments';
 
 export function FixedToolbarButtons() {
   const readOnly = useEditorReadOnly();
@@ -36,7 +39,6 @@ export function FixedToolbarButtons() {
               <InsertDropdownMenu />
               <TurnIntoDropdownMenu />
             </ToolbarGroup>
-
             <ToolbarGroup>
               <MarkToolbarButton nodeType={MARK_BOLD} tooltip="Bold (⌘+B)">
                 <Icons.bold />
@@ -50,7 +52,6 @@ export function FixedToolbarButtons() {
               >
                 <Icons.underline />
               </MarkToolbarButton>
-
               <MarkToolbarButton
                 nodeType={MARK_STRIKETHROUGH}
                 tooltip="Strikethrough (⌘+⇧+M)"
@@ -60,6 +61,19 @@ export function FixedToolbarButtons() {
               <MarkToolbarButton nodeType={MARK_CODE} tooltip="Code (⌘+E)">
                 <Icons.code />
               </MarkToolbarButton>
+              <ToolbarGroup>
+                <ColorDropdownMenu nodeType={MARK_COLOR} tooltip="Text Color">
+                  <Icons.color
+                    className={iconVariants({ variant: 'toolbar' })}
+                  />
+                </ColorDropdownMenu>
+                <ColorDropdownMenu
+                  nodeType={MARK_BG_COLOR}
+                  tooltip="Highlight Color"
+                >
+                  <Icons.bg className={iconVariants({ variant: 'toolbar' })} />
+                </ColorDropdownMenu>
+              </ToolbarGroup>
             </ToolbarGroup>
           </>
         )}

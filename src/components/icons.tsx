@@ -12,6 +12,7 @@ import {
   ChevronRight,
   ChevronsUpDown,
   CircleDot,
+  Clapperboard,
   Code2,
   Combine,
   Edit2,
@@ -42,6 +43,7 @@ import {
   MoreHorizontal,
   Outdent,
   PaintBucket,
+  Pencil,
   Pilcrow,
   Plus,
   Quote,
@@ -63,6 +65,7 @@ import {
   Ungroup,
   WrapText,
   X,
+  Youtube,
 } from 'lucide-react';
 
 import type { LucideIcon } from 'lucide-react';
@@ -224,9 +227,9 @@ export const Icons = {
   underline: Underline,
   unlink: Link2Off,
   viewing: Eye,
-  excalidraw: CircleDot,
+  excalidraw: Pencil,
   hr: Minus,
-  embed: Flame,
+  embed: Clapperboard,
 
   // www
   gitHub: (props: LucideProps) => (

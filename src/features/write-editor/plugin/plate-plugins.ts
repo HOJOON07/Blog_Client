@@ -85,6 +85,7 @@ import { createKbdPlugin, MARK_KBD } from '@udecode/plate-kbd';
 import { createLineHeightPlugin } from '@udecode/plate-line-height';
 import { createLinkPlugin, ELEMENT_LINK } from '@udecode/plate-link';
 import {
+  createListPlugin,
   createTodoListPlugin,
   ELEMENT_LI,
   ELEMENT_OL,
@@ -153,6 +154,8 @@ import { TableElement } from '@/components/plate-ui/table-element';
 import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { withDraggables } from '@/components/plate-ui/with-draggables';
+import { createTogglePlugin, ELEMENT_TOGGLE } from '@udecode/plate-toggle';
+import { createColumnPlugin } from '@udecode/plate-layout';
 // import { TabbableElement } from '@/components/tabbable-element';
 
 const resetBlockTypesCommonRule = {
@@ -168,6 +171,7 @@ const resetBlockTypesCodeBlockRule = {
 
 export const plugins = createPlugins(
   [
+    createListPlugin(),
     // Nodes
     createParagraphPlugin(),
     createHeadingPlugin(),
@@ -219,6 +223,9 @@ export const plugins = createPlugins(
             ELEMENT_H3,
             ELEMENT_BLOCKQUOTE,
             ELEMENT_CODE_BLOCK,
+            ELEMENT_UL,
+            ELEMENT_OL,
+            ELEMENT_TOGGLE,
           ],
         },
       },
@@ -233,6 +240,8 @@ export const plugins = createPlugins(
             ELEMENT_H3,
             ELEMENT_BLOCKQUOTE,
             ELEMENT_CODE_BLOCK,
+            ELEMENT_UL,
+            ELEMENT_OL,
           ],
         },
       },
@@ -369,6 +378,12 @@ export const plugins = createPlugins(
 
     // Collaboration
     createCommentsPlugin(),
+
+    // Toggle
+    createTogglePlugin(),
+
+    // Column
+    createColumnPlugin(),
 
     // Deserialization
     createDeserializeDocxPlugin(),
