@@ -11,6 +11,7 @@ import {
   ChevronDown,
   ChevronRight,
   ChevronsUpDown,
+  CircleCheck,
   CircleDot,
   Clapperboard,
   Code2,
@@ -230,6 +231,7 @@ export const Icons = {
   excalidraw: Pencil,
   hr: Minus,
   embed: Clapperboard,
+  todo: CircleCheck,
 
   // www
   gitHub: (props: LucideProps) => (

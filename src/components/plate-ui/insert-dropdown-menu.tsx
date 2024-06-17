@@ -38,7 +38,7 @@ import {
   KEY_LIST_STYLE_TYPE,
   toggleIndentList,
 } from '@udecode/plate-indent-list';
-import { toggleList } from '@udecode/plate-list';
+import { ELEMENT_TODO_LI, toggleList } from '@udecode/plate-list';
 import {
   ELEMENT_TABLE,
   insertTable,
@@ -64,19 +64,19 @@ const items = [
         icon: Icons.table,
       },
       {
-        value: ELEMENT_COLUMN,
-        label: 'Column',
-        description: 'Column',
-        icon: Icons.column,
-      },
-      {
         value: ELEMENT_HR,
         label: 'Divider',
         description: 'Divider (---)',
         icon: Icons.hr,
       },
+      {
+        description: 'Todo',
+        icon: Icons.todo,
+        label: 'Todo',
+        value: ELEMENT_TODO_LI,
+      },
     ],
-    label: 'Basic blocks',
+    label: 'Utils Block',
   },
   {
     label: 'Media',
@@ -171,19 +171,15 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
                           select: true,
                           nextBlock: true,
                         });
-
-                        // if (settingsStore.get.checkedId(KEY_LIST_STYLE_TYPE)) {
-                        //   toggleIndentList(editor, {
-                        //     listStyleType: type === 'ul' ? 'disc' : 'decimal',
-                        //   });
-                        // } else if (settingsStore.get.checkedId('list')) {
-                        //   toggleList(editor, { type });
-                        // }
-
                         break;
                       }
                       case ELEMENT_TABLE: {
                         insertTable(editor);
+
+                        break;
+                      }
+                      case ELEMENT_COLUMN_GROUP: {
+                        insertColumnGroup(editor);
 
                         break;
                       }
@@ -192,7 +188,6 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
 
                         break;
                       }
-
                       default: {
                         insertEmptyElement(editor, type, {
                           nextBlock: true,
