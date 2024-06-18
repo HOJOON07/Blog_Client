@@ -17,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from './dropdown-menu';
 import { ToolbarButton } from './toolbar';
+import { cn } from '@udecode/cn';
 
 export type TColor = {
   isBrightColor: boolean;
@@ -27,12 +28,14 @@ export type TColor = {
 type ColorDropdownMenuProps = {
   nodeType: string;
   tooltip?: string;
+  className?: string;
 } & DropdownMenuProps;
 
 export function ColorDropdownMenu({
   children,
   nodeType,
   tooltip,
+  className,
 }: ColorDropdownMenuProps) {
   const state = useColorDropdownMenuState({
     closeOnSelect: true,
@@ -46,7 +49,11 @@ export function ColorDropdownMenu({
   return (
     <DropdownMenu modal={false} {...menuProps}>
       <DropdownMenuTrigger asChild>
-        <ToolbarButton tooltip={tooltip} {...buttonProps}>
+        <ToolbarButton
+          tooltip={tooltip}
+          {...buttonProps}
+          className={cn(className)}
+        >
           {children}
         </ToolbarButton>
       </DropdownMenuTrigger>

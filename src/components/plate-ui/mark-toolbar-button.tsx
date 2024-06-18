@@ -18,7 +18,16 @@ export const MarkToolbarButton = withRef<
   }
 >(({ clear, nodeType, ...rest }, ref) => {
   const state = useMarkToolbarButtonState({ clear, nodeType });
-  const { props } = useMarkToolbarButton(state);
-
-  return <ToolbarButton ref={ref} {...props} {...rest} />;
+  const {
+    props: { pressed, onClick, onMouseDown },
+  } = useMarkToolbarButton(state);
+  return (
+    <ToolbarButton
+      ref={ref}
+      onClick={onClick}
+      onMouseDown={onMouseDown}
+      pressed={pressed}
+      {...rest}
+    ></ToolbarButton>
+  );
 });

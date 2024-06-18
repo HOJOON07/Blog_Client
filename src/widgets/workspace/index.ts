@@ -13,3 +13,6 @@ export { Documents } from './ui/document/Documents.tsx';
 export { TagFilter } from './ui/document/tag-filter';
 export { DocumentHeader } from './ui/document/document-header';
 export { DocumentItem } from './ui/document/document-items';
+
+//ui_setting
+export { Settings } from './ui/setting/Settings';

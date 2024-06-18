@@ -3,16 +3,12 @@
 import React from 'react';
 
 import type { DropdownMenuProps } from '@radix-ui/react-dropdown-menu';
-
-import { ELEMENT_BLOCKQUOTE } from '@udecode/plate-block-quote';
 import {
   focusEditor,
   insertEmptyElement,
   useEditorRef,
 } from '@udecode/plate-common';
-import { ELEMENT_H1, ELEMENT_H2, ELEMENT_H3 } from '@udecode/plate-heading';
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
-
 import { Icons } from '@/components/icons';
 
 import {
@@ -34,25 +30,12 @@ import {
   ELEMENT_MEDIA_EMBED,
   insertMedia,
 } from '@udecode/plate-media';
-import {
-  KEY_LIST_STYLE_TYPE,
-  toggleIndentList,
-} from '@udecode/plate-indent-list';
 import { ELEMENT_TODO_LI, toggleList } from '@udecode/plate-list';
-import {
-  ELEMENT_TABLE,
-  insertTable,
-  insertTableColumn,
-} from '@udecode/plate-table';
+import { ELEMENT_TABLE, insertTable } from '@udecode/plate-table';
 import { ELEMENT_LINK, triggerFloatingLink } from '@udecode/plate-link';
 import { ELEMENT_EXCALIDRAW } from '@udecode/plate-excalidraw';
 import { ELEMENT_HR } from '@udecode/plate-horizontal-rule';
-import {
-  ELEMENT_COLUMN,
-  ELEMENT_COLUMN_GROUP,
-  insertColumnGroup,
-  insertEmptyColumn,
-} from '@udecode/plate-layout';
+import { ELEMENT_COLUMN_GROUP, insertColumnGroup } from '@udecode/plate-layout';
 
 const items = [
   {

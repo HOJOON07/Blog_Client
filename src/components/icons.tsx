@@ -62,6 +62,7 @@ import {
   Text,
   Trash,
   Twitter,
+  Type,
   Underline,
   Ungroup,
   WrapText,
@@ -232,7 +233,7 @@ export const Icons = {
   hr: Minus,
   embed: Clapperboard,
   todo: CircleCheck,
-
+  textStyles: Type,
   // www
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
