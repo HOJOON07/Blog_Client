@@ -103,14 +103,9 @@ export function TurnIntoDropdownMenu(props: DropdownMenuProps) {
   return (
     <DropdownMenu modal={false} {...openState} {...props}>
       <DropdownMenuTrigger asChild>
-        <ToolbarButton
-          pressed={openState.open}
-          tooltip="Turn into"
-          isDropdown
-          className="lg:min-w-[130px]"
-        >
-          <SelectedItemIcon className="size-5 lg:hidden" />
-          <span className="max-lg:hidden">{selectedItemLabel}</span>
+        <ToolbarButton pressed={openState.open} tooltip="Turn into" isDropdown>
+          <SelectedItemIcon className="size-5" />
+          {/* <span className="max-lg:hidden">{selectedItemLabel}</span> */}
         </ToolbarButton>
       </DropdownMenuTrigger>
 
@@ -121,18 +116,7 @@ export function TurnIntoDropdownMenu(props: DropdownMenuProps) {
           className="flex flex-col gap-0.5"
           value={value}
           onValueChange={(type) => {
-            // if (type === 'ul' || type === 'ol') {
-            //   if (settingsStore.get.checkedId(KEY_LIST_STYLE_TYPE)) {
-            //     toggleIndentList(editor, {
-            //       listStyleType: type === 'ul' ? 'disc' : 'decimal',
-            //     });
-            //   } else if (settingsStore.get.checkedId('list')) {
-            //     toggleList(editor, { type });
-            //   }
-            // } else {
-            //   unwrapList(editor);
             toggleNodeType(editor, { activeType: type });
-            // }
 
             collapseSelection(editor);
             focusEditor(editor);

@@ -55,8 +55,7 @@ export function MoreDropdownMenu(props: DropdownMenuProps) {
           }}
         >
           <Icons.subscript className="mr-2 size-5" />
-          Subscript
-          {/* (⌘+.) */}
+          Subscript (⌘+.)
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

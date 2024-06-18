@@ -11,6 +11,7 @@ import {
   ChevronDown,
   ChevronRight,
   ChevronsUpDown,
+  CircleCheck,
   CircleDot,
   Clapperboard,
   Code2,
@@ -61,6 +62,7 @@ import {
   Text,
   Trash,
   Twitter,
+  Type,
   Underline,
   Ungroup,
   WrapText,
@@ -230,7 +232,8 @@ export const Icons = {
   excalidraw: Pencil,
   hr: Minus,
   embed: Clapperboard,
-
+  todo: CircleCheck,
+  textStyles: Type,
   // www
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
