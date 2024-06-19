@@ -6,7 +6,12 @@ import {
   MARK_STRIKETHROUGH,
   MARK_UNDERLINE,
 } from '@udecode/plate-basic-marks';
-import { useEditorReadOnly } from '@udecode/plate-common';
+import {
+  Plate,
+  useEditorReadOnly,
+  useEditorSelector,
+  useEditorState,
+} from '@udecode/plate-common';
 import { MARK_BG_COLOR, MARK_COLOR } from '@udecode/plate-font';
 import { ListStyleType } from '@udecode/plate-indent-list';
 import { ELEMENT_IMAGE } from '@udecode/plate-media';
@@ -32,6 +37,11 @@ import { ToolbarGroup } from './toolbar';
 import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu';
 import { ELEMENT_COLUMN_GROUP } from '@udecode/plate-layout';
 import TextStylesButtons from './fixed-buttons/text-styles-buttons';
+import PlateEditor from '@/features/write-editor/ui/PlateEditor';
+import { serializeHtml } from '@udecode/plate-serializer-html';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { useEditorValue } from '@/app/_store/editorValue';
 
 export function FixedToolbarButtons() {
   const readOnly = useEditorReadOnly();
@@ -65,8 +75,6 @@ export function FixedToolbarButtons() {
             </ToolbarGroup>
 
             <ToolbarGroup>
-              {/* <LinkToolbarButton />
-              <MediaToolbarButton nodeType={ELEMENT_IMAGE} /> */}
               <TableDropdownMenu />
               <EmojiDropdownMenu />
               <MoreDropdownMenu />
@@ -75,7 +83,6 @@ export function FixedToolbarButtons() {
         )}
         <div className="grow" />
         <ToolbarGroup noSeparator>
-          <CommentToolbarButton />
           <ModeDropdownMenu />
         </ToolbarGroup>
       </div>

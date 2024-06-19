@@ -4201,6 +4201,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@udecode/plate-serializer-html@npm:^34.0.0":
+  version: 34.0.0
+  resolution: "@udecode/plate-serializer-html@npm:34.0.0"
+  dependencies:
+    html-entities: "npm:^2.5.2"
+  peerDependencies:
+    "@udecode/plate-common": ">=34.0.0"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    slate: ">=0.94.0"
+    slate-history: ">=0.93.0"
+    slate-hyperscript: ">=0.66.0"
+    slate-react: ">=0.99.0"
+  checksum: 10c0/d955920a339bcb6d784645fb71102633997fda5a35c9d61b4870c95659a5ce482807e2e1e58f69a36db5c91b0a4221a229db170c5c5d8b06c95a44b9496d0ff5
+  languageName: node
+  linkType: hard
+
 "@udecode/plate-serializer-md@npm:^33.0.0":
   version: 33.0.0
   resolution: "@udecode/plate-serializer-md@npm:33.0.0"
@@ -5091,6 +5108,7 @@ __metadata:
     "@udecode/plate-selection": "npm:^33.0.0"
     "@udecode/plate-serializer-csv": "npm:^33.0.2"
     "@udecode/plate-serializer-docx": "npm:^33.0.2"
+    "@udecode/plate-serializer-html": "npm:^34.0.0"
     "@udecode/plate-serializer-md": "npm:^33.0.0"
     "@udecode/plate-tabbable": "npm:^33.0.0"
     "@udecode/plate-table": "npm:^34.0.0"
@@ -6621,6 +6639,13 @@ __metadata:
   dependencies:
     react-is: "npm:^16.7.0"
   checksum: 10c0/fe0889169e845d738b59b64badf5e55fa3cf20454f9203d1eb088df322d49d4318df774828e789898dcb280e8a5521bb59b3203385662ca5e9218a6ca5820e74
+  languageName: node
+  linkType: hard
+
+"html-entities@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "html-entities@npm:2.5.2"
+  checksum: 10c0/f20ffb4326606245c439c231de40a7c560607f639bf40ffbfb36b4c70729fd95d7964209045f1a4e62fe17f2364cef3d6e49b02ea09016f207fde51c2211e481
   languageName: node
   linkType: hard
 

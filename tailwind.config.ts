@@ -52,6 +52,10 @@ module.exports = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
+      aspectRatio: {
+        articleCard: '10/11',
+        postCard: '5/6',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

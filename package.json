@@ -65,6 +65,7 @@
     "@udecode/plate-selection": "^33.0.0",
     "@udecode/plate-serializer-csv": "^33.0.2",
     "@udecode/plate-serializer-docx": "^33.0.2",
+    "@udecode/plate-serializer-html": "^34.0.0",
     "@udecode/plate-serializer-md": "^33.0.0",
     "@udecode/plate-tabbable": "^33.0.0",
     "@udecode/plate-table": "^34.0.0",

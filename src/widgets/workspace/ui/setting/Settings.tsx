@@ -1,7 +1,13 @@
+'use client';
 import { Button, Icon, Switch } from '@/shared';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { useEditorMounted, useEditorState } from '@udecode/plate-common';
 
 export const Settings = () => {
+  const editor = useEditorState();
+  const isMounted = useEditorMounted();
+
+  // console.log('settings !!!!', editor.children);
+
   return (
     <div className="w-[330px] flex flex-col px-5 py-10">
       <div className="flex flex-col mt-5">
@@ -9,7 +15,6 @@ export const Settings = () => {
         <div className="flex items-center justify-center w-full">
           <label
             htmlFor="dropzone-file"
-            // bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600
             className="flex flex-col items-center justify-center w-full h-64 border-solid border rounded-lg cursor-pointer hover:bg-zinc-900"
           >
             <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -49,21 +54,20 @@ export const Settings = () => {
           placeholder="아티클을 설명해주세요"
         />
       </div>
-      <div className="flex items-center justify-between w-full gap-4">
+      <div className="flex items-center justify-between w-full gap-4 mt-3">
         <Button variant="secondary" className="flex-1">
           임시 저장
         </Button>
-        <Button variant="default" className="flex-1 text-white font-semibold">
+        <Button
+          variant="default"
+          className="flex-1 text-white font-semibold"
+          onClick={() => {
+            console.log(editor.children);
+          }}
+        >
           작성 하기
         </Button>
       </div>
     </div>
   );
 };
-{
-  /* <div className="inline-flex items-center rounded-lg border border-solid text-sm h-9 select-none cursor-pointer px-3 my-5 relative w-full text-zinc-400">
-  <MagnifyingGlassIcon className="mr-3 w-5 h-5" />
-  <p className="font-light tracking-wide flex-1">빠른 검색</p>
-  <kbd className="">⌘ + K</kbd>
-</div>; */
-}

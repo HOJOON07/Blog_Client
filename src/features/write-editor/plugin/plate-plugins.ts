@@ -113,7 +113,6 @@ import { createSelectOnBackspacePlugin } from '@udecode/plate-select';
 import { createBlockSelectionPlugin } from '@udecode/plate-selection';
 import { createDeserializeDocxPlugin } from '@udecode/plate-serializer-docx';
 import { createDeserializeMdPlugin } from '@udecode/plate-serializer-md';
-// import { createTabbablePlugin } from '@udecode/plate-tabbable';
 import {
   createTablePlugin,
   ELEMENT_TABLE,
@@ -156,7 +155,6 @@ import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { withDraggables } from '@/components/plate-ui/with-draggables';
 import { createTogglePlugin, ELEMENT_TOGGLE } from '@udecode/plate-toggle';
 import { createColumnPlugin } from '@udecode/plate-layout';
-// import { TabbableElement } from '@/components/tabbable-element';
 
 const resetBlockTypesCommonRule = {
   types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
@@ -258,14 +256,14 @@ export const plugins = createPlugins(
 
     // Functionality
     createAutoformatPlugin(autoformatPlugin),
-    createBlockSelectionPlugin({
-      options: {
-        sizes: {
-          top: 0,
-          bottom: 0,
-        },
-      },
-    }),
+    // createBlockSelectionPlugin({
+    //   options: {
+    //     sizes: {
+    //       top: 0,
+    //       bottom: 0,
+    //     },
+    //   },
+    // }),
     createComboboxPlugin(),
     createDndPlugin({
       options: { enableScroller: true },
@@ -344,40 +342,14 @@ export const plugins = createPlugins(
         ],
       },
     }),
-    // createTabbablePlugin({
-    //   options: {
-    //     query: (editor) => {
-    //       if (isSelectionAtBlockStart(editor)) return false;
 
-    //       return !someNode(editor, {
-    //         match: (n) => {
-    //           return !!(
-    //             n.type &&
-    //             ([ELEMENT_TABLE, ELEMENT_LI, ELEMENT_CODE_BLOCK].includes(
-    //               n.type as string
-    //             ) ||
-    //               n[KEY_LIST_STYLE_TYPE])
-    //           );
-    //         },
-    //       });
-    //     },
-    //   },
-    //   plugins: [
-    //     {
-    //       key: 'tabbable_element',
-    //       isElement: true,
-    //       isVoid: true,
-    //       component: TabbableElement,
-    //     },
-    //   ],
-    // }),
     createTrailingBlockPlugin({
       options: { type: ELEMENT_PARAGRAPH },
     }),
     dragOverCursorPlugin,
 
     // Collaboration
-    createCommentsPlugin(),
+    // createCommentsPlugin(),
 
     // Toggle
     createTogglePlugin(),

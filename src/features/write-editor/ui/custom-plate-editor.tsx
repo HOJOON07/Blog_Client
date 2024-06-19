@@ -1,7 +1,8 @@
 'use client';
-import React, { useRef } from 'react';
+
+import React, { useCallback, useRef, useState } from 'react';
 import { cn } from '@udecode/cn';
-import { Plate, PlateController, useEditorRef } from '@udecode/plate-common';
+import { Plate } from '@udecode/plate-common';
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -17,10 +18,11 @@ import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-b
 import { MentionCombobox } from '@/components/plate-ui/mention-combobox';
 import { ELEMENT_H1 } from '@udecode/plate-heading';
 import { ELEMENT_HR } from '@udecode/plate-horizontal-rule';
-import { SerializedHTML } from './serialized-html';
+import { serializeHtml } from '@udecode/plate-serializer-html';
 
-export default function PlateEditor() {
+export default function CustomPlateEditor() {
   const containerRef = useRef(null);
+
   const initialValue = [
     {
       id: '1',
@@ -40,34 +42,31 @@ export default function PlateEditor() {
   ];
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Plate plugins={plugins} initialValue={initialValue}>
-        <div
-          ref={containerRef}
-          className={cn(
-            'relative',
-            // Block selection
-            '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4',
-          )}
-        >
-          <FixedToolbar>
-            <FixedToolbarButtons />
-          </FixedToolbar>
-          <Editor
-            className="px-10 pt-10 min-h-[100vh]"
-            autoFocus
-            focusRing={false}
-            variant="ghost"
-            size="md"
-          />
-          <FloatingToolbar>
-            <FloatingToolbarButtons />
-          </FloatingToolbar>
-          <MentionCombobox items={MENTIONABLES} />
-          <CursorOverlay containerRef={containerRef} />
-          <SerializedHTML />
-        </div>
-      </Plate>
-    </DndProvider>
+    <Plate plugins={plugins} initialValue={initialValue}>
+      <div
+        ref={containerRef}
+        className={cn(
+          'relative',
+          // Block selection
+          '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4',
+        )}
+      >
+        <FixedToolbar>
+          <FixedToolbarButtons />
+        </FixedToolbar>
+        <Editor
+          className="px-10 pt-10 min-h-[100vh]"
+          autoFocus
+          focusRing={false}
+          variant="ghost"
+          size="md"
+        />
+        <FloatingToolbar>
+          <FloatingToolbarButtons />
+        </FloatingToolbar>
+        <MentionCombobox items={MENTIONABLES} />
+        <CursorOverlay containerRef={containerRef} />
+      </div>
+    </Plate>
   );
 }

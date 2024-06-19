@@ -87,6 +87,7 @@ const RAW_RUNTIME_STATE =
           ["@udecode/plate-selection", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-serializer-csv", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.2"],\
           ["@udecode/plate-serializer-docx", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.2"],\
+          ["@udecode/plate-serializer-html", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0"],\
           ["@udecode/plate-serializer-md", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-tabbable", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-table", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0"],\
@@ -7625,6 +7626,53 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@udecode/plate-serializer-html", [\
+      ["npm:34.0.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/@udecode-plate-serializer-html-npm-34.0.0-8b7c8b0aed-10c0.zip/node_modules/@udecode/plate-serializer-html/",\
+        "packageDependencies": [\
+          ["@udecode/plate-serializer-html", "npm:34.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/@udecode-plate-serializer-html-virtual-c1438ff58f/4/.yarn/berry/cache/@udecode-plate-serializer-html-npm-34.0.0-8b7c8b0aed-10c0.zip/node_modules/@udecode/plate-serializer-html/",\
+        "packageDependencies": [\
+          ["@udecode/plate-serializer-html", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0"],\
+          ["@types/react", "npm:18.2.73"],\
+          ["@types/react-dom", "npm:18.2.23"],\
+          ["@types/slate", null],\
+          ["@types/slate-history", null],\
+          ["@types/slate-hyperscript", null],\
+          ["@types/slate-react", null],\
+          ["@types/udecode__plate-common", null],\
+          ["@udecode/plate-common", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
+          ["html-entities", "npm:2.5.2"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
+          ["slate", "npm:0.103.0"],\
+          ["slate-history", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.100.0"],\
+          ["slate-hyperscript", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.100.0"],\
+          ["slate-react", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:0.102.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "@types/slate-history",\
+          "@types/slate-hyperscript",\
+          "@types/slate-react",\
+          "@types/slate",\
+          "@types/udecode__plate-common",\
+          "@udecode/plate-common",\
+          "react-dom",\
+          "react",\
+          "slate-history",\
+          "slate-hyperscript",\
+          "slate-react",\
+          "slate"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@udecode/plate-serializer-md", [\
       ["npm:33.0.0", {\
         "packageLocation": "../../../.yarn/berry/cache/@udecode-plate-serializer-md-npm-33.0.0-99352abb37-10c0.zip/node_modules/@udecode/plate-serializer-md/",\
@@ -8908,6 +8956,7 @@ const RAW_RUNTIME_STATE =
           ["@udecode/plate-selection", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-serializer-csv", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.2"],\
           ["@udecode/plate-serializer-docx", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.2"],\
+          ["@udecode/plate-serializer-html", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0"],\
           ["@udecode/plate-serializer-md", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-tabbable", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:33.0.0"],\
           ["@udecode/plate-table", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:34.0.0"],\
@@ -10781,6 +10830,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["hoist-non-react-statics", "npm:3.3.2"],\
           ["react-is", "npm:16.13.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["html-entities", [\
+      ["npm:2.5.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/html-entities-npm-2.5.2-0b6113e376-10c0.zip/node_modules/html-entities/",\
+        "packageDependencies": [\
+          ["html-entities", "npm:2.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\

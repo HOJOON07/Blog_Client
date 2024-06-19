@@ -5,8 +5,11 @@ import type { PlateContentProps } from '@udecode/plate-common';
 import type { VariantProps } from 'class-variance-authority';
 
 import { cn } from '@udecode/cn';
-import { PlateContent } from '@udecode/plate-common';
+import { PlateContent, useEditorRef } from '@udecode/plate-common';
 import { cva } from 'class-variance-authority';
+import { serializeHtml } from '@udecode/plate-serializer-html';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const editorVariants = cva(
   cn(

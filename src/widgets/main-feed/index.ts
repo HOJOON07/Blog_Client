@@ -1,1 +1,2 @@
-export { MainFeed } from './ui/MainFeed';
+export { ArticleFeed } from './ui/ArticleFeed';
+export { Articles } from './ui/Articles';
