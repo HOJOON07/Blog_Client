@@ -1,15 +1,17 @@
 'use client';
+import { useEditorValue } from '@/app/_store/editorValue';
 import { Button, Icon, Switch } from '@/shared';
 import { useEditorMounted, useEditorState } from '@udecode/plate-common';
+import { useEffect } from 'react';
 
 export const Settings = () => {
   const editor = useEditorState();
   const isMounted = useEditorMounted();
-
-  // console.log('settings !!!!', editor.children);
+  const editorValue = useEditorValue((state) => state.editorValue);
+  const savedEditorValue = useEditorValue((state) => state.savedEditorValue);
 
   return (
-    <div className="w-[330px] flex flex-col px-5 py-10">
+    <div className="w-[330px] px-5 py-10 right-0 top-0 sticky h-screen">
       <div className="flex flex-col mt-5">
         <p className="w-full mb-5">썸네일</p>
         <div className="flex items-center justify-center w-full">
@@ -62,7 +64,8 @@ export const Settings = () => {
           variant="default"
           className="flex-1 text-white font-semibold"
           onClick={() => {
-            console.log(editor.children);
+            savedEditorValue(editor.children);
+            console.log('!!!', editorValue);
           }}
         >
           작성 하기

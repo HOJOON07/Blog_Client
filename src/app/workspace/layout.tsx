@@ -11,22 +11,9 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/shared';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <TooltipProvider
-        disableHoverableContent
-        delayDuration={200}
-        skipDelayDuration={0}
-      >
-        <div className="flex">
-          <ResizablePanelGroup direction="horizontal">
-            <ResizablePanel minSize={0} defaultSize={20} maxSize={35}>
-              <WorkspaceSidebar />
-            </ResizablePanel>
-            <ResizableHandle withHandle={true} />
-            <ResizablePanel>{children}</ResizablePanel>
-          </ResizablePanelGroup>
-        </div>
-      </TooltipProvider>
-    </>
+    <div className="flex">
+      <WorkspaceSidebar />
+      {children}
+    </div>
   );
 }

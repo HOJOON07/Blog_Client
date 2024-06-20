@@ -10,7 +10,7 @@ export const UserInfo = () => {
         </div>
       </Button>
       <Button variant="ghost" size="icon">
-        <Icon name="circleProfile" width={6} height={6} />
+        <Icon name="circleProfile" size={6} />
       </Button>
     </div>
   );
