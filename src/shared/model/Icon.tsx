@@ -16,6 +16,7 @@ import Home from '../ui/icon/assets/Home';
 import Instagram from '../ui/icon/assets/Instagram';
 import Linkedin from '../ui/icon/assets/Linkedin';
 import List from '../ui/icon/assets/List';
+import LocationPin from '../ui/icon/assets/LocationPin';
 import Moon from '../ui/icon/assets/Moon';
 import Next from '../ui/icon/assets/Next';
 import PairProgramming from '../ui/icon/assets/PairProgramming';
@@ -70,6 +71,7 @@ export const iconMap = {
   follow: FollowArticles,
   list: List,
   star: Star,
+  locationPin: LocationPin,
 };
 
 export type IconList = keyof typeof iconMap;
