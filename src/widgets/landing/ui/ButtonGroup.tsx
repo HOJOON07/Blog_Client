@@ -7,7 +7,7 @@ export const ButtonGroup = () => {
         containerClassName="rounded-full"
         as="button"
         className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2 p-4"
-        pathName="/main"
+        pathName="/articles"
       >
         Get Started
       </MovingBorderButton>

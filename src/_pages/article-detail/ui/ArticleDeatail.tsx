@@ -1,13 +1,11 @@
-'use client';
-import { useEditorValue } from '@/app/_store/editorValue';
-import { ArticleViewEditor } from '@/widgets/article-detail';
+import { ArticleMainContents, ArticleUserInfo } from '@/widgets/article-detail';
 
 export const ArticleDetail = ({ params }: { params: { slug: string } }) => {
-  const value = useEditorValue((state) => state.editorValue);
-
   return (
-    <div className="w-full flex">
-      <ArticleViewEditor />
+    <div className="grid grid-cols-[250px_1fr_400px] h-screen overflow-auto">
+      <div className="sticky h-4 left-0 top-0">toc</div>
+      <ArticleMainContents />
+      <ArticleUserInfo />
     </div>
   );
 };

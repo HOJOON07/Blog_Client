@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Navigation } from '@/widgets/main-navigation';
 
 export const metadata: Metadata = {
   title: 'Post',
@@ -10,5 +11,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return (
+    <>
+      <Navigation />
+      {children}
+    </>
+  );
 }

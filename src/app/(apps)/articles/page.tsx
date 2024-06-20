@@ -1,5 +1,6 @@
+import { Home } from '@/_pages/home';
 import { ArticleFeed } from '@/widgets/main-feed';
 
-export const Home = () => {
+export default function Page() {
   return <ArticleFeed />;
-};
+}

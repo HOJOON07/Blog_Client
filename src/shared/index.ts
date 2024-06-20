@@ -75,6 +75,7 @@ export {
   ResizablePanel,
   ResizableHandle,
 } from './ui/resizable';
+export { Badge, badgeVariants } from './ui/badge';
 
 // lib
 export { cn } from './lib/utils';

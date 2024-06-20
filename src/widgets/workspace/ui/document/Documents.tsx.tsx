@@ -4,27 +4,29 @@ import { DocumentHeader, DocumentItem } from '@/widgets/workspace';
 
 export const Documents = () => {
   return (
-    <div className="px-6 mt-6 w-full">
-      <div className="flex items-center justify-between mb-6">
-        <p className="font-medium text-[20px] text-gray-500">모든 페이지</p>
-        <TagFilter />
+    <div className="border-l">
+      <div className="px-6 mt-6 w-full">
+        <div className="flex items-center justify-between mb-6">
+          <p className="font-medium text-[20px] text-gray-500">모든 페이지</p>
+          <TagFilter />
+        </div>
+        <DocumentHeader />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
+        <DocumentItem />
       </div>
-      <DocumentHeader />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
-      <DocumentItem />
     </div>
   );
 };
