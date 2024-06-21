@@ -18,7 +18,7 @@ import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu';
 
 import TextStylesButtons from './fixed-buttons/text-styles-buttons';
 import { items_workspace } from '@/features/write-editor/model/workspace-insert-dropdown';
-import { WorkspaceTurnIntoItems } from '@/features/write-editor/model/workspace-turninto-dropdown';
+import { ProfilesInsertItems } from '@/widgets/profiles';
 
 export function FixedToolbarButtons() {
   const readOnly = useEditorReadOnly();
@@ -34,7 +34,7 @@ export function FixedToolbarButtons() {
         {!readOnly && (
           <>
             <ToolbarGroup noSeparator>
-              <InsertDropdownMenu items={items_workspace} />
+              <InsertDropdownMenu items={ProfilesInsertItems} />
               <TurnIntoDropdownMenu />
               <TextStylesButtons />
             </ToolbarGroup>

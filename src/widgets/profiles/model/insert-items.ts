@@ -19,7 +19,7 @@ export type ItmesGroup = {
   label: string;
 };
 
-export const CommentsInsertItems: ItmesGroup[] = [
+export const ProfilesInsertItems: ItmesGroup[] = [
   {
     items: [
       {

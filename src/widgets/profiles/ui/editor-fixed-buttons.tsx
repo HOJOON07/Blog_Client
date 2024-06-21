@@ -12,9 +12,9 @@ import { ToolbarGroup } from '@/components/plate-ui/toolbar';
 import { InsertDropdownMenu } from '@/components/plate-ui/insert-dropdown-menu';
 import { TurnIntoDropdownMenu } from '@/components/plate-ui/turn-into-dropdown-menu';
 import TextStylesButtons from '@/components/plate-ui/fixed-buttons/text-styles-buttons';
-import { CommentsInsertItems } from '../model/comments-insert-dropdown';
+import { ProfilesInsertItems } from '@/widgets/profiles';
 
-export function CommentsFixedButtons() {
+export function FixedToolbarButtons() {
   const readOnly = useEditorReadOnly();
 
   return (
@@ -28,7 +28,7 @@ export function CommentsFixedButtons() {
         {!readOnly && (
           <>
             <ToolbarGroup noSeparator>
-              <InsertDropdownMenu items={CommentsInsertItems} />
+              <InsertDropdownMenu items={ProfilesInsertItems} />
               <TurnIntoDropdownMenu />
               <TextStylesButtons />
             </ToolbarGroup>
