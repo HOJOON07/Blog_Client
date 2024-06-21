@@ -12,7 +12,6 @@ import {
   ChevronRight,
   ChevronsUpDown,
   CircleCheck,
-  CircleDot,
   Clapperboard,
   Code2,
   Combine,

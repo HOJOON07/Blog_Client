@@ -19,7 +19,7 @@ export const NavMenuGroup = () => {
   return (
     <div className="flex items-center gap-[2px]">
       {NavMenu.map((menu) => (
-        <Button variant="ghost">
+        <Button variant="ghost" key={menu.name}>
           <Icon name={menu.icon} size={5} className="mr-2" />
           {menu.name}
         </Button>

@@ -15,13 +15,13 @@ export const ArticleItems = () => {
           queryClient자체를 dehydrate
         </p>
       </div>
-      <div className="relative shrink-0 w-20 h-20 rounded-[2px]">
+      <div className="relative shrink-0 w-20 h-20 rounded-[6px]">
         <Image
           width={80}
           height={80}
           src="/post-thumbnail.jpeg"
           alt="thumbnail"
-          className="absolute inset-0 w-full h-full rounded-[2px]"
+          className="absolute inset-0 w-full h-full rounded-[6px]"
         />
       </div>
     </div>

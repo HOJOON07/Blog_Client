@@ -17,20 +17,34 @@ import {
   MARK_SUPERSCRIPT,
   MARK_UNDERLINE,
 } from '@udecode/plate-basic-marks';
-import { ELEMENT_BLOCKQUOTE } from '@udecode/plate-block-quote';
-
 import {
+  createBlockquotePlugin,
+  ELEMENT_BLOCKQUOTE,
+} from '@udecode/plate-block-quote';
+import {
+  createExitBreakPlugin,
+  createSoftBreakPlugin,
+} from '@udecode/plate-break';
+import { createCaptionPlugin } from '@udecode/plate-caption';
+import {
+  createCodeBlockPlugin,
   ELEMENT_CODE_BLOCK,
   ELEMENT_CODE_LINE,
   ELEMENT_CODE_SYNTAX,
+  isCodeBlockEmpty,
+  isSelectionAtCodeBlockStart,
+  unwrapCodeBlock,
 } from '@udecode/plate-code-block';
-import { MARK_COMMENT } from '@udecode/plate-comments';
+
 import {
+  createPlugins,
+  isBlockAboveEmpty,
+  isSelectionAtBlockStart,
   PlateElement,
   PlateLeaf,
-  type PlatePluginComponent,
+  RenderAfterEditable,
 } from '@udecode/plate-common';
-import { createDndPlugin } from '@udecode/plate-dnd';
+
 import { createEmojiPlugin } from '@udecode/plate-emoji';
 import {
   createExcalidrawPlugin,
@@ -60,10 +74,7 @@ import {
   ELEMENT_HR,
 } from '@udecode/plate-horizontal-rule';
 import { createIndentPlugin } from '@udecode/plate-indent';
-import {
-  createIndentListPlugin,
-  KEY_LIST_STYLE_TYPE,
-} from '@udecode/plate-indent-list';
+import { createIndentListPlugin } from '@udecode/plate-indent-list';
 import { createJuicePlugin } from '@udecode/plate-juice';
 import { createKbdPlugin, MARK_KBD } from '@udecode/plate-kbd';
 import { createLineHeightPlugin } from '@udecode/plate-line-height';
@@ -82,11 +93,7 @@ import {
   ELEMENT_IMAGE,
   ELEMENT_MEDIA_EMBED,
 } from '@udecode/plate-media';
-import {
-  createMentionPlugin,
-  ELEMENT_MENTION,
-  ELEMENT_MENTION_INPUT,
-} from '@udecode/plate-mention';
+
 import { createNodeIdPlugin } from '@udecode/plate-node-id';
 import {
   createParagraphPlugin,
@@ -94,8 +101,6 @@ import {
 } from '@udecode/plate-paragraph';
 import { createResetNodePlugin } from '@udecode/plate-reset-node';
 import { createSelectOnBackspacePlugin } from '@udecode/plate-select';
-import { createBlockSelectionPlugin } from '@udecode/plate-selection';
-import { createDeserializeDocxPlugin } from '@udecode/plate-serializer-docx';
 import { createDeserializeMdPlugin } from '@udecode/plate-serializer-md';
 import {
   createTablePlugin,
@@ -107,13 +112,13 @@ import {
 import { createTrailingBlockPlugin } from '@udecode/plate-trailing-block';
 
 import { autoformatPlugin } from '@/features/write-editor/lib/autoformatPlugin';
-import { dragOverCursorPlugin } from '@/features/write-editor/lib/dragOverCursorPlugin';
+
 import { BlockquoteElement } from '@/components/plate-ui/blockquote-element';
 import { CodeBlockElement } from '@/components/plate-ui/code-block-element';
 import { CodeLeaf } from '@/components/plate-ui/code-leaf';
 import { CodeLineElement } from '@/components/plate-ui/code-line-element';
 import { CodeSyntaxLeaf } from '@/components/plate-ui/code-syntax-leaf';
-import { CommentLeaf } from '@/components/plate-ui/comment-leaf';
+
 import { EmojiCombobox } from '@/components/plate-ui/emoji-combobox';
 import { ExcalidrawElement } from '@/components/plate-ui/excalidraw-element';
 import { HeadingElement } from '@/components/plate-ui/heading-element';
@@ -125,8 +130,7 @@ import { LinkElement } from '@/components/plate-ui/link-element';
 import { LinkFloatingToolbar } from '@/components/plate-ui/link-floating-toolbar';
 import { ListElement } from '@/components/plate-ui/list-element';
 import { MediaEmbedElement } from '@/components/plate-ui/media-embed-element';
-import { MentionElement } from '@/components/plate-ui/mention-element';
-import { MentionInputElement } from '@/components/plate-ui/mention-input-element';
+
 import { ParagraphElement } from '@/components/plate-ui/paragraph-element';
 import { withPlaceholders } from '@/components/plate-ui/placeholder';
 import {
@@ -136,19 +140,204 @@ import {
 import { TableElement } from '@/components/plate-ui/table-element';
 import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
-import { withDraggables } from '@/components/plate-ui/with-draggables';
 import { createTogglePlugin, ELEMENT_TOGGLE } from '@udecode/plate-toggle';
 import { createColumnPlugin } from '@udecode/plate-layout';
 
-export const createPlateUI = (
-  overrideByKey?: Partial<Record<string, PlatePluginComponent>>,
+const resetBlockTypesCommonRule = {
+  types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
+  defaultType: ELEMENT_PARAGRAPH,
+};
+
+const resetBlockTypesCodeBlockRule = {
+  types: [ELEMENT_CODE_BLOCK],
+  defaultType: ELEMENT_PARAGRAPH,
+  onReset: unwrapCodeBlock,
+};
+
+export const commentsPlugins = createPlugins(
+  [
+    createListPlugin(),
+    // Nodes
+    createParagraphPlugin(),
+    createHeadingPlugin(),
+    createBlockquotePlugin(),
+    createCodeBlockPlugin(),
+    createHorizontalRulePlugin(),
+    createLinkPlugin({
+      renderAfterEditable: LinkFloatingToolbar as RenderAfterEditable,
+    }),
+    createImagePlugin(),
+    createMediaEmbedPlugin(),
+    createCaptionPlugin({
+      options: { pluginKeys: [ELEMENT_IMAGE, ELEMENT_MEDIA_EMBED] },
+    }),
+    createTablePlugin(),
+    createTodoListPlugin(),
+    createExcalidrawPlugin(),
+
+    // Marks
+    createBoldPlugin(),
+    createItalicPlugin(),
+    createUnderlinePlugin(),
+    createStrikethroughPlugin(),
+    createCodePlugin(),
+    createSubscriptPlugin(),
+    createSuperscriptPlugin(),
+    createFontColorPlugin(),
+    createFontBackgroundColorPlugin(),
+    createFontSizePlugin(),
+    createHighlightPlugin(),
+    createKbdPlugin(),
+
+    // Block Style
+    createAlignPlugin({
+      inject: {
+        props: {
+          validTypes: [ELEMENT_PARAGRAPH, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3],
+        },
+      },
+    }),
+    createIndentPlugin({
+      inject: {
+        props: {
+          validTypes: [
+            ELEMENT_PARAGRAPH,
+            ELEMENT_H1,
+            ELEMENT_H2,
+            ELEMENT_H3,
+            ELEMENT_BLOCKQUOTE,
+            ELEMENT_CODE_BLOCK,
+            ELEMENT_UL,
+            ELEMENT_OL,
+            ELEMENT_TOGGLE,
+          ],
+        },
+      },
+    }),
+    createIndentListPlugin({
+      inject: {
+        props: {
+          validTypes: [
+            ELEMENT_PARAGRAPH,
+            ELEMENT_H1,
+            ELEMENT_H2,
+            ELEMENT_H3,
+            ELEMENT_BLOCKQUOTE,
+            ELEMENT_CODE_BLOCK,
+            ELEMENT_UL,
+            ELEMENT_OL,
+          ],
+        },
+      },
+    }),
+    createLineHeightPlugin({
+      inject: {
+        props: {
+          defaultNodeValue: 1.5,
+          validNodeValues: [1, 1.2, 1.5, 2, 3],
+          validTypes: [ELEMENT_PARAGRAPH, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3],
+        },
+      },
+    }),
+
+    // Functionality
+    createAutoformatPlugin(autoformatPlugin),
+
+    createEmojiPlugin({
+      renderAfterEditable: EmojiCombobox as RenderAfterEditable,
+    }),
+    createExitBreakPlugin({
+      options: {
+        rules: [
+          {
+            hotkey: 'mod+enter',
+          },
+          {
+            hotkey: 'mod+shift+enter',
+            before: true,
+          },
+          {
+            hotkey: 'enter',
+            query: {
+              start: true,
+              end: true,
+              allow: KEYS_HEADING,
+            },
+            relative: true,
+            level: 1,
+          },
+        ],
+      },
+    }),
+    createNodeIdPlugin(),
+    createResetNodePlugin({
+      options: {
+        rules: [
+          {
+            ...resetBlockTypesCommonRule,
+            hotkey: 'Enter',
+            predicate: isBlockAboveEmpty,
+          },
+          {
+            ...resetBlockTypesCommonRule,
+            hotkey: 'Backspace',
+            predicate: isSelectionAtBlockStart,
+          },
+          {
+            ...resetBlockTypesCodeBlockRule,
+            hotkey: 'Enter',
+            predicate: isCodeBlockEmpty,
+          },
+          {
+            ...resetBlockTypesCodeBlockRule,
+            hotkey: 'Backspace',
+            predicate: isSelectionAtCodeBlockStart,
+          },
+        ],
+      },
+    }),
+    createSelectOnBackspacePlugin({
+      options: {
+        query: {
+          allow: [ELEMENT_IMAGE, ELEMENT_HR],
+        },
+      },
+    }),
+
+    createSoftBreakPlugin({
+      options: {
+        rules: [
+          { hotkey: 'shift+enter' },
+          {
+            hotkey: 'enter',
+            query: {
+              allow: [ELEMENT_CODE_BLOCK, ELEMENT_BLOCKQUOTE, ELEMENT_TD],
+            },
+          },
+        ],
+      },
+    }),
+
+    createTrailingBlockPlugin({
+      options: { type: ELEMENT_PARAGRAPH },
+    }),
+
+    // Collaboration
+    // createCommentsPlugin(),
+
+    // Toggle
+    createTogglePlugin(),
+
+    // Column
+    createColumnPlugin(),
+
+    // Deserialization
+
+    createDeserializeMdPlugin(),
+    createJuicePlugin(),
+  ],
   {
-    draggable,
-    placeholder,
-  }: { draggable?: boolean; placeholder?: boolean } = {},
-) => {
-  let components: Record<string, PlatePluginComponent> = withDraggables(
-    withPlaceholders({
+    components: withPlaceholders({
       [ELEMENT_BLOCKQUOTE]: BlockquoteElement,
       [ELEMENT_CODE_BLOCK]: CodeBlockElement,
       [ELEMENT_CODE_LINE]: CodeLineElement,
@@ -164,8 +353,6 @@ export const createPlateUI = (
       [ELEMENT_LI]: withProps(PlateElement, { as: 'li' }),
       [ELEMENT_LINK]: LinkElement,
       [ELEMENT_MEDIA_EMBED]: MediaEmbedElement,
-      [ELEMENT_MENTION]: MentionElement,
-      [ELEMENT_MENTION_INPUT]: MentionInputElement,
       [ELEMENT_UL]: withProps(ListElement, { variant: 'ul' }),
       [ELEMENT_OL]: withProps(ListElement, { variant: 'ol' }),
       [ELEMENT_PARAGRAPH]: ParagraphElement,
@@ -184,9 +371,6 @@ export const createPlateUI = (
       [MARK_SUBSCRIPT]: withProps(PlateLeaf, { as: 'sub' }),
       [MARK_SUPERSCRIPT]: withProps(PlateLeaf, { as: 'sup' }),
       [MARK_UNDERLINE]: withProps(PlateLeaf, { as: 'u' }),
-      [MARK_COMMENT]: CommentLeaf,
     }),
-  );
-
-  return components;
-};
+  },
+);

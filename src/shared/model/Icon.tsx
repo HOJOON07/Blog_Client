@@ -25,6 +25,7 @@ import Plus from '../ui/icon/assets/Plus';
 import Posts from '../ui/icon/assets/Posts';
 import React from '../ui/icon/assets/React';
 import Series from '../ui/icon/assets/Series';
+import Share from '../ui/icon/assets/Share';
 import Star from '../ui/icon/assets/Star';
 import Storage from '../ui/icon/assets/Storage';
 import Sun from '../ui/icon/assets/Sun';
@@ -33,6 +34,7 @@ import Task from '../ui/icon/assets/Task';
 import TrashBox from '../ui/icon/assets/TrashBox';
 import TrendArticles from '../ui/icon/assets/TrendArticles';
 import User from '../ui/icon/assets/User';
+import UserGroup from '../ui/icon/assets/UserGroup';
 import WorkSpaceSidebarExpand from '../ui/icon/assets/WorkSpaceSidebarExpand';
 
 export const iconMap = {
@@ -72,6 +74,8 @@ export const iconMap = {
   list: List,
   star: Star,
   locationPin: LocationPin,
+  userGroup: UserGroup,
+  share: Share,
 };
 
 export type IconList = keyof typeof iconMap;

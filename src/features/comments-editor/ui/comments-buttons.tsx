@@ -1,26 +1,22 @@
 import React from 'react';
 
 import { useEditorReadOnly } from '@udecode/plate-common';
-
 import { ListStyleType } from '@udecode/plate-indent-list';
 import { EmojiDropdownMenu } from '@/components/plate-ui/emoji-dropdown-menu';
 import { IndentListToolbarButton } from '@/components/plate-ui/indent-list-toolbar-button';
 import { IndentToolbarButton } from '@/components/plate-ui/indent-toolbar-button';
-
 import { MoreDropdownMenu } from '@/components/plate-ui/more-dropdown-menu';
 import { OutdentToolbarButton } from '@/components/plate-ui/outdent-toolbar-button';
 import { TableDropdownMenu } from '@/components/plate-ui/table-dropdown-menu';
+import { ToolbarGroup } from '@/components/plate-ui/toolbar';
+import { InsertDropdownMenu } from '@/components/plate-ui/insert-dropdown-menu';
+import { TurnIntoDropdownMenu } from '@/components/plate-ui/turn-into-dropdown-menu';
+import TextStylesButtons from '@/components/plate-ui/fixed-buttons/text-styles-buttons';
+import { CommentsInsertItems } from '../model/comments-insert-dropdown';
+import { commentsUsers } from '@/features/write-editor/model/comments';
+import { CommentsTurnIntoItems } from '../model/comments-turninto-dropdown';
 
-import { InsertDropdownMenu } from './insert-dropdown-menu';
-
-import { ToolbarGroup } from './toolbar';
-import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu';
-
-import TextStylesButtons from './fixed-buttons/text-styles-buttons';
-import { items_workspace } from '@/features/write-editor/model/workspace-insert-dropdown';
-import { WorkspaceTurnIntoItems } from '@/features/write-editor/model/workspace-turninto-dropdown';
-
-export function FixedToolbarButtons() {
+export function CommentsFixedButtons() {
   const readOnly = useEditorReadOnly();
 
   return (
@@ -34,7 +30,7 @@ export function FixedToolbarButtons() {
         {!readOnly && (
           <>
             <ToolbarGroup noSeparator>
-              <InsertDropdownMenu items={items_workspace} />
+              <InsertDropdownMenu items={CommentsInsertItems} />
               <TurnIntoDropdownMenu />
               <TextStylesButtons />
             </ToolbarGroup>

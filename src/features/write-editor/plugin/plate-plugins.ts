@@ -76,10 +76,7 @@ import {
   ELEMENT_HR,
 } from '@udecode/plate-horizontal-rule';
 import { createIndentPlugin } from '@udecode/plate-indent';
-import {
-  createIndentListPlugin,
-  KEY_LIST_STYLE_TYPE,
-} from '@udecode/plate-indent-list';
+import { createIndentListPlugin } from '@udecode/plate-indent-list';
 import { createJuicePlugin } from '@udecode/plate-juice';
 import { createKbdPlugin, MARK_KBD } from '@udecode/plate-kbd';
 import { createLineHeightPlugin } from '@udecode/plate-line-height';
@@ -256,14 +253,6 @@ export const plugins = createPlugins(
 
     // Functionality
     createAutoformatPlugin(autoformatPlugin),
-    // createBlockSelectionPlugin({
-    //   options: {
-    //     sizes: {
-    //       top: 0,
-    //       bottom: 0,
-    //     },
-    //   },
-    // }),
     createComboboxPlugin(),
     createDndPlugin({
       options: { enableScroller: true },

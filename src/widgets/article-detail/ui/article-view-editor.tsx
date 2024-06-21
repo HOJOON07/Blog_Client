@@ -16,13 +16,13 @@ export const ArticleViewEditor = () => {
       <div
         ref={containerRef}
         className={cn(
-          'relative',
+          'relative w-[820px]',
           // Block selection
           '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4',
         )}
       >
         <Editor
-          className="px-5 pt-10 min-h-[100vh]"
+          className="px-5 pt-5 min-h-[100vh]"
           autoFocus
           focusRing={false}
           variant="ghost"
