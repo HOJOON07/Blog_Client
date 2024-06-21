@@ -22,20 +22,24 @@ export const ProfileEditor = () => {
       delayDuration={200}
       skipDelayDuration={0}
     >
-      <Plate plugins={profileEditorPlugins} initialValue={ProfileInitialValue}>
+      <Plate
+        plugins={profileEditorPlugins}
+        initialValue={ProfileInitialValue}
+        readOnly
+      >
         <div
           ref={containerRef}
           className={cn(
             'relative',
             // Block selection
-            '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4',
+            '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4 border rounded-lg',
           )}
         >
           <ProfilesFixedToolbar>
             <FixedToolbarButtons />
           </ProfilesFixedToolbar>
           <Editor
-            className="px-10 pt-10"
+            className="px-10 py-5 bg-zinc-950"
             autoFocus
             focusRing={false}
             variant="ghost"

@@ -7,7 +7,7 @@ import {
   Icon,
   Skeleton,
 } from '@/shared';
-export const ProfilesSection = () => {
+export const ProfileSection = () => {
   return (
     <section className="flex flex-col w-[280px]">
       <div>

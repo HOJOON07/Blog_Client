@@ -110,6 +110,7 @@ const RAW_RUNTIME_STATE =
           ["react-dnd", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:16.0.1"],\
           ["react-dnd-html5-backend", "npm:16.0.1"],\
           ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
+          ["react-github-calendar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:4.1.5"],\
           ["react-lite-youtube-embed", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.4.0"],\
           ["react-resizable-panels", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19"],\
           ["react-tweet", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.2.1"],\
@@ -2676,6 +2677,14 @@ const RAW_RUNTIME_STATE =
           ["regenerator-runtime", "npm:0.14.1"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:7.24.7", {\
+        "packageLocation": "../../../.yarn/berry/cache/@babel-runtime-npm-7.24.7-035e043b00-10c0.zip/node_modules/@babel/runtime/",\
+        "packageDependencies": [\
+          ["@babel/runtime", "npm:7.24.7"],\
+          ["regenerator-runtime", "npm:0.14.1"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@babel/template", [\
@@ -5149,6 +5158,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@tsparticles/updater-stroke-color", "npm:3.3.0"],\
           ["@tsparticles/engine", "npm:3.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/chroma-js", [\
+      ["npm:2.4.4", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-chroma-js-npm-2.4.4-c618a374f5-10c0.zip/node_modules/@types/chroma-js/",\
+        "packageDependencies": [\
+          ["@types/chroma-js", "npm:2.4.4"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8871,6 +8889,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["chroma-js", [\
+      ["npm:2.4.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/chroma-js-npm-2.4.2-76dd14218f-10c0.zip/node_modules/chroma-js/",\
+        "packageDependencies": [\
+          ["chroma-js", "npm:2.4.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["class-variance-authority", [\
       ["npm:0.7.0", {\
         "packageLocation": "../../../.yarn/berry/cache/class-variance-authority-npm-0.7.0-1a63840197-10c0.zip/node_modules/class-variance-authority/",\
@@ -8979,6 +9006,7 @@ const RAW_RUNTIME_STATE =
           ["react-dnd", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:16.0.1"],\
           ["react-dnd-html5-backend", "npm:16.0.1"],\
           ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
+          ["react-github-calendar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:4.1.5"],\
           ["react-lite-youtube-embed", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.4.0"],\
           ["react-resizable-panels", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:2.0.19"],\
           ["react-tweet", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:3.2.1"],\
@@ -12887,6 +12915,35 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-activity-calendar", [\
+      ["npm:2.2.10", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-activity-calendar-npm-2.2.10-0412868728-10c0.zip/node_modules/react-activity-calendar/",\
+        "packageDependencies": [\
+          ["react-activity-calendar", "npm:2.2.10"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:2.2.10", {\
+        "packageLocation": "./.yarn/__virtual__/react-activity-calendar-virtual-288d3fc875/4/.yarn/berry/cache/react-activity-calendar-npm-2.2.10-0412868728-10c0.zip/node_modules/react-activity-calendar/",\
+        "packageDependencies": [\
+          ["react-activity-calendar", "virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:2.2.10"],\
+          ["@types/chroma-js", "npm:2.4.4"],\
+          ["@types/react", "npm:18.2.73"],\
+          ["@types/react-dom", "npm:18.2.23"],\
+          ["chroma-js", "npm:2.4.2"],\
+          ["date-fns", "npm:3.6.0"],\
+          ["react", "npm:18.3.1"],\
+          ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-dnd", [\
       ["npm:16.0.1", {\
         "packageLocation": "../../../.yarn/berry/cache/react-dnd-npm-16.0.1-974f047d7b-10c0.zip/node_modules/react-dnd/",\
@@ -12947,6 +13004,57 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-error-boundary", [\
+      ["npm:4.0.13", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-error-boundary-npm-4.0.13-22e72c3a85-10c0.zip/node_modules/react-error-boundary/",\
+        "packageDependencies": [\
+          ["react-error-boundary", "npm:4.0.13"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:4.0.13", {\
+        "packageLocation": "./.yarn/__virtual__/react-error-boundary-virtual-148cb7a529/4/.yarn/berry/cache/react-error-boundary-npm-4.0.13-22e72c3a85-10c0.zip/node_modules/react-error-boundary/",\
+        "packageDependencies": [\
+          ["react-error-boundary", "virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:4.0.13"],\
+          ["@babel/runtime", "npm:7.24.7"],\
+          ["@types/react", "npm:18.2.73"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["react-github-calendar", [\
+      ["npm:4.1.5", {\
+        "packageLocation": "../../../.yarn/berry/cache/react-github-calendar-npm-4.1.5-1ea7a4a82d-10c0.zip/node_modules/react-github-calendar/",\
+        "packageDependencies": [\
+          ["react-github-calendar", "npm:4.1.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:4.1.5", {\
+        "packageLocation": "./.yarn/__virtual__/react-github-calendar-virtual-1f45928359/4/.yarn/berry/cache/react-github-calendar-npm-4.1.5-1ea7a4a82d-10c0.zip/node_modules/react-github-calendar/",\
+        "packageDependencies": [\
+          ["react-github-calendar", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:4.1.5"],\
+          ["@types/react", "npm:18.2.73"],\
+          ["@types/react-dom", "npm:18.2.23"],\
+          ["react", "npm:18.3.1"],\
+          ["react-activity-calendar", "virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:2.2.10"],\
+          ["react-dom", "virtual:67bccc7d0bcfa1230f52b04f252953235f3247e8df364142a4b7724e7369b822323dc3148cf3825512a8c0b70e04e7501cbd67f5ac8193999d7bc7a9f219cccb#npm:18.3.1"],\
+          ["react-error-boundary", "virtual:1f45928359bf7c3e12ccc394f7ee3a6aae0f7505f65a22d8779ae537de49db847562c015abb1e150c07a681fa761a8e6115fa1a3e29b23192037dea9cfe38090#npm:4.0.13"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-dom",\
+          "@types/react",\
+          "react-dom",\
           "react"\
         ],\
         "linkType": "HARD"\
