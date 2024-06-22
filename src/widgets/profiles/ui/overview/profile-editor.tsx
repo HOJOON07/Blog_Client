@@ -9,9 +9,10 @@ import { FixedToolbarButtons } from '@/components/plate-ui/fixed-toolbar-buttons
 import { FloatingToolbar } from '@/components/plate-ui/floating-toolbar';
 import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-buttons';
 
-import { profileEditorPlugins } from '../plugin/profile-editor-plugins';
-import { ProfileInitialValue } from '../../../../public/mock/ProfileInitData';
+import { profileEditorPlugins } from '@/widgets/profiles';
+
 import { ProfilesFixedToolbar } from './editor-fixed-toolbar';
+import { ProfileInitialValue } from '../../../../../public/mock/ProfileInitData';
 
 export const ProfileEditor = () => {
   const containerRef = useRef(null);
