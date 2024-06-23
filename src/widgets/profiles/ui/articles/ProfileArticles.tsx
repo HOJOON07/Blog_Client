@@ -11,7 +11,7 @@ export const ProfileArticles = () => {
             type="text"
             className="outline-none border-none bg-transparent w-full h-full"
             maxLength={150}
-            placeholder="아티클을 설명해주세요"
+            placeholder="아티클을 검색할 수 있어요"
           />
         </div>
         <ArticleViewSort />

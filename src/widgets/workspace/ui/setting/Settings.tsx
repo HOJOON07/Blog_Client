@@ -53,7 +53,7 @@ export const Settings = () => {
           type="text"
           className="outline-none border-none bg-transparent w-full h-full"
           maxLength={150}
-          placeholder="아티클을 설명해주세요"
+          placeholder="태그를 입력하세요"
         />
       </div>
       <div className="flex items-center justify-between w-full gap-4 mt-3">

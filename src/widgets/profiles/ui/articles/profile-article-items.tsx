@@ -5,21 +5,17 @@ import Image from 'next/image';
 export const ArticleItems = () => {
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center gap-4">
-        <div>
+      <div className="grid grid-cols-[1fr_192px] gap-4 flex-1">
+        <div className="relative">
           <div className="mb-3">
             <p className="mb-2 text-xl font-bold">
               프로필 페이지 그만 끝내고 싶다.
             </p>
-            <p className="text-zinc-400 font-light text-base leading-6 break-all line-clamp-3 text-ellipsis">
-              제발 말줄임좀 되어라제발 말줄임좀 되어라제발 말줄임좀 되어라제발
-              말줄임좀 되어라제발 말줄임좀 되어라제발 말줄임좀 되어라제발
-              말줄임좀 되어라제발 말줄임좀 되어라제발 말줄임좀 되어라제발
-              말줄임좀 되어라제발 말줄임좀 되어라 되어라제발 말줄임좀
-              되어라되어라제발 말줄임좀 되어라되어라제발 말줄임좀 되어라
+            <p className="text-zinc-400 font-light text-base leading-6 break-all line-clamp-2 text-ellipsis min-h-[52px]">
+              제발 말줄임좀 되어라제발 말줄임좀 되어라제발 말줄임좀
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-auto bottom-0 absolute w-full">
             <Icon name="star" size={4} color="text-zinc-400" />
             <span className="text-zinc-400 text-[12px] font-medium mr-4">
               10

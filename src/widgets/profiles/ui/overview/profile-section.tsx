@@ -18,29 +18,34 @@ export const ProfileSection = () => {
           </AvatarFallback>
         </Avatar>
       </div>
-      <div className="flex gap-2 items-baseline mb-2">
+      <div className="flex gap-2 items-baseline mb-1">
         <span className="text-2xl font-semibold">김호준</span>
-        <span className="text-zinc-500 text-[14px] font-medium gap-2">
+        <span className="text-slate-600 text-[14px] font-medium gap-2">
           FrontEnd
         </span>
       </div>
-      <p className="text-zinc-500 text-[14px] font-medium mb-3">
-        <Icon
-          name="userGroup"
-          className="inline mr-2"
-          size={6}
-          color="text-zinc-500"
-        />
-        24 팔로워 · 20 팔로잉
-      </p>
-      <p className="text-zinc-500 text-[14px] font-medium items-center flex mb-3">
-        <Icon
-          name="locationPin"
-          color="text-zinc-500"
-          className="mr-2"
-          size={6}
-        />
-        Seoul
+      <div className="flex flex-col gap-1 mb-2">
+        <p className="text-zinc-400 text-[14px] font-medium">
+          <Icon
+            name="userGroup"
+            className="inline mr-2"
+            size={4}
+            color="text-zinc-400"
+          />
+          24 팔로워 · 20 팔로잉
+        </p>
+        <p className="text-zinc-400 text-[14px] font-medium items-center flex">
+          <Icon
+            name="locationPin"
+            color="text-zinc-400"
+            className="mr-2"
+            size={4}
+          />
+          Seoul
+        </p>
+      </div>
+      <p className="text-base font-medium mb-2 line-clamp-1 text-ellipsis">
+        프론트엔드 개발자 김호준입니다.
       </p>
       <Button className="w-full rounded-[6px] mb-4">프로필 수정</Button>
       <div className="flex gap-2">

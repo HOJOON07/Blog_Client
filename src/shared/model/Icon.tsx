@@ -7,6 +7,7 @@ import Dashboard from '../ui/icon/assets/Dashboard';
 import Document from '../ui/icon/assets/Document';
 import Dots from '../ui/icon/assets/Dots';
 import Email from '../ui/icon/assets/Email';
+import EmailCommon from '../ui/icon/assets/Email-common';
 import Folder from '../ui/icon/assets/Folder';
 import FollowArticles from '../ui/icon/assets/FollowArticles';
 import FramerMotion from '../ui/icon/assets/FramerMotion';
@@ -14,6 +15,7 @@ import Github from '../ui/icon/assets/Github';
 import Globe from '../ui/icon/assets/Globe';
 import Home from '../ui/icon/assets/Home';
 import Instagram from '../ui/icon/assets/Instagram';
+import Link from '../ui/icon/assets/Link';
 import Linkedin from '../ui/icon/assets/Linkedin';
 import List from '../ui/icon/assets/List';
 import LocationPin from '../ui/icon/assets/LocationPin';
@@ -76,6 +78,8 @@ export const iconMap = {
   locationPin: LocationPin,
   userGroup: UserGroup,
   share: Share,
+  socialEmail: EmailCommon,
+  socialLink: Link,
 };
 
 export type IconList = keyof typeof iconMap;
