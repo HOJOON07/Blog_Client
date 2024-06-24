@@ -53,11 +53,10 @@ export const ArticleCard = ({
       </div>
       <div className="mb-auto flex items-center gap-1 h-8 my-2">
         <Icon name="star" size={5} color="text-neutral-700" />
-        {/* <HeartFilledIcon className="w-[19px] h-[19px]"  /> */}
         <span className="text-zinc-500 text-[12px] font-medium">
           {likeCount}
         </span>
-        <Icon name="comments" size={4} />
+        <Icon name="comments" size={4} color="text-neutral-700" />
         <span className="text-zinc-500 text-[12px] font-medium">
           {commentCount}
         </span>

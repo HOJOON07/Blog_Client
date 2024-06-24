@@ -16,7 +16,7 @@ export const ArticleViewEditor = () => {
       <div
         ref={containerRef}
         className={cn(
-          'relative w-[820px]',
+          'relative',
           // Block selection
           '[&_.slate-start-area-left]:!w-[64px] [&_.slate-start-area-right]:!w-[64px] [&_.slate-start-area-top]:!h-4',
         )}

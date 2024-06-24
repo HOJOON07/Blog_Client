@@ -42,6 +42,7 @@ export const ArticleMainContents = () => {
           <Separator className="bg-primary" />
         </div>
       </div>
+
       <div className="px-4">
         <CommentsEditor />
       </div>

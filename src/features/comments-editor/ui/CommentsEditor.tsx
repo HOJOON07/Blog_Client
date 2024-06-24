@@ -42,7 +42,7 @@ export default function CommentsEditor() {
           </CommentsFixedToolbar>
           <Editor
             className="p-2"
-            autoFocus
+            autoFocus={false}
             focusRing={false}
             variant="ghost"
             size="sm"

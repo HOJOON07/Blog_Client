@@ -1,8 +1,22 @@
+// 'use client';
 import { Icon } from '@/shared';
 import { ArticleMainContents, ArticleUserInfo } from '@/widgets/article-detail';
 import { BookmarkIcon } from '@radix-ui/react-icons';
+import { useEffect, useState } from 'react';
+// { params }: { params: { slug: string } }
 
-export const ArticleDetail = ({ params }: { params: { slug: string } }) => {
+export const ArticleDetail = () => {
+  // const [position, setPosition] = useState(0);
+  // function onScroll() {
+  //   setPosition(window.scrollY);
+  // }
+  // useEffect(() => {
+  //   window.addEventListener('scroll', onScroll);
+  //   console.log(position);
+  //   return () => {
+  //     window.removeEventListener('scroll', onScroll);
+  //   };
+  // }, [position]);
   return (
     <div className="grid grid-cols-[250px_1fr_380px]">
       <div className="sticky h-4 left-[150px] top-[120px]">
