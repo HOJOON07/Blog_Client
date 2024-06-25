@@ -11,7 +11,7 @@ export const ProfileSection = () => {
   return (
     <section className="flex flex-col w-[280px]">
       <div>
-        <Avatar className="w-[280px] h-[280px] mb-4">
+        <Avatar className="w-[280px] h-[280px] mb-4`">
           <AvatarImage src="/avatar.jpeg" alt="avatar" />
           <AvatarFallback>
             <Skeleton className="w-[240px] h-[240px] rounded-full" />
