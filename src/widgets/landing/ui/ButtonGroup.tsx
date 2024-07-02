@@ -2,7 +2,7 @@ import { MovingBorderButton } from '@/shared';
 
 export const ButtonGroup = () => {
   return (
-    <div className="flex mt-3 gap-5">
+    <div className="flex gap-5 2xl:mt-3">
       <MovingBorderButton
         containerClassName="rounded-full"
         as="button"

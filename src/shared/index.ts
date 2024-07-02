@@ -77,6 +77,13 @@ export {
 } from './ui/resizable';
 export { Badge, badgeVariants } from './ui/badge';
 
+export * from './ui/form';
+export { Label } from './ui/label';
+export * from './ui/input-otp';
+export * from './ui/toast';
+export * from './ui/toaster';
+export * from './ui/use-toast';
+
 // lib
 export { cn } from './lib/utils';
 export { TailwindIndicator } from './lib/tailwind-indicator';

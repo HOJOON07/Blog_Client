@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider, QueryProvider } from './_providers';
-import { TailwindIndicator } from '@/shared';
+import { TailwindIndicator, Toaster } from '@/shared';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +23,7 @@ export default function RootLayout({
           <QueryProvider>{children}</QueryProvider>
         </ThemeProvider>
         <TailwindIndicator />
+        <Toaster />
       </body>
     </html>
   );
