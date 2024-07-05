@@ -7,6 +7,7 @@ export const Icon = ({
   size = 5,
   color = 'text-slate-700 dark:text-white',
   className,
+  onClick,
 }: GenericIconComponentProps) => {
   const IconSVGComponent = iconMap[name];
 
@@ -14,11 +15,13 @@ export const Icon = ({
     <Link href={href}>
       <IconSVGComponent
         className={cn(`w-${size} h-${size} ${color} ${className}`)}
+        onClick={onClick}
       />
     </Link>
   ) : (
     <IconSVGComponent
       className={cn(`w-${size} h-${size} ${color} ${className}`)}
+      onClick={onClick}
     />
   );
 };

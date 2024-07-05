@@ -23,6 +23,7 @@ export const signupDevWorld = async ({
     );
     return response.data;
   } catch (err) {
-    console.log(err);
+    console.log('Error response', err);
+    throw err;
   }
 };

@@ -18,7 +18,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/shared';
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
 import { useMutation } from '@tanstack/react-query';
 import { authNumberVerify } from '@/features/signup-signin/api/authNumberVerify';
-import { useSignupStore } from '@/app/_store/singup-form-progres-store';
+import { useSignupProgressStore } from '@/app/_store/singup-form-progres-store';
 
 const FormSchema = z.object({
   authNumber: z.string().min(6, {
@@ -32,7 +32,7 @@ const FormSchema = z.object({
 export function EmailInputOTPForm() {
   const { toast } = useToast();
   const { email } = useSignupFormDataStore();
-  const { nextStep } = useSignupStore();
+  const { nextStep } = useSignupProgressStore();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -42,17 +42,22 @@ export function EmailInputOTPForm() {
     },
   });
 
-  const { mutate, data } = useMutation({
+  const { mutate: verify, data } = useMutation({
     mutationFn: authNumberVerify,
     onSuccess: (data) => {
-      console.log(data);
       nextStep();
     },
-    onError: () => {},
+    onError: (data: any) => {
+      toast({
+        variant: 'destructive',
+        title: data.response.data.message,
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
+    },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    mutate({ email: data.email, authNumber: data.authNumber });
+    verify({ email: data.email, authNumber: data.authNumber });
     toast({
       title: '인증번호를 제출했습니다.',
       description: (
@@ -79,13 +84,13 @@ export function EmailInputOTPForm() {
               <FormLabel className="text-lg">{email}</FormLabel>
               <FormControl>
                 <InputOTP maxLength={6} {...field}>
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} className="w-[72px] h-[72px]" />
-                    <InputOTPSlot index={1} className="w-[72px] h-[72px]" />
-                    <InputOTPSlot index={2} className="w-[72px] h-[72px]" />
-                    <InputOTPSlot index={3} className="w-[72px] h-[72px]" />
-                    <InputOTPSlot index={4} className="w-[72px] h-[72px]" />
-                    <InputOTPSlot index={5} className="w-[72px] h-[72px]" />
+                  <InputOTPGroup className="w-full">
+                    <InputOTPSlot index={0} className="w-1/6 h-14" />
+                    <InputOTPSlot index={1} className="w-1/6 h-14" />
+                    <InputOTPSlot index={2} className="w-1/6 h-14" />
+                    <InputOTPSlot index={3} className="w-1/6 h-14" />
+                    <InputOTPSlot index={4} className="w-1/6 h-14" />
+                    <InputOTPSlot index={5} className="w-1/6 h-14" />
                   </InputOTPGroup>
                 </InputOTP>
               </FormControl>

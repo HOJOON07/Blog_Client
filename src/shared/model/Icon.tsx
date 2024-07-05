@@ -90,4 +90,5 @@ export type GenericIconComponentProps = {
   href?: string;
   color?: string;
   className?: string;
+  onClick?: () => void;
 };

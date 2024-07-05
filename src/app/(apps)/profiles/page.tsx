@@ -16,8 +16,8 @@ export default function ProfilePage() {
           <ProfileSection />
           <div className="flex flex-col gap-9">
             <ProfileTabs />
-            {/* <Overview /> */}
-            <ProfileArticles />
+            <Overview />
+            {/* <ProfileArticles /> */}
           </div>
         </div>
       </div>

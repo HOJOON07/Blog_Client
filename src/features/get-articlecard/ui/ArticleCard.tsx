@@ -43,7 +43,13 @@ export const ArticleCard = ({
         <Icon name="dots" className="ml-auto" />
       </div>
       <Link href={''} className="relative w-full h-0 pb-[50%] overflow-hidden">
-        <Image fill src="/post-thumbnail.jpeg" alt="post-thumbnail" />
+        <Image
+          fill
+          src="/post-thumbnail.jpeg"
+          alt="post-thumbnail"
+          sizes="300px"
+          priority
+        />
       </Link>
       <div className="flex items-center text-white text-[18px] font-medium pt-2 pb-1 mt-1">
         {title}

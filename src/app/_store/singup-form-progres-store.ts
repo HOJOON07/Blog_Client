@@ -13,7 +13,7 @@ interface Actions {
   nextStep: () => void;
 }
 
-export const useSignupStore = create<State & Actions>((set) => ({
+export const useSignupProgressStore = create<State & Actions>((set) => ({
   step: 'email_auth',
   progress: {
     email_auth: 33,

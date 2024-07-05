@@ -1,5 +1,5 @@
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
-import { Button } from '@/shared';
+import { Button, Icon, ToastAction, cn, toast, useToast } from '@/shared';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import {
   SignupUserFormData,
@@ -8,15 +8,25 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { signupDevWorld } from '@/features/signup-signin/api/singup-user-final';
+import { useState } from 'react';
+import { DevTool } from '@hookform/devtools';
+import { useRouter } from 'next/navigation';
 
 export const PassWordForm = () => {
+  const { toast } = useToast();
+  const router = useRouter();
+  const [devNameMessage, setDevNameMessage] =
+    useState<string>('2 ~ 16자 사이로 입력해주세요');
+
   const { email: userEmail } = useSignupFormDataStore();
-  const { setEmail } = useSignupFormDataStore();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     getValues,
+    watch,
+    control,
   } = useForm<SignupUserFormData>({
     resolver: zodResolver(SignupUserSchema),
     defaultValues: {
@@ -27,7 +37,16 @@ export const PassWordForm = () => {
   const { mutate: signup, data } = useMutation({
     mutationFn: signupDevWorld,
     onSuccess: (data) => {
-      console.log(data);
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+      router.push('/articles');
+    },
+    onError: (data: any) => {
+      toast({
+        variant: 'destructive',
+        title: data.response.data.message,
+        action: <ToastAction altText="Try again">Try again</ToastAction>,
+      });
     },
   });
 
@@ -42,14 +61,6 @@ export const PassWordForm = () => {
   };
   return (
     <>
-      <button
-        onClick={() => {
-          const value = getValues();
-          console.log(value.email);
-        }}
-      >
-        value
-      </button>
       <form className="w-full items-center" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col w-full gap-2">
           <p className="font-semibold text-base">Email*</p>
@@ -97,9 +108,7 @@ export const PassWordForm = () => {
               })}
             />
           </div>
-          <p className="text-xs mb-1 text-cyan-600">
-            2 ~ 16자 사이로 입력해주세요
-          </p>
+          <p className="text-xs mb-1 text-cyan-600">{devNameMessage}</p>
         </div>
         <div className="flex flex-col w-full gap-2">
           <p className="font-semibold text-base">password*</p>
@@ -117,14 +126,22 @@ export const PassWordForm = () => {
                 },
                 maxLength: {
                   value: 16,
-                  message: '비밀번호는 최대 16자 이상입니다.',
+                  message: '비밀번호는 16자 이하로 입력해주세요.',
                 },
                 required: '비밀번호를 입력해주세요',
               })}
             />
           </div>
-          <p className="text-xs mb-1 text-cyan-600">
-            {'8 ~ 16자 사이로 입력해주세요'}
+          <p
+            className={cn(
+              `text-xs mb-1 ${
+                errors.password ? 'text-destructive' : 'text-cyan-600'
+              }`,
+            )}
+          >
+            {errors.password
+              ? errors.password.message
+              : '8 ~ 16자 사이로 입력해주세요'}
           </p>
         </div>
         <div className="flex flex-col w-full gap-2 mb-4">
@@ -145,15 +162,29 @@ export const PassWordForm = () => {
                   value: 16,
                   message: '비밀번호는 최대 16자 이상입니다.',
                 },
-                required: '비밀번호를 입력해주세요',
+                required: {
+                  value: true,
+                  message: '비밀번호를 입력해주세요',
+                },
+                validate: (value: string) =>
+                  value === watch('password') ||
+                  '입력하신 비밀번호가 일치하지 않습니다.',
               })}
             />
           </div>
-          <p className="text-xs mb-1 text-cyan-600">
-            {'비밀번호를 확인해주세요'}
+          <p
+            className={cn(
+              `text-xs mb-1 ${
+                errors.passwordConfirm ? 'text-destructive' : 'text-cyan-600'
+              }`,
+            )}
+          >
+            {errors.passwordConfirm
+              ? errors.passwordConfirm.message
+              : '입력하신 비밀번호를 확인합니다.'}
           </p>
         </div>
-
+        <DevTool control={control} />
         <Button
           className="w-full h-[48px] rounded-xl py-3 text-base font-medium"
           type="submit"

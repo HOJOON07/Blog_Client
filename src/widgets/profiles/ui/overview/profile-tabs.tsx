@@ -1,5 +1,3 @@
-'use client';
-
 export const ProfileTabs = () => {
   return (
     <div className="flex border-b">

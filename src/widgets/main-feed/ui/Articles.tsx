@@ -32,8 +32,8 @@ export const Articles = ({ className }: { className?: string }) => {
     >
       {MOCK_DATA.map(
         ({ user, title, subTitle, likeCount, commentCount, date }, idx) => (
-          <Link
-            href={''}
+          <div
+            // href={''}
             key={idx}
             className="relative group block p-2 h-full w-full"
             onMouseEnter={() => setHoveredIndex(idx)}
@@ -64,7 +64,7 @@ export const Articles = ({ className }: { className?: string }) => {
               commentCount={commentCount}
               date={date}
             />
-          </Link>
+          </div>
         ),
       )}
     </div>

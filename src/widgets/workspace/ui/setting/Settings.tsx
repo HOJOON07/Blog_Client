@@ -1,5 +1,5 @@
 'use client';
-import { useEditorValue } from '@/app/_store/editorValue';
+// import { useEditorValue } from '@/app/_store/editorValue';
 import { Button, Icon, Switch } from '@/shared';
 import { useEditorMounted, useEditorState } from '@udecode/plate-common';
 import { useEffect } from 'react';
@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 export const Settings = () => {
   const editor = useEditorState();
   const isMounted = useEditorMounted();
-  const editorValue = useEditorValue((state) => state.editorValue);
-  const savedEditorValue = useEditorValue((state) => state.savedEditorValue);
+  // const editorValue = useEditorValue((state) => state.editorValue);
+  // const savedEditorValue = useEditorValue((state) => state.savedEditorValue);
 
   return (
     <div className="w-[330px] px-5 py-10 right-0 top-0 sticky h-screen">
@@ -63,10 +63,10 @@ export const Settings = () => {
         <Button
           variant="default"
           className="flex-1 text-white font-semibold"
-          onClick={() => {
-            savedEditorValue(editor.children);
-            console.log('!!!', editorValue);
-          }}
+          // onClick={() => {
+          //   savedEditorValue(editor.children);
+          //   console.log('!!!', editorValue);
+          // }}
         >
           작성 하기
         </Button>
