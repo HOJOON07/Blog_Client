@@ -3,20 +3,18 @@ import axios from 'axios';
 export const instance = axios.create({
   baseURL: 'http://localhost:5500',
   timeout: 3000,
-  headers: { 'Content-Type': 'application/json' },
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 //요청
 instance.interceptors.request.use(
   function (config) {
     const accessToken = localStorage.getItem('accessToken');
-    // const refreshToken = localStorage.getItem('refreshToken');
     if (accessToken) {
-      config.headers['authorization'] = `Bearer ${accessToken}`;
+      config.headers['Authorization'] = `Bearer ${accessToken}`;
     }
-    // if (refreshToken) {
-    //   config.headers['authorization'] = `Bearer ${refreshToken}`;
-    // }
     return config;
   },
   function (error) {
@@ -31,10 +29,13 @@ instance.interceptors.response.use(
     return response;
   },
   async function (error) {
+    console.log('error.config', error.config);
     const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
+      delete instance.defaults.headers.common['Authorization'];
+      console.log('original retry', originalRequest._retry);
       const refreshToken = localStorage.getItem('refreshToken');
 
       try {
@@ -50,10 +51,18 @@ instance.interceptors.response.use(
         const { accessToken } = response.data;
         localStorage.setItem('accessToken', accessToken);
 
-        instance.defaults.headers['authorization'] = `Bearer ${accessToken}`;
-        originalRequest.headers['authorization'] = `Bearer ${accessToken}`;
-      } catch (err) {
-        console.log(err);
+        instance.defaults.headers.common[
+          'Authorization'
+        ] = `Bearer ${accessToken}`;
+        originalRequest.headers['Authorization'] = `Bearer ${accessToken}`;
+        return instance(originalRequest);
+        //
+      } catch (error: any) {
+        if (error.response && error.response.status === 401) {
+          localStorage.clear();
+          window.location.href = '/signin';
+          return Promise.reject(error);
+        }
       }
     }
     return Promise.reject(error);
