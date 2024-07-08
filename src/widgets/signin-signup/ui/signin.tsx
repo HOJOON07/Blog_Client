@@ -15,7 +15,9 @@ export const SignIn = () => {
   const { mutate: emailAndPassWordLogin } = useMutation({
     mutationFn: signin,
     onSuccess: (data) => {
-      console.log(data);
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('refreshToken', data.refreshToken);
+      router.push('/articles');
     },
     onError: (data: any) => {
       toast({

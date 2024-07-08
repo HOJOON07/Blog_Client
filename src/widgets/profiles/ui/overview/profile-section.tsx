@@ -7,7 +7,35 @@ import {
   Icon,
   Skeleton,
 } from '@/shared';
+import {
+  getLocalStorageAccessToken,
+  getLoalStorageRefreshToken,
+} from '@/shared/api/axios-instance-interceptor';
+import { getUserInfo } from '@/shared/api/get-user-info-api';
+import { useQuery } from '@tanstack/react-query';
+import { getOnSelectTableBorderFactory } from '@udecode/plate-table';
+import { useEffect } from 'react';
 export const ProfileSection = () => {
+  // useEffect(() => {
+  //   // 비동기 함수를 호출하고 결과를 처리하는 내부 함수를 정의
+  //   const fetchUserInfo = async () => {
+  //     try {
+  //       const user = await getUserInfo(); // 비동기 함수를 await로 호출
+  //       console.log(user); // 데이터가 로드된 후 콘솔에 출력
+  //     } catch (error) {
+  //       console.error('Failed to fetch user info:', error); // 오류 처리
+  //     }
+  //   };
+
+  //   fetchUserInfo(); // 내부 함수를 호출
+  // }, []);
+  const { data } = useQuery({
+    queryKey: ['user'],
+    queryFn: getUserInfo,
+    retry: 1,
+  });
+  console.log(data);
+
   return (
     <section className="flex flex-col w-[280px]">
       <div>
