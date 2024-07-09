@@ -1,5 +1,5 @@
 'use client';
-import { useViewModeStore } from '@/app/_store/viewModeStore';
+import { useViewModeStore } from '@/app/_store/view-mode-store';
 import { cn } from '@udecode/cn';
 
 type ViewModeType = 'Document' | 'Series' | 'Calendar' | 'Graph';

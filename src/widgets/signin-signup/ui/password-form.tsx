@@ -11,6 +11,7 @@ import { signupDevWorld } from '@/features/signup-signin/api/singup-user-final';
 import { useState } from 'react';
 import { DevTool } from '@hookform/devtools';
 import { useRouter } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 export const PassWordForm = () => {
   const { toast } = useToast();
@@ -36,9 +37,12 @@ export const PassWordForm = () => {
 
   const { mutate: signup, data } = useMutation({
     mutationFn: signupDevWorld,
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
+      ('use server');
+      cookies().set('accessToken', data.accessToken);
+      cookies().set('refreshToken', data.refreshToken);
       router.push('/articles');
     },
     onError: (data: any) => {

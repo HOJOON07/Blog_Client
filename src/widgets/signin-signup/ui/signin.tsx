@@ -133,7 +133,7 @@ export const SignIn = () => {
           </div>
           <div className="mb-4 flex items-center justify-between px-2">
             <div className="mt-2 flex items-center">
-              <Checkbox />
+              <Checkbox defaultChecked />
               <p className="ml-2 text-sm font-medium text-navy-700 dark:text-white">
                 자동 로그인
               </p>
