@@ -8,7 +8,7 @@ export function createGlobalUserState<T>(
   return function () {
     const queryClient = useQueryClient();
 
-    const { data } = useQuery({
+    const { data: user } = useQuery({
       queryKey: [queryKey],
       queryFn: getUserInfo,
       refetchInterval: false,
@@ -31,6 +31,6 @@ export function createGlobalUserState<T>(
         queryKey: [queryKey],
       });
     }
-    return { data, setData, resetData };
+    return { user, setData, resetData };
   };
 }

@@ -1,6 +1,4 @@
-import { createGlobalUserState } from '@/app/_store/create-global-query';
-
-interface InitUserProfileType {
+export interface UserProfileType {
   bio: string | null;
   devName: string | null;
   email: string | null;
@@ -11,9 +9,10 @@ interface InitUserProfileType {
   position: string | null;
   role: string;
   socialEtc: string | null;
+  github: string | null;
 }
 
-const initialState: InitUserProfileType = {
+export const UserInitialState: UserProfileType = {
   bio: null,
   devName: null,
   email: null,
@@ -24,9 +23,5 @@ const initialState: InitUserProfileType = {
   position: null,
   role: 'User',
   socialEtc: null,
+  github: null,
 };
-
-export const useUserState = createGlobalUserState<InitUserProfileType>(
-  'user',
-  initialState,
-);

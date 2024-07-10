@@ -1,5 +1,4 @@
-import { Home } from '@/_pages/home';
-import { ArticleFeed } from '@/widgets/main-feed';
+import { ArticleFeed } from '@/_pages/article-feed';
 
 export default function Page() {
   return <ArticleFeed />;
