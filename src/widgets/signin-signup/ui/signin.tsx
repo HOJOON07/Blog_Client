@@ -8,15 +8,24 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { SigninUserFormData, SigninUserSchema } from '../model/signin-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { setCookie } from '@/shared/api/set-cookie';
 export const SignIn = () => {
   const { toast } = useToast();
   const router = useRouter();
 
   const { mutate: emailAndPassWordLogin } = useMutation({
     mutationFn: signin,
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
+      const accessToken = await data.accessToken;
+      const refreshToken = await data.refreshToken;
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
+      try {
+        await setCookie(accessToken, refreshToken);
+        console.log('쿠키 설정');
+      } catch (err) {
+        console.log('쿠키 설정 에러');
+      }
       router.push('/articles');
     },
     onError: (data: any) => {

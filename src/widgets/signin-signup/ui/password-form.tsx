@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { DevTool } from '@hookform/devtools';
 import { useRouter } from 'next/navigation';
 import { cookies } from 'next/headers';
+import { setCookie } from '@/shared/api/set-cookie';
 
 export const PassWordForm = () => {
   const { toast } = useToast();
@@ -38,11 +39,16 @@ export const PassWordForm = () => {
   const { mutate: signup, data } = useMutation({
     mutationFn: signupDevWorld,
     onSuccess: async (data) => {
-      localStorage.setItem('accessToken', data.accessToken);
-      localStorage.setItem('refreshToken', data.refreshToken);
-      ('use server');
-      cookies().set('accessToken', data.accessToken);
-      cookies().set('refreshToken', data.refreshToken);
+      const accessToken = await data.accessToken;
+      const refreshToken = await data.refreshToken;
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('refreshToken', refreshToken);
+      try {
+        await setCookie(accessToken, refreshToken);
+        console.log('쿠키 설정');
+      } catch (err) {
+        console.log('쿠키 설정 에러');
+      }
       router.push('/articles');
     },
     onError: (data: any) => {

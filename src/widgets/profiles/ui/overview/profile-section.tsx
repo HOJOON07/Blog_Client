@@ -1,4 +1,5 @@
 'use client';
+import { useUserStore } from '@/app/_store/user-store';
 import {
   Avatar,
   AvatarFallback,
@@ -7,21 +8,16 @@ import {
   Icon,
   Skeleton,
 } from '@/shared';
-import {
-  getLocalStorageAccessToken,
-  getLoalStorageRefreshToken,
-} from '@/shared/api/axios-instance-interceptor';
+
 import { getUserInfo } from '@/shared/api/get-user-info-api';
 import { useQuery } from '@tanstack/react-query';
-import { getOnSelectTableBorderFactory } from '@udecode/plate-table';
-import { useEffect } from 'react';
+import { useUserState } from '../../lib/useUserSate';
+
 export const ProfileSection = () => {
-  const { data } = useQuery({
-    queryKey: ['user'],
-    queryFn: getUserInfo,
-    retry: 1,
-  });
-  console.log(data);
+  // const { user } = useUserStore();
+  const { data: user } = useUserState();
+  console.log(user);
+  // console.log(data);
 
   return (
     <section className="flex flex-col w-[280px]">
@@ -34,7 +30,7 @@ export const ProfileSection = () => {
         </Avatar>
       </div>
       <div className="flex gap-2 items-baseline mb-1">
-        <span className="text-2xl font-semibold">김호준</span>
+        <span className="text-2xl font-semibold">{user?.devName}</span>
         <span className="text-slate-600 text-[14px] font-medium gap-2">
           FrontEnd
         </span>
