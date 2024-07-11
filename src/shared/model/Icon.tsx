@@ -6,6 +6,7 @@ import Comments from '../ui/icon/assets/Comments';
 import Dashboard from '../ui/icon/assets/Dashboard';
 import Document from '../ui/icon/assets/Document';
 import Dots from '../ui/icon/assets/Dots';
+import Edit from '../ui/icon/assets/Edit';
 import Email from '../ui/icon/assets/Email';
 import EmailCommon from '../ui/icon/assets/Email-common';
 import Folder from '../ui/icon/assets/Folder';
@@ -80,6 +81,7 @@ export const iconMap = {
   share: Share,
   socialEmail: EmailCommon,
   socialLink: Link,
+  edit: Edit,
 };
 
 export type IconList = keyof typeof iconMap;

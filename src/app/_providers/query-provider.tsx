@@ -1,6 +1,5 @@
 'use client';
 
-import { getUserInfo } from '@/shared/api/get-user-info-api';
 import {
   QueryClient,
   QueryClientProvider,

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { cn } from '@udecode/cn';
 import { Plate } from '@udecode/plate-common';
 import { TooltipProvider } from '@/components/plate-ui/tooltip';
@@ -13,9 +13,11 @@ import { profileEditorPlugins } from '@/widgets/profiles';
 
 import { ProfilesFixedToolbar } from './editor-fixed-toolbar';
 import { ProfileInitialValue } from '../../../../../public/mock/ProfileInitData';
+import { useProfilesEditorReadOnlyStore } from '@/app/_store/profiles-editor-store';
 
 export const ProfileEditor = () => {
   const containerRef = useRef(null);
+  const { isReadOnly } = useProfilesEditorReadOnlyStore();
 
   return (
     <TooltipProvider
@@ -26,7 +28,7 @@ export const ProfileEditor = () => {
       <Plate
         plugins={profileEditorPlugins}
         initialValue={ProfileInitialValue}
-        readOnly
+        readOnly={isReadOnly}
       >
         <div
           ref={containerRef}

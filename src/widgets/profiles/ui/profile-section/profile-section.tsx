@@ -9,12 +9,16 @@ import {
 } from '@/shared';
 import { UserProfileType } from '@/widgets/profiles';
 import { SocialIcons } from './profile-social-icons';
+import { useUserState } from '@/app/_store/useUserState';
+import { useRouter } from 'next/navigation';
 
 interface ProfileSectionProps {
   user: UserProfileType;
 }
 
 export const ProfileSection = ({ user }: ProfileSectionProps) => {
+  const router = useRouter();
+  const { user: myInfo } = useUserState();
   const socials = {
     github: user?.github,
     instagram: user?.instagram,
@@ -62,7 +66,20 @@ export const ProfileSection = ({ user }: ProfileSectionProps) => {
       <p className="text-base font-medium mb-2 line-clamp-1 text-ellipsis">
         {user?.bio ?? `${user?.devName}님을 한 줄로 표현해주세요`}
       </p>
-      <Button className="w-full rounded-[6px] mb-4">프로필 수정</Button>
+
+      {user?.devName === myInfo?.devName ? (
+        <Button
+          className="w-full rounded-[6px] mb-4"
+          onClick={() => {
+            router.push(`/profiles/edit/${myInfo?.devName}`);
+          }}
+        >
+          프로필 수정
+        </Button>
+      ) : (
+        <Button className="w-full rounded-[6px] mb-4">팔로우</Button>
+      )}
+
       <SocialIcons socials={socials} />
     </section>
   );

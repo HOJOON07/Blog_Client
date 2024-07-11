@@ -1,4 +1,8 @@
 import Profiles from '@/_pages/profiles/ui/Profiles';
-export default function ProfilePage() {
+export default function ProfilePage({
+  searchParams,
+}: {
+  searchParams: string;
+}) {
   return <Profiles />;
 }

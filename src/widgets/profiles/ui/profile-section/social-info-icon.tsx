@@ -1,5 +1,4 @@
 import { Button, Icon, type IconList } from '@/shared';
-import { type UserProfileType } from '../../lib/useUserState';
 
 export const SocialInfoIcon = ({
   name,

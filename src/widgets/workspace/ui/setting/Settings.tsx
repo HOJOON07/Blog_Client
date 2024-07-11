@@ -63,10 +63,9 @@ export const Settings = () => {
         <Button
           variant="default"
           className="flex-1 text-white font-semibold"
-          // onClick={() => {
-          //   savedEditorValue(editor.children);
-          //   console.log('!!!', editorValue);
-          // }}
+          onClick={() => {
+            console.log('!!!', editor.children);
+          }}
         >
           작성 하기
         </Button>

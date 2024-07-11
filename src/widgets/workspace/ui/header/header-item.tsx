@@ -11,7 +11,7 @@ interface HeaderItemProps {
 }
 
 export const HeaderItem = ({ title }: HeaderItemProps) => {
-  const { viewMode, changeViewMode } = useViewModeStore((state) => state);
+  const { viewMode, changeViewMode } = useViewModeStore();
 
   const changeTitle = (title: ViewModeText): ViewModeType => {
     if (title === '문서') return 'Document';

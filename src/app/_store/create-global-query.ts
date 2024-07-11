@@ -1,4 +1,4 @@
-import { getUserInfo } from '@/shared/api/get-user-info-api';
+import { getMyInfo } from '@/shared/api/get-my-info-api';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 export function createGlobalUserState<T>(
@@ -10,13 +10,13 @@ export function createGlobalUserState<T>(
 
     const { data: user } = useQuery({
       queryKey: [queryKey],
-      queryFn: getUserInfo,
+      queryFn: getMyInfo,
       refetchInterval: false,
       refetchOnMount: false,
       refetchOnWindowFocus: false,
       refetchOnReconnect: true,
       refetchIntervalInBackground: true,
-      retry: 2,
+      retry: 1,
     });
 
     function setData(data: Partial<T>) {

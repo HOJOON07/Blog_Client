@@ -1,7 +1,8 @@
 'use client';
 //ui - profiles
 export { ProfileSection } from './ui/profile-section/profile-section';
-export { ProfileTabs } from './ui/overview/profile-tabs';
+export { ProfileTabs } from './ui/tabs/profile-tabs';
+export { TabItem } from './ui/tabs/tab-item';
 
 // plguin
 export { profileEditorPlugins } from './plugin/profile-editor-plugins';
@@ -25,7 +26,6 @@ export { SocialInfoBox } from './ui/edit/social-info-box';
 export { Overview } from './ui/overview/Overview';
 
 //lib
-export { useUserState } from './lib/useUserState';
 
 export { type UserProfileType } from './model/user-profile';
 export { UserInitialState } from './model/user-profile';

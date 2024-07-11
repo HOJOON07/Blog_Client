@@ -23,6 +23,7 @@ instance.interceptors.request.use(
     if (accessToken) {
       config.headers['authorization'] = `Bearer ${accessToken}`;
     }
+
     return config;
   },
   (error) => {
@@ -77,7 +78,6 @@ instance.interceptors.response.use(
       } catch (error: any) {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        window.location.href = '/signin';
         return Promise.reject(error);
       }
     }
