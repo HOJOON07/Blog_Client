@@ -17,7 +17,7 @@ export const SocialInfoBox = ({
       <div className="flex items-center justify-center">
         <Icon name={icon} size={5} />
       </div>
-      <UserInput placeholder={placeholder} name={name} />
+      <UserInput placeholder={placeholder} name={name} key={name} />
     </div>
   );
 };

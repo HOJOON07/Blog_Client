@@ -8,7 +8,12 @@ export function createGlobalUserState<T>(
   return function () {
     const queryClient = useQueryClient();
 
-    const { data: user } = useQuery({
+    const {
+      data: user,
+      isError,
+      isLoading,
+      isSuccess,
+    } = useQuery({
       queryKey: [queryKey],
       queryFn: getMyInfo,
       refetchInterval: false,
@@ -16,7 +21,7 @@ export function createGlobalUserState<T>(
       refetchOnWindowFocus: false,
       refetchOnReconnect: true,
       refetchIntervalInBackground: true,
-      retry: 1,
+      retry: 2,
     });
 
     function setData(data: Partial<T>) {
@@ -31,6 +36,6 @@ export function createGlobalUserState<T>(
         queryKey: [queryKey],
       });
     }
-    return { user, setData, resetData };
+    return { user, setData, resetData, isLoading, isError, isSuccess };
   };
 }

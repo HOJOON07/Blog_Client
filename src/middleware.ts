@@ -20,7 +20,7 @@ export async function middleware(request: NextRequest) {
       url.pathname.startsWith('/profiles/edit')
     ) {
       // workspace나 profiles/edit 페이지로 접근하려는 경우 signin으로 리다이렉트
-      url.pathname = '/signin';
+      url.pathname = '/articles';
       return NextResponse.redirect(url);
     }
   }

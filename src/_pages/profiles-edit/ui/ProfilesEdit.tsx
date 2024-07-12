@@ -35,7 +35,7 @@ export default function ProfilesEdit({ params }: { params: { id: string } }) {
       <div className="max-w-[1100px] w-full mx-auto my-0">
         <div className="py-12 grid grid-cols-1">
           <p className="text-4xl font-bold mb-10">프로필</p>
-          <ProfileEditForm />
+          <ProfileEditForm user={user} />
         </div>
       </div>
     </main>
