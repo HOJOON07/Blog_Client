@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { cn } from '@udecode/cn';
-import { Plate } from '@udecode/plate-common';
+import { Plate, TElement } from '@udecode/plate-common';
 import { TooltipProvider } from '@/components/plate-ui/tooltip';
 import { Editor } from '@/components/plate-ui/editor';
 import { FixedToolbarButtons } from '@/components/plate-ui/fixed-toolbar-buttons';
@@ -14,8 +14,10 @@ import { profileEditorPlugins } from '@/widgets/profiles';
 import { ProfilesFixedToolbar } from './editor-fixed-toolbar';
 import { ProfileInitialValue } from '../../../../../public/mock/ProfileInitData';
 import { useProfilesEditorReadOnlyStore } from '@/app/_store/profiles-editor-store';
+import { useUserState } from '@/app/_store/useUserState';
 
-export const ProfileEditor = () => {
+export const ProfileEditor = ({ readme }: { readme: TElement[] }) => {
+  const { user } = useUserState();
   const containerRef = useRef(null);
   const { isReadOnly } = useProfilesEditorReadOnlyStore();
 
@@ -27,7 +29,9 @@ export const ProfileEditor = () => {
     >
       <Plate
         plugins={profileEditorPlugins}
-        initialValue={ProfileInitialValue}
+        // null값일때 이니셜 밸류를 보여주도록 해줘야 함!
+        initialValue={readme}
+        // initialValue={ProfileInitialValue}
         readOnly={isReadOnly}
       >
         <div

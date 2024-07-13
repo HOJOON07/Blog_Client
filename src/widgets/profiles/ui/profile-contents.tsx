@@ -15,6 +15,9 @@ export default function ProfilesContents() {
   const searchParams = useSearchParams();
   const devName = searchParams.get('devName') as string;
   const { user, isLoading, isError } = useGetUserProfilesQuery(devName);
+
+  console.log('user', user);
+
   const { tabMode } = useProfilesTabModeStore();
 
   if (isLoading) {
@@ -35,7 +38,9 @@ export default function ProfilesContents() {
       <div className="flex flex-col gap-9">
         <PlateController>
           <ProfileTabs profileUserId={user?.id} />
-          {tabMode === 'Overview' && <Overview username={user?.github} />}
+          {tabMode === 'Overview' && (
+            <Overview username={user?.github} readme={user?.readme} />
+          )}
         </PlateController>
         {tabMode === 'Articles' && <ProfileArticles />}
       </div>

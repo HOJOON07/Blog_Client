@@ -5,5 +5,6 @@ export const getUserInfoApi = async (devName: string) => {
     `http://localhost:5500/users/info?devName=${devName}`,
     {},
   );
+
   return response.data;
 };

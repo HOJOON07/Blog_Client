@@ -71,7 +71,7 @@ export const ProfileSection = ({ user }: ProfileSectionProps) => {
         <Button
           className="w-full rounded-[6px] mb-4"
           onClick={() => {
-            router.push(`/profiles/edit/${myInfo?.devName}`);
+            router.push(`/profiles/edit/${myInfo?.id}`);
           }}
         >
           프로필 수정

@@ -5,17 +5,19 @@ import { TabItem } from './tab-item';
 import { useEditorState } from '@udecode/plate-common';
 import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { useUserState } from '@/app/_store/useUserState';
+import { useProfileReadmeMutation } from '../../lib/useProfileReadmeMutation';
 
 export const ProfileTabs = ({ profileUserId }: { profileUserId?: number }) => {
   const { isReadOnly, setIsReadOnly } = useProfilesEditorReadOnlyStore();
   const { user: myInfo } = useUserState();
   const { tabMode } = useProfilesTabModeStore();
   const editor = useEditorState();
+  const { profileReadmeEdit } = useProfileReadmeMutation();
 
   const handleEditButton = () => {
     if (!isReadOnly) {
-      // 여기서 로직 추가 .
       console.log(editor.children);
+      profileReadmeEdit({ userId: myInfo?.id, readme: editor.children });
     }
     setIsReadOnly();
   };
