@@ -13,9 +13,11 @@ import { DevTool } from '@hookform/devtools';
 import { useRouter } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { setCookie } from '@/shared/api/set-cookie';
+import { useUserState } from '@/app/_store/useUserState';
 
 export const PassWordForm = () => {
   const { toast } = useToast();
+  const { resetData } = useUserState();
   const router = useRouter();
   const [devNameMessage, setDevNameMessage] =
     useState<string>('2 ~ 16자 사이로 입력해주세요');
@@ -49,6 +51,7 @@ export const PassWordForm = () => {
       } catch (err) {
         console.log('쿠키 설정 에러');
       }
+      resetData();
       router.push('/articles');
     },
     onError: (data: any) => {

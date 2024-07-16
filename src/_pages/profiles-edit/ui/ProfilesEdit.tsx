@@ -27,7 +27,7 @@ export default function ProfilesEdit({ params }: { params: { id: string } }) {
   }, [user, params.id, router]);
 
   if (!isAuthorized) {
-    return <div>사용자 정보를 불러오는 중입니다.</div>;
+    return <div>접근할 수 없는 프로필 페이지입니다.</div>;
   }
 
   return (

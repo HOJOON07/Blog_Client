@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 export function createGlobalUserState<T>(
   queryKey: unknown,
-  initialData: T | null = null,
+  initialData: T | undefined = undefined,
 ) {
   return function () {
     const queryClient = useQueryClient();
@@ -19,9 +19,9 @@ export function createGlobalUserState<T>(
       refetchInterval: false,
       refetchOnMount: false,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: true,
-      refetchIntervalInBackground: true,
-      retry: 2,
+      refetchOnReconnect: false,
+      refetchIntervalInBackground: false,
+      retry: 3,
     });
 
     function setData(data: Partial<T>) {
@@ -29,12 +29,11 @@ export function createGlobalUserState<T>(
     }
 
     function resetData() {
-      queryClient.invalidateQueries({
-        queryKey: [queryKey],
-      });
       queryClient.refetchQueries({
         queryKey: [queryKey],
       });
+      queryClient.removeQueries({ queryKey: [queryKey], exact: true });
+      queryClient.invalidateQueries({ queryKey: [queryKey] });
     }
     return { user, setData, resetData, isLoading, isError, isSuccess };
   };
