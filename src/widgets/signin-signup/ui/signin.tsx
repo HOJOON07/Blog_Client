@@ -23,10 +23,7 @@ export const SignIn = () => {
       localStorage.setItem('refreshToken', data.refreshToken);
       try {
         await setCookie(accessToken, refreshToken);
-        console.log('쿠키 설정');
-      } catch (err) {
-        console.log('쿠키 설정 에러');
-      }
+      } catch (err) {}
       router.push('/articles');
     },
     onError: (data: any) => {

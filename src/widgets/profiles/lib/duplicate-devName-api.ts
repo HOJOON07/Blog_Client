@@ -6,10 +6,8 @@ export const duplicateDevNameApi = async (devName: string) => {
     const { data } = await instance.post(`/users/duplicate`, {
       devName,
     });
-    console.log(data);
     return data;
   } catch (err) {
-    console.log(err);
     throw err;
   }
 };

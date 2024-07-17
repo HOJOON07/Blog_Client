@@ -43,7 +43,7 @@ export const RotateAccessToken = async () => {
         },
       },
     );
-    console.log('accessTokenRotate', response.data);
+
     return response.data;
   } catch (error) {
     // 리프레시 토큰이 만료되면 여기서 에러를 처리

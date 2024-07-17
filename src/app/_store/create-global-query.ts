@@ -16,11 +16,11 @@ export function createGlobalUserState<T>(
     } = useQuery({
       queryKey: [queryKey],
       queryFn: getMyInfo,
-      refetchInterval: false,
-      refetchOnMount: false,
+      // refetchInterval: true,
+      refetchOnMount: true,
       refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-      refetchIntervalInBackground: false,
+      refetchOnReconnect: true,
+      refetchIntervalInBackground: true,
       retry: 3,
     });
 

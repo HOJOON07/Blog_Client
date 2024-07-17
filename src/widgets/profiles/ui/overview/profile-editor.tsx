@@ -30,7 +30,7 @@ export const ProfileEditor = ({ readme }: { readme: TElement[] }) => {
       <Plate
         plugins={profileEditorPlugins}
         // null값일때 이니셜 밸류를 보여주도록 해줘야 함!
-        initialValue={readme}
+        initialValue={readme ?? ProfileInitialValue}
         // initialValue={ProfileInitialValue}
         readOnly={isReadOnly}
       >

@@ -1,10 +1,6 @@
 'use client';
 import { Button, Icon } from '@/shared';
-import {
-  SocialInfoBox,
-  UserInfoBox,
-  UserProfileType,
-} from '@/widgets/profiles';
+import { SocialInfoBox, UserInfoBox } from '@/widgets/profiles';
 import {
   FormProvider,
   SubmitHandler,
@@ -19,6 +15,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useDuplicateMutaion } from '@/widgets/profiles/lib/useDuplicateMutation';
 import { useProfileEditMutation } from '@/widgets/profiles/lib/useProfileEditMutaion';
 import { ProfileEditType } from '@/widgets/profiles/lib/profile-edit-api';
+import { MyProfileType } from '../model/my-profile-type';
 
 const convertNullToUndefined = (obj: { [key: string]: any }) => {
   return Object.fromEntries(
@@ -29,7 +26,7 @@ const convertNullToUndefined = (obj: { [key: string]: any }) => {
   );
 };
 
-export const ProfileEditForm = ({ user }: { user: UserProfileType }) => {
+export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
   const { isDuplicateDevName } = useDuplicateMutaion();
   const { profileEditMutation } = useProfileEditMutation();
 
@@ -49,7 +46,6 @@ export const ProfileEditForm = ({ user }: { user: UserProfileType }) => {
   });
   const onSubmit: SubmitHandler<ProfileEditFormData> = (data) => {
     if (user?.id !== null) {
-      console.log(data);
       profileEditMutation({ userId: user.id, profileEditData: data });
     } else {
       console.error('user id is null');

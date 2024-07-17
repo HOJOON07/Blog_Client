@@ -51,7 +51,7 @@ export const ProfileSection = ({ user }: ProfileSectionProps) => {
             size={4}
             color="text-zinc-400"
           />
-          {'24 팔로워 · 20 팔로잉'}
+          {`${user?.followerCount} 팔로워 · ${user?.followeeCount} 팔로잉 `}
         </p>
         <p className="text-zinc-400 text-[14px] font-medium items-center flex">
           <Icon

@@ -38,7 +38,7 @@ export default function RedirectComponent({
 
   useEffect(() => {
     if (!githubCode) {
-      console.log('GitHub code not found in URL parameters.');
+      throw Error('GitHub code not found in URL parameters.');
     } else {
       mutate(githubCode);
     }

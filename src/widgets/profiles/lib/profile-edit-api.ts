@@ -25,7 +25,7 @@ export const ProfileEditApi = async ({
       `/users/edit/${userId}`,
       profileEditData,
     );
-    console.log(response);
+
     return response.data;
   } catch (error) {
     console.error('Error updating profile:', error);

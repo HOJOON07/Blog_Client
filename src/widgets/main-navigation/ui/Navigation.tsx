@@ -21,6 +21,8 @@ import {
   Icon,
   Skeleton,
 } from '@/shared';
+import { deleteCookie } from '@/shared/api/delete-cookie';
+import { useSignout } from '@/shared/lib/useSignout';
 import { Logo } from '@/widgets/main-navigation/index';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
@@ -28,7 +30,8 @@ import { useState } from 'react';
 
 export const Navigation = () => {
   const { user, resetData } = useUserState();
-  console.log(user);
+  const { signOut } = useSignout();
+
   const router = useRouter();
 
   const [showNotiCard, setShowNotiCard] = useState<boolean>(false);
@@ -79,12 +82,15 @@ export const Navigation = () => {
                   <DropdownMenuItem
                     className="cursor-pointer"
                     onClick={() => {
-                      router.push(`profiles?devName=${user?.devName}`);
+                      router.push(`/profiles?devName=${user?.devName}`);
                     }}
                   >
                     My Profile
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer">
+                  <DropdownMenuItem
+                    className="cursor-pointer"
+                    onClick={signOut}
+                  >
                     Sign Out
                   </DropdownMenuItem>
                 </DropdownMenuContent>

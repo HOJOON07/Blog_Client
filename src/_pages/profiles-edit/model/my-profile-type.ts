@@ -1,4 +1,4 @@
-export interface UserProfileType {
+export interface MyProfileType {
   bio: string | null;
   devName: string | null;
   email: string | null;
@@ -10,11 +10,9 @@ export interface UserProfileType {
   role: string;
   socialEtc: string | null;
   github: string | null;
-  followeeCount: number;
-  followerCount: number;
 }
 
-export const UserInitialState: UserProfileType = {
+export const UserInitialState: MyProfileType = {
   bio: null,
   devName: null,
   email: null,
@@ -26,6 +24,4 @@ export const UserInitialState: UserProfileType = {
   role: 'User',
   socialEtc: null,
   github: null,
-  followeeCount: 0,
-  followerCount: 0,
 };
