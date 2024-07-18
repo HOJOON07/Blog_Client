@@ -28,7 +28,6 @@ export const PassWordForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     watch,
     control,
   } = useForm<SignupUserFormData>({

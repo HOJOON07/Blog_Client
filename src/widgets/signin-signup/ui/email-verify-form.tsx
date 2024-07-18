@@ -10,6 +10,8 @@ import { useMutation } from '@tanstack/react-query';
 
 import { useSignupProgressStore } from '@/app/_store/singup-form-progres-store';
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
+import { useFormStatus } from 'react-dom';
+import { useState } from 'react';
 
 export const EmailAuthForm = () => {
   const { toast } = useToast();
@@ -19,11 +21,11 @@ export const EmailAuthForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting, isValid, isDirty },
     control,
   } = useForm<EmailFormData>({ resolver: zodResolver(EmailSchema) });
 
-  const { mutate: sendEmail } = useMutation({
+  const { mutate: sendEmail, status } = useMutation({
     mutationFn: emailAuthSend,
     onSuccess: (data) => {
       toast({
@@ -40,6 +42,8 @@ export const EmailAuthForm = () => {
       });
     },
   });
+
+  console.log(status);
 
   const onSubmit: SubmitHandler<EmailFormData> = (formData) => {
     sendEmail(formData.email);
@@ -80,6 +84,7 @@ export const EmailAuthForm = () => {
         <Button
           className="w-full h-[48px] rounded-xl py-3 text-base font-medium"
           type="submit"
+          disabled={!isDirty || !isValid || status === 'pending'}
         >
           이메일 인증하기
         </Button>

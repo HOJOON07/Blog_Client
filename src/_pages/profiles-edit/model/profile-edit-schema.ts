@@ -1,4 +1,3 @@
-import { positions } from 'slate';
 import { z } from 'zod';
 
 export const ProfilesEditSchema = z.object({

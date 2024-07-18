@@ -10,14 +10,23 @@ export const WorkspaceSidebar = () => {
           <div className="flex flex-col px-3 py-1">
             <UserInfo />
             <Search />
-            <SidebarItem icon="folder" title="모든 페이지" />
+            <SidebarItem icon="folder" title="모든 페이지" href="/workspace" />
             <Divider category="즐겨찾기" />
-            <SidebarItem icon="document" title="즐겨 찾기 제목" />
+            <SidebarItem
+              icon="document"
+              title="즐겨 찾기 제목"
+              href="/workspace"
+            />
             <Divider category="시리즈" />
-            <SidebarItem isSeries={true} icon="series" title="시리즈 제목" />
+            <SidebarItem
+              isSeries={true}
+              icon="series"
+              title="시리즈 제목"
+              href="/workspace"
+            />
             <Divider category="기타" />
-            <SidebarItem icon="trashbox" title="휴지통" />
-            <SidebarItem icon="storage" title="임시 저장" />
+            <SidebarItem icon="trashbox" title="휴지통" href="/workspace" />
+            <SidebarItem icon="storage" title="임시 저장" href="/workspace" />
           </div>
         </div>
         <Footer />

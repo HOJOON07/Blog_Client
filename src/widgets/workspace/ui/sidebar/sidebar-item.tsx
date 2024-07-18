@@ -1,10 +1,12 @@
 import { Icon, IconList, buttonVariants, cn } from '@/shared';
+import Link from 'next/link';
 
 interface SidebarDocumentsProps {
   icon: IconList;
   children?: React.ReactNode;
   isSeries?: boolean;
   title?: string;
+  href: string;
 }
 
 export const SidebarItem = ({
@@ -12,9 +14,11 @@ export const SidebarItem = ({
   isSeries,
   title,
   children,
+  href,
 }: SidebarDocumentsProps) => {
   return (
-    <div
+    <Link
+      href={href}
       className={cn(
         buttonVariants({ variant: 'ghost' }),
         'relative justify-start gap-2',
@@ -26,6 +30,6 @@ export const SidebarItem = ({
       <Icon name={icon} size={4} />
       <p className="font-light">{title}</p>
       {children}
-    </div>
+    </Link>
   );
 };

@@ -3,8 +3,11 @@ import { ArticleCard } from '@/features/get-articlecard';
 import { cn } from '@/shared';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MOCK_DATA } from '../../../../public/mock/ArticleCardData';
+import axios from 'axios';
+import { assert } from 'console';
+import { useGetArticlesQuery } from '../tanstack-query/useGetArticelsQuery';
 
 export interface ArticleCardProps {
   user: {
@@ -22,6 +25,10 @@ export interface ArticleCardProps {
 
 export const Articles = ({ className }: { className?: string }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const { articles, isError, isLoading } = useGetArticlesQuery();
+
+  console.log(articles);
 
   return (
     <div

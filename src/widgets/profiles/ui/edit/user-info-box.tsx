@@ -23,7 +23,6 @@ export const UserInfoBox = ({
   return (
     <div className="flex flex-col w-full gap-2">
       <p className="font-semibold">{title}</p>
-      {/* 데브월드 이름 */}
       <UserInput placeholder={placeholder} name={name} />
       <div className="flex w-full items-center">
         {errors[name] ? (
