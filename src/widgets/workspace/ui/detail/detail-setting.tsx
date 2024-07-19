@@ -3,37 +3,56 @@ import {
   CreateArticleFormData,
   CreateArticleSchema,
 } from '@/features/write-editor/model/create-article-schema';
-import {
-  isPrivateType,
-  isPublishType,
-} from '@/features/write-editor/model/create-article-type';
 import { useCreateArticleMutation } from '@/features/write-editor/tanstack-query/useCreateArticleMutation';
 // import { useEditorValue } from '@/app/_store/editorValue';
 import { Button, Icon, Switch, cn } from '@/shared';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useEditorMounted, useEditorState } from '@udecode/plate-common';
-import { FileSpreadsheet } from 'lucide-react';
+import { useEditorState } from '@udecode/plate-common';
 import Image from 'next/image';
 import React, { EventHandler, useEffect, useRef, useState } from 'react';
-import { EventType, SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import {
+  DetailArticleFormData,
+  DetailArticleSchema,
+} from '../../model/detail-settting-from-schema';
+import { useWorkspaceArticleEditMutation } from '../../tanstack-query/useWorkspaceArticleEditMutation';
+import { useParams } from 'next/navigation';
 
-export const DetailSetting = () => {
+type isPrivateType = 'private' | 'open';
+type isPublishType = 'publish' | 'temporary';
+
+export const DetailSetting = ({
+  title,
+  description,
+}: {
+  title?: string;
+  description?: string;
+  isPrivate?: isPrivateType;
+  isPublish?: isPublishType;
+}) => {
   const editor = useEditorState();
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [isPrivate, setIsPrivate] = useState<boolean>(true);
   const thumbnailsRef = useRef<HTMLInputElement>(null);
   const [thumbnailPreiew, setThumbnailPreview] = useState<string | null>();
-  const { createArticleMutation } = useCreateArticleMutation();
+  const { articleId } = useParams<{ articleId: string }>();
+  const { editWorkspaceArticle } = useWorkspaceArticleEditMutation(
+    parseInt(articleId),
+  );
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateArticleFormData>({
-    resolver: zodResolver(CreateArticleSchema),
+  } = useForm<DetailArticleFormData>({
+    resolver: zodResolver(DetailArticleSchema),
+    defaultValues: {
+      title,
+      description,
+    },
   });
 
-  const onSubmit: SubmitHandler<CreateArticleFormData> = async (
+  const onSubmit: SubmitHandler<DetailArticleFormData> = async (
     formData,
     event,
   ) => {
@@ -51,12 +70,15 @@ export const DetailSetting = () => {
     const isPrivateState = isPrivate ? 'private' : 'open';
     const isPublishState = isPublish ? 'publish' : 'temporary';
 
-    createArticleMutation({
-      title,
-      contents: editor.children,
-      description,
-      isPrivate: isPrivateState,
-      isPublish: isPublishState,
+    editWorkspaceArticle({
+      articleId: parseInt(articleId),
+      profileEditData: {
+        title,
+        description,
+        contents: editor.children,
+        isPrivate: isPrivateState,
+        isPublish: isPublishState,
+      },
     });
   };
 
@@ -89,12 +111,7 @@ export const DetailSetting = () => {
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
                 {thumbnailPreiew ? (
-                  <Image
-                    src={thumbnailPreiew}
-                    alt="썸네일 미리보기"
-                    fill
-                    objectFit="contain"
-                  />
+                  <Image src={thumbnailPreiew} alt="썸네일 미리보기" fill />
                 ) : (
                   <Icon name="document" color="text-zinc-400" />
                 )}

@@ -13,8 +13,6 @@ export default function WorkspaceDetailPage() {
     parseInt(articleId),
   );
 
-  console.log(document);
-
   if (isLoading) {
     return <div>불러오는 중입니다.</div>;
   }
@@ -32,7 +30,12 @@ export default function WorkspaceDetailPage() {
               <DetailPlateEditor contents={document?.contents} />
             </div>
           </TooltipProvider>
-          <DetailSetting />
+          <DetailSetting
+            title={document?.title}
+            isPrivate={document?.isPrivate}
+            isPublish={document?.isPublish}
+            description={document?.description}
+          />
         </PlateController>
       </div>
     </div>
