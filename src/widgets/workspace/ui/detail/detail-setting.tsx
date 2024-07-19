@@ -17,7 +17,7 @@ import Image from 'next/image';
 import React, { EventHandler, useEffect, useRef, useState } from 'react';
 import { EventType, SubmitHandler, useForm } from 'react-hook-form';
 
-export const Settings = () => {
+export const DetailSetting = () => {
   const editor = useEditorState();
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [isPrivate, setIsPrivate] = useState<boolean>(true);
@@ -111,11 +111,7 @@ export const Settings = () => {
         </div>
         <div className="flex mt-5 justify-between">
           <p>공개 여부</p>
-          <Switch
-            onClick={() => {
-              setIsPrivate(!isPrivate);
-            }}
-          />
+          <Switch checked={true} />
         </div>
         <div className="flex mt-5 justify-between">
           <p>제목</p>

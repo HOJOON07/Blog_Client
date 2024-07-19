@@ -1,29 +1,42 @@
 import { ToastAction, useToast } from '@/shared';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { CreateArticleType } from '../model/create-article-type';
 import { createArticleApi } from '../api/create-article-api';
 
 export const useCreateArticleMutation = () => {
+  const queryClient = useQueryClient();
   const router = useRouter();
   const { toast } = useToast();
   const { mutate: createArticleMutation } = useMutation({
     mutationFn: ({
       title,
+      contents,
       description,
       isPrivate,
       isPublish,
       thumbnails,
-      contents,
     }: CreateArticleType) => {
-      return createArticleApi({
-        title,
-        description,
-        isPrivate,
-        isPublish,
-        thumbnails,
-        contents,
-      });
+      if (thumbnails) {
+        console.log('있음');
+        return createArticleApi({
+          title,
+          contents,
+          description,
+          isPrivate,
+          isPublish,
+          thumbnails,
+        });
+      } else {
+        console.log('없음');
+        return createArticleApi({
+          title,
+          contents,
+          description,
+          isPrivate,
+          isPublish,
+        });
+      }
     },
     onSuccess: () => {
       toast({
@@ -35,7 +48,10 @@ export const useCreateArticleMutation = () => {
           </ToastAction>
         ),
       });
-      router.push('/workspace');
+      queryClient.invalidateQueries({
+        queryKey: ['workspace'],
+      }),
+        router.push('/workspace');
     },
     onError: (data: any) => {
       toast({

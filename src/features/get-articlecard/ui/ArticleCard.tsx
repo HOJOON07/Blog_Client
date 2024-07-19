@@ -2,29 +2,37 @@ import { Avatar, AvatarFallback, AvatarImage, Icon, Skeleton } from '@/shared';
 import { BookmarkFilledIcon, HeartFilledIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import { format } from 'date-fns';
+
+const DEFAULT_THUMBNAIL_SRC = '/post-thumbnail.jpeg';
 
 export interface ArticleCardProps {
-  user: {
+  author: {
     avatarImage: string;
-    name: string;
-    addres: string;
-    job: string;
+    devName: string;
+    location: string;
+    position: string;
   };
   title: string;
-  subTitle: string;
+  description: string;
   likeCount: number;
   commentCount: number;
-  date: string;
+  createdAt: string;
+  thumbnails?: string[];
 }
 
 export const ArticleCard = ({
-  user,
+  author,
   title,
-  subTitle,
+  description,
   likeCount,
   commentCount,
-  date,
+  createdAt,
+  thumbnails,
 }: ArticleCardProps) => {
+  const thunbnailSrc =
+    thumbnails && thumbnails.length > 0 ? thumbnails[0] : DEFAULT_THUMBNAIL_SRC;
+
   return (
     <div className="flex flex-col relative bg-background rounded-[10px] aspect-articleCard z-10">
       <div className="flex items-center w-full h-14">
@@ -35,9 +43,9 @@ export const ArticleCard = ({
           </AvatarFallback>
         </Avatar>
         <div>
-          <p className="text-white text-sm font-medium">{user.name}</p>
+          <p className="text-white text-sm font-medium">{author.devName}</p>
           <p className="text-zinc-500 text-[10px] font-medium">
-            {user.job}, {user.addres}
+            {author.position}, {author.location}
           </p>
         </div>
         <Icon name="dots" className="ml-auto" />
@@ -45,7 +53,7 @@ export const ArticleCard = ({
       <Link href={''} className="relative w-full h-0 pb-[50%] overflow-hidden">
         <Image
           fill
-          src="/post-thumbnail.jpeg"
+          src={thunbnailSrc}
           alt="post-thumbnail"
           sizes="300px"
           priority
@@ -55,7 +63,7 @@ export const ArticleCard = ({
         {title}
       </div>
       <div className="flex text-sm font-light text-zinc-300 flex-1 break-all text-ellipsis line-clamp-2">
-        {subTitle}
+        {description}
       </div>
       <div className="mb-auto flex items-center gap-1 h-8 my-2">
         <Icon name="star" size={5} color="text-neutral-700" />
@@ -67,7 +75,7 @@ export const ArticleCard = ({
           {commentCount}
         </span>
         <span className="text-zinc-500 text-[12px] font-medium ml-auto">
-          {date}
+          {format(createdAt, 'yyyy년 MM월 dd일')}
         </span>
         <BookmarkFilledIcon className="text-neutral-700 w-[20px] h-[20px]" />
       </div>

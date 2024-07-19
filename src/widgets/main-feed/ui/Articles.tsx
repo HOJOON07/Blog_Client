@@ -9,26 +9,10 @@ import axios from 'axios';
 import { assert } from 'console';
 import { useGetArticlesQuery } from '../tanstack-query/useGetArticelsQuery';
 
-export interface ArticleCardProps {
-  user: {
-    avatarImage: string;
-    name: string;
-    addres: string;
-    job: string;
-  };
-  title: string;
-  subTitle: string;
-  likeCount: number;
-  commentCount: number;
-  date: string;
-}
-
 export const Articles = ({ className }: { className?: string }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const { articles, isError, isLoading } = useGetArticlesQuery();
-
-  console.log(articles);
 
   return (
     <div
@@ -37,10 +21,20 @@ export const Articles = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      {MOCK_DATA.map(
-        ({ user, title, subTitle, likeCount, commentCount, date }, idx) => (
+      {articles?.data.map(
+        (
+          {
+            author,
+            title,
+            description,
+            likeCount,
+            commentCount,
+            createdAt,
+            thumbnails,
+          },
+          idx,
+        ) => (
           <div
-            // href={''}
             key={idx}
             className="relative group block p-2 h-full w-full"
             onMouseEnter={() => setHoveredIndex(idx)}
@@ -64,12 +58,13 @@ export const Articles = ({ className }: { className?: string }) => {
               )}
             </AnimatePresence>
             <ArticleCard
-              user={user}
+              author={author}
               title={title}
               likeCount={likeCount}
-              subTitle={subTitle}
+              description={description}
               commentCount={commentCount}
-              date={date}
+              createdAt={createdAt}
+              thumbnails={thumbnails}
             />
           </div>
         ),

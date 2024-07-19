@@ -41,7 +41,7 @@ export {
   BreadcrumbSeparator,
   BreadcrumbEllipsis,
 } from './ui/breadcrumb';
-export { Button, buttonVariants } from './ui/button';
+export * from './ui/button';
 export {
   Card,
   CardHeader,
@@ -83,6 +83,7 @@ export * from './ui/input-otp';
 export * from './ui/toast';
 export * from './ui/toaster';
 export * from './ui/use-toast';
+export * from './ui/pagination';
 
 // lib
 export { cn } from './lib/utils';

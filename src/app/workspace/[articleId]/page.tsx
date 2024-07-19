@@ -1,15 +1,24 @@
 'use client';
 import React from 'react';
-import PlateEditor from '@/features/write-editor/ui/PlateEditor';
-import { Settings } from '@/widgets/workspace';
 import { PlateController } from '@udecode/plate-common';
 import { TooltipProvider } from '@/components/plate-ui/tooltip';
+import DetailPlateEditor from '@/widgets/workspace/ui/detail/detail-editor';
+import { DetailSetting } from '@/widgets/workspace/ui/detail/detail-setting';
+import { useGetWorkspaceDetailsQuery } from '@/widgets/workspace/tanstack-query/useGetWorkspaceDetailsQuery';
+import { useParams, usePathname, useSearchParams } from 'next/navigation';
 
-export default function WorkspaceDetailPage({
-  searchParams,
-}: {
-  searchParams: string;
-}) {
+export default function WorkspaceDetailPage() {
+  const { articleId } = useParams<{ articleId: string }>();
+  const { document, isLoading } = useGetWorkspaceDetailsQuery(
+    parseInt(articleId),
+  );
+
+  console.log(document);
+
+  if (isLoading) {
+    return <div>불러오는 중입니다.</div>;
+  }
+
   return (
     <div>
       <div className="flex flex-1 relative">
@@ -20,10 +29,10 @@ export default function WorkspaceDetailPage({
             skipDelayDuration={0}
           >
             <div className="w-[820px] rounded-lg border bg-background shadow">
-              <PlateEditor />
+              <DetailPlateEditor contents={document?.contents} />
             </div>
           </TooltipProvider>
-          <Settings />
+          <DetailSetting />
         </PlateController>
       </div>
     </div>
