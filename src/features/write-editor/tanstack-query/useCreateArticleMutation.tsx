@@ -18,7 +18,6 @@ export const useCreateArticleMutation = () => {
       thumbnails,
     }: CreateArticleType) => {
       if (thumbnails) {
-        console.log('있음');
         return createArticleApi({
           title,
           contents,
@@ -28,7 +27,6 @@ export const useCreateArticleMutation = () => {
           thumbnails,
         });
       } else {
-        console.log('없음');
         return createArticleApi({
           title,
           contents,
@@ -51,7 +49,8 @@ export const useCreateArticleMutation = () => {
       queryClient.invalidateQueries({
         queryKey: ['workspace'],
       }),
-        router.push('/workspace');
+        queryClient.invalidateQueries({ queryKey: ['getArticles'] });
+      router.push('/workspace');
     },
     onError: (data: any) => {
       toast({

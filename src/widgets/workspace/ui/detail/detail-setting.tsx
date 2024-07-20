@@ -24,6 +24,8 @@ type isPublishType = 'publish' | 'temporary';
 export const DetailSetting = ({
   title,
   description,
+  isPrivate,
+  isPublish,
 }: {
   title?: string;
   description?: string;
@@ -32,13 +34,20 @@ export const DetailSetting = ({
 }) => {
   const editor = useEditorState();
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-  const [isPrivate, setIsPrivate] = useState<boolean>(true);
+  const [isPrivateState, setIsPrivateState] = useState<
+    isPrivateType | undefined
+  >(isPrivate);
+  const [isPublishState, setIsPublishState] = useState<
+    isPublishType | undefined
+  >(isPublish);
   const thumbnailsRef = useRef<HTMLInputElement>(null);
   const [thumbnailPreiew, setThumbnailPreview] = useState<string | null>();
   const { articleId } = useParams<{ articleId: string }>();
   const { editWorkspaceArticle } = useWorkspaceArticleEditMutation(
     parseInt(articleId),
   );
+
+  console.log(isPrivate, isPublish);
 
   const {
     register,
@@ -62,13 +71,17 @@ export const DetailSetting = ({
     const { name } = submitEvent.nativeEvent.submitter as HTMLButtonElement;
     const { title, description } = formData;
 
+    let publish: isPublishType = 'publish';
+
     if (name === 'temporary') {
-      setIsPrivate(true);
+      publish = 'temporary';
+    } else if (name === 'publish') {
+      publish = 'publish';
     }
 
-    const isPublish = name === 'publish';
-    const isPrivateState = isPrivate ? 'private' : 'open';
-    const isPublishState = isPublish ? 'publish' : 'temporary';
+    // const isPublish = name === 'publish';
+    // const isPrivateState = isPrivate ? 'private' : 'open';
+    // const isPublishState = isPublish ? 'publish' : 'temporary';
 
     editWorkspaceArticle({
       articleId: parseInt(articleId),
@@ -76,8 +89,8 @@ export const DetailSetting = ({
         title,
         description,
         contents: editor.children,
-        isPrivate: isPrivateState,
-        isPublish: isPublishState,
+        isPrivate: isPrivateState as isPrivateType,
+        isPublish: publish,
       },
     });
   };
@@ -128,7 +141,12 @@ export const DetailSetting = ({
         </div>
         <div className="flex mt-5 justify-between">
           <p>공개 여부</p>
-          <Switch checked={true} />
+          <Switch
+            checked={isPrivateState === 'open' ? true : false}
+            onClick={() =>
+              setIsPrivateState(isPrivateState === 'open' ? 'private' : 'open')
+            }
+          />
         </div>
         <div className="flex mt-5 justify-between">
           <p>제목</p>

@@ -19,6 +19,7 @@ export interface ArticleCardProps {
   commentCount: number;
   createdAt: string;
   thumbnails?: string[];
+  id: number;
 }
 
 export const ArticleCard = ({
@@ -29,6 +30,7 @@ export const ArticleCard = ({
   commentCount,
   createdAt,
   thumbnails,
+  id,
 }: ArticleCardProps) => {
   const thunbnailSrc =
     thumbnails && thumbnails.length > 0 ? thumbnails[0] : DEFAULT_THUMBNAIL_SRC;
@@ -50,7 +52,10 @@ export const ArticleCard = ({
         </div>
         <Icon name="dots" className="ml-auto" />
       </div>
-      <Link href={''} className="relative w-full h-0 pb-[50%] overflow-hidden">
+      <Link
+        href={`/articles/${id}`}
+        className="relative w-full h-0 pb-[50%] overflow-hidden"
+      >
         <Image
           fill
           src={thunbnailSrc}

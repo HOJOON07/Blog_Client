@@ -31,6 +31,7 @@ export const Articles = ({ className }: { className?: string }) => {
             commentCount,
             createdAt,
             thumbnails,
+            id,
           },
           idx,
         ) => (
@@ -65,6 +66,7 @@ export const Articles = ({ className }: { className?: string }) => {
               commentCount={commentCount}
               createdAt={createdAt}
               thumbnails={thumbnails}
+              id={id}
             />
           </div>
         ),

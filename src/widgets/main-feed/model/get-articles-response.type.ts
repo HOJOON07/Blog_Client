@@ -11,6 +11,7 @@ interface ArticleCardResponseType {
   commentCount: number;
   createdAt: string;
   thumbnails?: [];
+  id: number;
 }
 
 export interface getArticlesApiResponseType {

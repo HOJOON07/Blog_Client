@@ -20,7 +20,8 @@ import { EventType, SubmitHandler, useForm } from 'react-hook-form';
 export const Settings = () => {
   const editor = useEditorState();
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-  const [isPrivate, setIsPrivate] = useState<boolean>(true);
+  const [isPrivateState, setIsPrivateState] =
+    useState<isPrivateType>('private');
   const thumbnailsRef = useRef<HTMLInputElement>(null);
   const [thumbnailPreiew, setThumbnailPreview] = useState<string | null>();
   const { createArticleMutation } = useCreateArticleMutation();
@@ -43,20 +44,20 @@ export const Settings = () => {
     const { name } = submitEvent.nativeEvent.submitter as HTMLButtonElement;
     const { title, description } = formData;
 
-    if (name === 'temporary') {
-      setIsPrivate(true);
-    }
+    let publish: isPublishType = 'temporary';
 
-    const isPublish = name === 'publish';
-    const isPrivateState = isPrivate ? 'private' : 'open';
-    const isPublishState = isPublish ? 'publish' : 'temporary';
+    if (name === 'temporary') {
+      publish = 'temporary';
+    } else if (name === 'publish') {
+      publish = 'publish';
+    }
 
     createArticleMutation({
       title,
       contents: editor.children,
       description,
       isPrivate: isPrivateState,
-      isPublish: isPublishState,
+      isPublish: publish,
     });
   };
 
@@ -112,9 +113,10 @@ export const Settings = () => {
         <div className="flex mt-5 justify-between">
           <p>공개 여부</p>
           <Switch
-            onClick={() => {
-              setIsPrivate(!isPrivate);
-            }}
+            checked={isPrivateState === 'open' ? true : false}
+            onClick={() =>
+              setIsPrivateState(isPrivateState === 'open' ? 'private' : 'open')
+            }
           />
         </div>
         <div className="flex mt-5 justify-between">
