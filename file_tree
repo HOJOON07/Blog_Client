@@ -1,0 +1,521 @@
+client                                                 
+├─ public                                              
+│  ├─ mock                                             
+│  │  ├─ ArticleCardData.ts                            
+│  │  ├─ ArticleDetail.ts                              
+│  │  ├─ ArticleInitData.ts                            
+│  │  ├─ CommentsViewValue.ts                          
+│  │  ├─ PostCardData.ts                               
+│  │  └─ ProfileInitData.ts                            
+│  ├─ avatar.jpeg                                      
+│  ├─ next.svg                                         
+│  ├─ post-thumbnail.jpeg                              
+│  ├─ userCardBack.png                                 
+│  └─ vercel.svg                                       
+├─ src                                                 
+│  ├─ _pages                                           
+│  │  ├─ article-detail                                
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ ArticleDetail.tsx                       
+│  │  │  └─ index.ts                                   
+│  │  ├─ article-feed                                  
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ ArticleFeed.tsx                         
+│  │  │  └─ index.ts                                   
+│  │  ├─ auth                                          
+│  │  ├─ home                                          
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ Home.tsx                                
+│  │  │  └─ index.ts                                   
+│  │  ├─ landing                                       
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ LandingPage.tsx                         
+│  │  │  └─ index.tsx                                  
+│  │  ├─ posts                                         
+│  │  │  ├─ ui                                         
+│  │  │  └─ index.tsx                                  
+│  │  ├─ profiles                                      
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ Profiles.tsx                            
+│  │  │  └─ index.ts                                   
+│  │  ├─ profiles-edit                                 
+│  │  │  ├─ model                                      
+│  │  │  │  ├─ my-profile-type.ts                      
+│  │  │  │  └─ profile-edit-schema.ts                  
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ ProfilesEdit.tsx                        
+│  │  │  │  └─ profile-edit-form.tsx                   
+│  │  │  └─ index.ts                                   
+│  │  └─ workspace                                     
+│  │     ├─ ui                                         
+│  │     │  └─ WorkspacePage.tsx                       
+│  │     └─ index.ts                                   
+│  ├─ app                                              
+│  │  ├─ (apps)                                        
+│  │  │  ├─ @modal                                     
+│  │  │  │  ├─ (.)articles                             
+│  │  │  │  │  └─ [articleId]                          
+│  │  │  │  │     └─ page.tsx                          
+│  │  │  │  ├─ _action                                 
+│  │  │  │  │  └─ redirect.ts                          
+│  │  │  │  └─ default.tsx                             
+│  │  │  ├─ articles                                   
+│  │  │  │  ├─ [articleId]                             
+│  │  │  │  │  └─ page.tsx                             
+│  │  │  │  ├─ layout.tsx                              
+│  │  │  │  └─ page.tsx                                
+│  │  │  ├─ profiles                                   
+│  │  │  │  ├─ edit                                    
+│  │  │  │  │  └─ [id]                                 
+│  │  │  │  │     └─ page.tsx                          
+│  │  │  │  ├─ layout.tsx                              
+│  │  │  │  └─ page.tsx                                
+│  │  │  ├─ signin                                     
+│  │  │  │  └─ page.tsx                                
+│  │  │  ├─ signup                                     
+│  │  │  │  └─ page.tsx                                
+│  │  │  └─ layout.tsx                                 
+│  │  ├─ _providers                                    
+│  │  │  ├─ auth-provider.tsx                          
+│  │  │  ├─ index.ts                                   
+│  │  │  ├─ query-provider.tsx                         
+│  │  │  └─ theme-provider.tsx                         
+│  │  ├─ _store                                        
+│  │  │  ├─ create-global-query.ts                     
+│  │  │  ├─ main-sidebarStore.ts                       
+│  │  │  ├─ profiles-editor-store.ts                   
+│  │  │  ├─ profiles-tab-store.ts                      
+│  │  │  ├─ signup-form-data-store.ts                  
+│  │  │  ├─ singup-form-progres-store.ts               
+│  │  │  ├─ useUserState.ts                            
+│  │  │  ├─ user-store.ts                              
+│  │  │  └─ view-mode-store.ts                         
+│  │  ├─ api                                           
+│  │  │  ├─ delete-cookie                              
+│  │  │  │  └─ route.ts                                
+│  │  │  └─ set-cookie                                 
+│  │  │     └─ route.ts                                
+│  │  ├─ auth                                          
+│  │  │  └─ callback                                   
+│  │  │     └─ github                                  
+│  │  │        ├─ utils                                
+│  │  │        │  ├─ auth-github.tsx                   
+│  │  │        │  └─ redirect.tsx                      
+│  │  │        ├─ layout.tsx                           
+│  │  │        └─ page.tsx                             
+│  │  ├─ workspace                                     
+│  │  │  ├─ [articleId]                                
+│  │  │  │  └─ page.tsx                                
+│  │  │  ├─ write                                      
+│  │  │  │  └─ page.tsx                                
+│  │  │  ├─ layout.tsx                                 
+│  │  │  └─ page.tsx                                   
+│  │  ├─ favicon.ico                                   
+│  │  ├─ globals.css                                   
+│  │  ├─ layout.tsx                                    
+│  │  └─ page.tsx                                      
+│  ├─ components                                       
+│  │  ├─ plate-ui                                      
+│  │  │  ├─ fixed-buttons                              
+│  │  │  │  └─ text-styles-buttons.tsx                 
+│  │  │  ├─ align-dropdown-menu.tsx                    
+│  │  │  ├─ avatar.tsx                                 
+│  │  │  ├─ blockquote-element.tsx                     
+│  │  │  ├─ button.tsx                                 
+│  │  │  ├─ caption.tsx                                
+│  │  │  ├─ checkbox.tsx                               
+│  │  │  ├─ code-block-combobox.tsx                    
+│  │  │  ├─ code-block-element.css                     
+│  │  │  ├─ code-block-element.tsx                     
+│  │  │  ├─ code-leaf.tsx                              
+│  │  │  ├─ code-line-element.tsx                      
+│  │  │  ├─ code-syntax-leaf.tsx                       
+│  │  │  ├─ color-constants.ts                         
+│  │  │  ├─ color-dropdown-menu-items.tsx              
+│  │  │  ├─ color-dropdown-menu.tsx                    
+│  │  │  ├─ color-input.tsx                            
+│  │  │  ├─ color-picker.tsx                           
+│  │  │  ├─ colors-custom.tsx                          
+│  │  │  ├─ column-element.tsx                         
+│  │  │  ├─ column-group-element.tsx                   
+│  │  │  ├─ combobox.tsx                               
+│  │  │  ├─ command.tsx                                
+│  │  │  ├─ comment-avatar.tsx                         
+│  │  │  ├─ comment-create-form.tsx                    
+│  │  │  ├─ comment-item.tsx                           
+│  │  │  ├─ comment-leaf.tsx                           
+│  │  │  ├─ comment-more-dropdown.tsx                  
+│  │  │  ├─ comment-reply-items.tsx                    
+│  │  │  ├─ comment-resolve-button.tsx                 
+│  │  │  ├─ comment-toolbar-button.tsx                 
+│  │  │  ├─ comment-value.tsx                          
+│  │  │  ├─ comments-popover.tsx                       
+│  │  │  ├─ cursor-overlay.tsx                         
+│  │  │  ├─ dialog.tsx                                 
+│  │  │  ├─ draggable.tsx                              
+│  │  │  ├─ dropdown-menu.tsx                          
+│  │  │  ├─ editor.tsx                                 
+│  │  │  ├─ emoji-combobox.tsx                         
+│  │  │  ├─ emoji-dropdown-menu.tsx                    
+│  │  │  ├─ emoji-icons.tsx                            
+│  │  │  ├─ emoji-picker-content.tsx                   
+│  │  │  ├─ emoji-picker-navigation.tsx                
+│  │  │  ├─ emoji-picker-preview.tsx                   
+│  │  │  ├─ emoji-picker-search-and-clear.tsx          
+│  │  │  ├─ emoji-picker-search-bar.tsx                
+│  │  │  ├─ emoji-picker.tsx                           
+│  │  │  ├─ emoji-toolbar-dropdown.tsx                 
+│  │  │  ├─ excalidraw-element.tsx                     
+│  │  │  ├─ fixed-toolbar-buttons.tsx                  
+│  │  │  ├─ fixed-toolbar.tsx                          
+│  │  │  ├─ floating-toolbar-buttons.tsx               
+│  │  │  ├─ floating-toolbar.tsx                       
+│  │  │  ├─ heading-element.tsx                        
+│  │  │  ├─ highlight-leaf.tsx                         
+│  │  │  ├─ hr-element.tsx                             
+│  │  │  ├─ image-element.tsx                          
+│  │  │  ├─ indent-list-toolbar-button.tsx             
+│  │  │  ├─ indent-toolbar-button.tsx                  
+│  │  │  ├─ input.tsx                                  
+│  │  │  ├─ insert-dropdown-menu.tsx                   
+│  │  │  ├─ kbd-leaf.tsx                               
+│  │  │  ├─ line-height-dropdown-menu.tsx              
+│  │  │  ├─ link-element.tsx                           
+│  │  │  ├─ link-floating-toolbar.tsx                  
+│  │  │  ├─ link-toolbar-button.tsx                    
+│  │  │  ├─ list-element.tsx                           
+│  │  │  ├─ mark-toolbar-button.tsx                    
+│  │  │  ├─ media-embed-element.tsx                    
+│  │  │  ├─ media-popover.tsx                          
+│  │  │  ├─ media-toolbar-button.tsx                   
+│  │  │  ├─ mention-combobox.tsx                       
+│  │  │  ├─ mention-element.tsx                        
+│  │  │  ├─ mention-input-element.tsx                  
+│  │  │  ├─ mode-dropdown-menu.tsx                     
+│  │  │  ├─ more-dropdown-menu.tsx                     
+│  │  │  ├─ outdent-toolbar-button.tsx                 
+│  │  │  ├─ paragraph-element.tsx                      
+│  │  │  ├─ placeholder.tsx                            
+│  │  │  ├─ popover.tsx                                
+│  │  │  ├─ resizable.tsx                              
+│  │  │  ├─ separator.tsx                              
+│  │  │  ├─ table-cell-element.tsx                     
+│  │  │  ├─ table-dropdown-menu.tsx                    
+│  │  │  ├─ table-element.tsx                          
+│  │  │  ├─ table-row-element.tsx                      
+│  │  │  ├─ todo-list-element.tsx                      
+│  │  │  ├─ toggle-element.tsx                         
+│  │  │  ├─ toolbar.tsx                                
+│  │  │  ├─ tooltip.tsx                                
+│  │  │  ├─ turn-into-dropdown-menu.tsx                
+│  │  │  └─ with-draggables.tsx                        
+│  │  └─ icons.tsx                                     
+│  ├─ entities                                         
+│  ├─ features                                         
+│  │  ├─ comments-editor                               
+│  │  │  ├─ lib                                        
+│  │  │  │  └─ create-plugin.ts                        
+│  │  │  ├─ model                                      
+│  │  │  │  ├─ comments-insert-dropdown.ts             
+│  │  │  │  └─ comments-turninto-dropdown.tsx          
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ CommentsEditor.tsx                      
+│  │  │  │  ├─ CommentsViewerEditor.tsx                
+│  │  │  │  ├─ comments-buttons.tsx                    
+│  │  │  │  └─ comments-fixed-toolbar.tsx              
+│  │  │  └─ index.ts                                   
+│  │  ├─ get-articlecard                               
+│  │  │  ├─ ui                                         
+│  │  │  │  └─ ArticleCard.tsx                         
+│  │  │  └─ index.ts                                   
+│  │  ├─ get-feedTab                                   
+│  │  │  ├─ model                                      
+│  │  │  │  └─ tab.ts                                  
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ FeedTab.tsx                             
+│  │  │  │  └─ tab-item.tsx                            
+│  │  │  └─ index.ts                                   
+│  │  ├─ get-main-nav                                  
+│  │  │  ├─ model                                      
+│  │  │  │  └─ NavMenuType.ts                          
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ color-theme-handle.tsx                  
+│  │  │  │  ├─ nav-menu-group.tsx                      
+│  │  │  │  ├─ nav-notifications.tsx                   
+│  │  │  │  ├─ nav-search.tsx                          
+│  │  │  │  └─ notification-card.tsx                   
+│  │  │  └─ index.ts                                   
+│  │  ├─ get-workspace-sidebar                         
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ sidebar-header.tsx                      
+│  │  │  │  ├─ sidebar-search.tsx                      
+│  │  │  │  └─ sidebar-user-info.tsx                   
+│  │  │  └─ index.ts                                   
+│  │  ├─ signup-signin                                 
+│  │  │  ├─ api                                        
+│  │  │  │  ├─ authNumberVerify.ts                     
+│  │  │  │  ├─ emailAuthSend.ts                        
+│  │  │  │  ├─ signin.ts                               
+│  │  │  │  └─ singup-user-final.ts                    
+│  │  │  └─ index.ts                                   
+│  │  └─ write-editor                                  
+│  │     ├─ api                                        
+│  │     │  └─ create-article-api.ts                   
+│  │     ├─ lib                                        
+│  │     │  ├─ autoformatBlocks.ts                     
+│  │     │  ├─ autoformatIndentLists.ts                
+│  │     │  ├─ autoformatLists.ts                      
+│  │     │  ├─ autoformatMarks.ts                      
+│  │     │  ├─ autoformatPlugin.ts                     
+│  │     │  ├─ autoformatRules.ts                      
+│  │     │  ├─ autoformatUtils.ts                      
+│  │     │  └─ dragOverCursorPlugin.ts                 
+│  │     ├─ model                                      
+│  │     │  ├─ comments.ts                             
+│  │     │  ├─ create-article-schema.ts                
+│  │     │  ├─ create-article-type.ts                  
+│  │     │  ├─ mentionables.ts                         
+│  │     │  ├─ plate-types.ts                          
+│  │     │  ├─ workspace-insert-dropdown.ts            
+│  │     │  └─ workspace-turninto-dropdown.tsx         
+│  │     ├─ plugin                                     
+│  │     │  ├─ create-plate-ui.ts                      
+│  │     │  ├─ custom-plugin.ts                        
+│  │     │  └─ plate-plugins.ts                        
+│  │     ├─ tanstack-query                             
+│  │     │  └─ useCreateArticleMutation.tsx            
+│  │     ├─ ui                                         
+│  │     │  ├─ PlateEditor.tsx                         
+│  │     │  ├─ PostSetup.tsx                           
+│  │     │  ├─ custom-plate-editor.tsx                 
+│  │     │  └─ serialized-html.tsx                     
+│  │     └─ index.ts                                   
+│  ├─ shared                                           
+│  │  ├─ api                                           
+│  │  │  ├─ axios-instance-interceptor.ts              
+│  │  │  ├─ create-instance-builder.ts                 
+│  │  │  ├─ delete-cookie.ts                           
+│  │  │  ├─ get-my-info-api.ts                         
+│  │  │  └─ set-cookie.ts                              
+│  │  ├─ lib                                           
+│  │  │  ├─ delete-cookie-action.ts                    
+│  │  │  ├─ redirect.ts                                
+│  │  │  ├─ tailwind-indicator.tsx                     
+│  │  │  ├─ useSignout.tsx                             
+│  │  │  └─ utils.ts                                   
+│  │  ├─ model                                         
+│  │  │  └─ Icon.tsx                                   
+│  │  ├─ ui                                            
+│  │  │  ├─ icon                                       
+│  │  │  │  ├─ assets                                  
+│  │  │  │  │  ├─ Chat.tsx                             
+│  │  │  │  │  ├─ ChevronRightArrow.tsx                
+│  │  │  │  │  ├─ CircleProfile.tsx                    
+│  │  │  │  │  ├─ Comments.tsx                         
+│  │  │  │  │  ├─ Dashboard.tsx                        
+│  │  │  │  │  ├─ Document.tsx                         
+│  │  │  │  │  ├─ Dots.tsx                             
+│  │  │  │  │  ├─ Edit.tsx                             
+│  │  │  │  │  ├─ Email-common.tsx                     
+│  │  │  │  │  ├─ Email.tsx                            
+│  │  │  │  │  ├─ Folder.tsx                           
+│  │  │  │  │  ├─ FollowArticles.tsx                   
+│  │  │  │  │  ├─ FramerMotion.tsx                     
+│  │  │  │  │  ├─ Github.tsx                           
+│  │  │  │  │  ├─ Globe.tsx                            
+│  │  │  │  │  ├─ Home.tsx                             
+│  │  │  │  │  ├─ Instagram.tsx                        
+│  │  │  │  │  ├─ Link.tsx                             
+│  │  │  │  │  ├─ Linkedin.tsx                         
+│  │  │  │  │  ├─ List.tsx                             
+│  │  │  │  │  ├─ LocationPin.tsx                      
+│  │  │  │  │  ├─ Moon.tsx                             
+│  │  │  │  │  ├─ Next.tsx                             
+│  │  │  │  │  ├─ PairProgramming.tsx                  
+│  │  │  │  │  ├─ Payment.tsx                          
+│  │  │  │  │  ├─ Plus.tsx                             
+│  │  │  │  │  ├─ Posts.tsx                            
+│  │  │  │  │  ├─ React.tsx                            
+│  │  │  │  │  ├─ Series.tsx                           
+│  │  │  │  │  ├─ Share.tsx                            
+│  │  │  │  │  ├─ Star.tsx                             
+│  │  │  │  │  ├─ Storage.tsx                          
+│  │  │  │  │  ├─ Sun.tsx                              
+│  │  │  │  │  ├─ TailwindCSS.tsx                      
+│  │  │  │  │  ├─ Task.tsx                             
+│  │  │  │  │  ├─ TrashBox.tsx                         
+│  │  │  │  │  ├─ TrendArticles.tsx                    
+│  │  │  │  │  ├─ User.tsx                             
+│  │  │  │  │  ├─ UserGroup.tsx                        
+│  │  │  │  │  └─ WorkSpaceSidebarExpand.tsx           
+│  │  │  │  ├─ Icon.tsx                                
+│  │  │  │  └─ RecentArticles.tsx                      
+│  │  │  ├─ MovingBorderButton.tsx                     
+│  │  │  ├─ avatar.tsx                                 
+│  │  │  ├─ badge.tsx                                  
+│  │  │  ├─ breadcrumb.tsx                             
+│  │  │  ├─ button.tsx                                 
+│  │  │  ├─ card.tsx                                   
+│  │  │  ├─ command.tsx                                
+│  │  │  ├─ dialog.tsx                                 
+│  │  │  ├─ dropdown-menu.tsx                          
+│  │  │  ├─ form.tsx                                   
+│  │  │  ├─ input-otp.tsx                              
+│  │  │  ├─ label.tsx                                  
+│  │  │  ├─ pagination.tsx                             
+│  │  │  ├─ popover.tsx                                
+│  │  │  ├─ progress.tsx                               
+│  │  │  ├─ resizable.tsx                              
+│  │  │  ├─ separator.tsx                              
+│  │  │  ├─ skeleton.tsx                               
+│  │  │  ├─ switch.tsx                                 
+│  │  │  ├─ toast.tsx                                  
+│  │  │  ├─ toaster.tsx                                
+│  │  │  └─ use-toast.tsx                              
+│  │  └─ index.ts                                      
+│  ├─ widgets                                          
+│  │  ├─ article-detail                                
+│  │  │  ├─ api                                        
+│  │  │  │  └─ get-article-detail-api.ts               
+│  │  │  ├─ model                                      
+│  │  │  │  └─ article-detail-response.type.ts         
+│  │  │  ├─ tanstack-query                             
+│  │  │  │  └─ useGetArticleDetailsQuery.tsx           
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ ArticleMainContents.tsx                 
+│  │  │  │  ├─ ArticleUserInfo.tsx                     
+│  │  │  │  ├─ article-detail-comments.tsx             
+│  │  │  │  ├─ article-header.tsx                      
+│  │  │  │  ├─ article-view-editor.tsx                 
+│  │  │  │  ├─ preheader.tsx                           
+│  │  │  │  ├─ user-article-items.tsx                  
+│  │  │  │  └─ user-related-articles.tsx               
+│  │  │  └─ index.ts                                   
+│  │  ├─ landing                                       
+│  │  │  ├─ model                                      
+│  │  │  │  └─ TypingWords.ts                          
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ ButtonGroup.tsx                         
+│  │  │  │  ├─ DevWorld.tsx                            
+│  │  │  │  ├─ LandingHeader.tsx                       
+│  │  │  │  ├─ Sparkles.tsx                            
+│  │  │  │  ├─ Spotlight.tsx                           
+│  │  │  │  ├─ TechStacks.tsx                          
+│  │  │  │  └─ TypingEffect.tsx                        
+│  │  │  └─ index.ts                                   
+│  │  ├─ main-feed                                     
+│  │  │  ├─ api                                        
+│  │  │  │  └─ get-articles-api.ts                     
+│  │  │  ├─ model                                      
+│  │  │  │  └─ get-articles-response.type.ts           
+│  │  │  ├─ tanstack-query                             
+│  │  │  │  └─ useGetArticelsQuery.tsx                 
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ ArticleFeed.tsx                         
+│  │  │  │  └─ Articles.tsx                            
+│  │  │  └─ index.ts                                   
+│  │  ├─ main-navigation                               
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ Navigation.tsx                          
+│  │  │  │  └─ main-logo.tsx                           
+│  │  │  └─ index.ts                                   
+│  │  ├─ profiles                                      
+│  │  │  ├─ lib                                        
+│  │  │  │  ├─ duplicate-devName-api.ts                
+│  │  │  │  ├─ get-userInfo-api.ts                     
+│  │  │  │  ├─ profile-edit-api.ts                     
+│  │  │  │  ├─ profile-readme-api.ts                   
+│  │  │  │  ├─ useDuplicateMutation.tsx                
+│  │  │  │  ├─ useGetUserProfiles.tsx                  
+│  │  │  │  ├─ useProfileEditMutaion.tsx               
+│  │  │  │  ├─ useProfileReadmeMutation.tsx            
+│  │  │  │  ├─ useProfileReadmeQuery.tsx               
+│  │  │  │  └─ useSortReducer.tsx                      
+│  │  │  ├─ model                                      
+│  │  │  │  ├─ insert-items.ts                         
+│  │  │  │  └─ user-profile.ts                         
+│  │  │  ├─ plugin                                     
+│  │  │  │  └─ profile-editor-plugins.ts               
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ articles                                
+│  │  │  │  │  ├─ ProfileArticles.tsx                  
+│  │  │  │  │  ├─ article-view-sort.tsx                
+│  │  │  │  │  └─ profile-article-items.tsx            
+│  │  │  │  ├─ edit                                    
+│  │  │  │  │  ├─ social-info-box.tsx                  
+│  │  │  │  │  ├─ user-info-box.tsx                    
+│  │  │  │  │  └─ user-input.tsx                       
+│  │  │  │  ├─ overview                                
+│  │  │  │  │  ├─ Overview.tsx                         
+│  │  │  │  │  ├─ editor-fixed-buttons.tsx             
+│  │  │  │  │  ├─ editor-fixed-toolbar.tsx             
+│  │  │  │  │  └─ profile-editor.tsx                   
+│  │  │  │  ├─ profile-section                         
+│  │  │  │  │  ├─ profile-section.tsx                  
+│  │  │  │  │  ├─ profile-social-icons.tsx             
+│  │  │  │  │  └─ social-info-icon.tsx                 
+│  │  │  │  ├─ tabs                                    
+│  │  │  │  │  ├─ profile-tabs.tsx                     
+│  │  │  │  │  └─ tab-item.tsx                         
+│  │  │  │  └─ profile-contents.tsx                    
+│  │  │  └─ index.ts                                   
+│  │  ├─ signin-signup                                 
+│  │  │  ├─ model                                      
+│  │  │  │  ├─ email-auth-schema.ts                    
+│  │  │  │  ├─ sign-user-schema.ts                     
+│  │  │  │  └─ signin-schema.ts                        
+│  │  │  ├─ ui                                         
+│  │  │  │  ├─ email-otp.tsx                           
+│  │  │  │  ├─ email-verify-form.tsx                   
+│  │  │  │  ├─ password-form.tsx                       
+│  │  │  │  ├─ signin.tsx                              
+│  │  │  │  └─ signup.tsx                              
+│  │  │  └─ index.ts                                   
+│  │  └─ workspace                                     
+│  │     ├─ api                                        
+│  │     │  ├─ get-details-workspace-article-api.ts    
+│  │     │  ├─ get-workspace-articles-api.ts           
+│  │     │  └─ patch-edit-workspace-api.ts             
+│  │     ├─ model                                      
+│  │     │  ├─ detail-settting-from-schema.ts          
+│  │     │  ├─ get-details-workspace-response.type.ts  
+│  │     │  └─ get-workspace-response.type.ts          
+│  │     ├─ tanstack-query                             
+│  │     │  ├─ useGetWorkspaceDetailsQuery.ts          
+│  │     │  ├─ useGetWorkspaceQuery.tsx                
+│  │     │  └─ useWorkspaceArticleEditMutation.tsx     
+│  │     ├─ ui                                         
+│  │     │  ├─ detail                                  
+│  │     │  │  ├─ detail-editor.tsx                    
+│  │     │  │  └─ detail-setting.tsx                   
+│  │     │  ├─ document                                
+│  │     │  │  ├─ Documents.tsx.tsx                    
+│  │     │  │  ├─ document-header.tsx                  
+│  │     │  │  ├─ document-items.tsx                   
+│  │     │  │  ├─ pagination-group.tsx                 
+│  │     │  │  └─ tag-filter.tsx                       
+│  │     │  ├─ header                                  
+│  │     │  │  ├─ WorkspaceHeader.tsx                  
+│  │     │  │  └─ header-item.tsx                      
+│  │     │  ├─ setting                                 
+│  │     │  │  └─ Settings.tsx                         
+│  │     │  └─ sidebar                                 
+│  │     │     ├─ WorkspaceSidebar.tsx                 
+│  │     │     ├─ sidebar-button.tsx                   
+│  │     │     ├─ sidebar-divider.tsx                  
+│  │     │     ├─ sidebar-footer.tsx                   
+│  │     │     └─ sidebar-item.tsx                     
+│  │     └─ index.ts                                   
+│  └─ middleware.ts                                    
+├─ README.md                                           
+├─ components.json                                     
+├─ next-env.d.ts                                       
+├─ next.config.mjs                                     
+├─ package.json                                        
+├─ plate-components.json                               
+├─ postcss.config.js                                   
+├─ svgr.d.ts                                           
+├─ tailwind.config.ts                                  
+├─ test.ts                                             
+├─ tsconfig.json                                       
+└─ yarn.lock                                           
