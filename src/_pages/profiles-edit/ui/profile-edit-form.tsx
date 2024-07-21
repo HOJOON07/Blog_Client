@@ -1,12 +1,7 @@
 'use client';
 import { Button, Icon } from '@/shared';
 import { SocialInfoBox, UserInfoBox } from '@/widgets/profiles';
-import {
-  FormProvider,
-  SubmitHandler,
-  useForm,
-  useFormContext,
-} from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import {
   ProfileEditFormData,
   ProfilesEditSchema,
@@ -14,7 +9,6 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useDuplicateMutaion } from '@/widgets/profiles/lib/useDuplicateMutation';
 import { useProfileEditMutation } from '@/widgets/profiles/lib/useProfileEditMutaion';
-import { ProfileEditType } from '@/widgets/profiles/lib/profile-edit-api';
 import { MyProfileType } from '../model/my-profile-type';
 
 const convertNullToUndefined = (obj: { [key: string]: any }) => {
@@ -45,8 +39,15 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
     }),
   });
   const onSubmit: SubmitHandler<ProfileEditFormData> = (data) => {
+    const undefinedToNull = Object.fromEntries(
+      Object.entries(data).map(([key, value]) => [key, value ?? null]),
+    );
+
     if (user?.id !== null) {
-      profileEditMutation({ userId: user.id, profileEditData: data });
+      profileEditMutation({
+        userId: user.id,
+        profileEditData: undefinedToNull,
+      });
     } else {
       console.error('user id is null');
     }

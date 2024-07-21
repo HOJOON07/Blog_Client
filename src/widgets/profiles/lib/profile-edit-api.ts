@@ -1,11 +1,11 @@
 import instance from '@/shared/api/axios-instance-interceptor';
 export interface ProfileEditType {
-  devName: string;
+  devName?: string;
   position?: string;
   bio?: string;
   location?: string;
   github?: string;
-  email: string;
+  email?: string;
   linkedin?: string;
   instagram?: string;
   socialEtc?: string;

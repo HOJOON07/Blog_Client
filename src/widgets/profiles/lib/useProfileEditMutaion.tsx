@@ -1,12 +1,17 @@
 'use client';
 import { ToastAction, useToast } from '@/shared';
-import { useMutation } from '@tanstack/react-query';
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query';
 import { ProfileEditApi, ProfileEditType } from './profile-edit-api';
 import { useRouter } from 'next/navigation';
 
 export const useProfileEditMutation = () => {
   const router = useRouter();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const { mutate: profileEditMutation } = useMutation({
     mutationFn: (params: {
       userId: number;
@@ -27,6 +32,7 @@ export const useProfileEditMutation = () => {
           </ToastAction>
         ),
       });
+      queryClient.invalidateQueries();
     },
   });
 
