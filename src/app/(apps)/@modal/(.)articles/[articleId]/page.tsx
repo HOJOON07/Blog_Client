@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function InterceptArticlesDetailPage() {
   return (
-    <div className="w-screen overflow-y-auto inset-0 z-50 items-center absolute">
+    <div className="w-screen h-screen overflow-y-auto inset-0 z-50 items-center absolute backdrop-blur-sm">
       <div className="max-w-[820px] mx-auto">
         <ArticleHeader />
         <ArticleViewEditor />

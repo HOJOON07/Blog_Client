@@ -9,7 +9,8 @@ export default function GroupLayout({
 }) {
   return (
     <>
-      {children} {modal}
+      {children}
+      {modal}
     </>
   );
 }
