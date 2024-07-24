@@ -1,4 +1,11 @@
-import Profiles from '@/_pages/profiles/ui/Profiles';
+import ProfilesContents from '@/widgets/profiles/ui/profile-contents';
+
 export default function ProfilePage() {
-  return <Profiles />;
+  return (
+    <main>
+      <div className="max-w-[1200px] w-full mx-auto my-0">
+        <ProfilesContents />
+      </div>
+    </main>
+  );
 }

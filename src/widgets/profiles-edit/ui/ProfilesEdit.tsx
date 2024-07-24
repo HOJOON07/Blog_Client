@@ -5,7 +5,7 @@ import { useUserState } from '@/app/_store/useUserState';
 import { useRouter } from 'next/navigation';
 import { useEffect, useLayoutEffect, useState } from 'react';
 
-export default function ProfilesEdit({ params }: { params: { id: string } }) {
+export const ProfilesEdit = ({ params }: { params: { id: string } }) => {
   const router = useRouter();
   const { user } = useUserState();
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
@@ -40,4 +40,4 @@ export default function ProfilesEdit({ params }: { params: { id: string } }) {
       </div>
     </main>
   );
-}
+};
