@@ -43,8 +43,6 @@ export const EmailAuthForm = () => {
     },
   });
 
-  console.log(status);
-
   const onSubmit: SubmitHandler<EmailFormData> = (formData) => {
     sendEmail(formData.email);
   };

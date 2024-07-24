@@ -2,6 +2,7 @@ import RecentArticles from '../ui/icon/RecentArticles';
 import Chat from '../ui/icon/assets/Chat';
 import ChevronRightArrow from '../ui/icon/assets/ChevronRightArrow';
 import CircleProfile from '../ui/icon/assets/CircleProfile';
+import CloseCircle from '../ui/icon/assets/CloseCircle';
 import Comments from '../ui/icon/assets/Comments';
 import Dashboard from '../ui/icon/assets/Dashboard';
 import Document from '../ui/icon/assets/Document';
@@ -82,6 +83,7 @@ export const iconMap = {
   socialEmail: EmailCommon,
   socialLink: Link,
   edit: Edit,
+  close: CloseCircle,
 };
 
 export type IconList = keyof typeof iconMap;

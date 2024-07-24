@@ -16,7 +16,6 @@ export const ProfileTabs = ({ profileUserId }: { profileUserId?: number }) => {
 
   const handleEditButton = () => {
     if (!isReadOnly) {
-      console.log(editor.children);
       profileReadmeEdit({ userId: myInfo?.id, readme: editor.children });
     }
     setIsReadOnly();

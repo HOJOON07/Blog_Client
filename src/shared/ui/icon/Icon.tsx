@@ -15,7 +15,6 @@ export const Icon = ({
     <Link href={href}>
       <IconSVGComponent
         className={cn(`w-${size} h-${size} ${color} ${className}`)}
-        onClick={onClick}
       />
     </Link>
   ) : (

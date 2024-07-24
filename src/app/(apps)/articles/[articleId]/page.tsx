@@ -1,5 +1,17 @@
-import { ArticleDetail } from '@/_pages/article-detail';
+import {
+  ArticleMainContents,
+  ArticleUserInfo,
+  FixedButtons,
+} from '@/widgets/article-detail';
+import { Suspense } from 'react';
 
 export default function Page() {
-  return <ArticleDetail />;
+  return (
+    <>
+      <FixedButtons />
+      <Suspense>
+        <ArticleMainContents />
+      </Suspense>
+    </>
+  );
 }

@@ -15,7 +15,6 @@ export default function ProfilesContents() {
   const searchParams = useSearchParams();
   const devName = searchParams?.get('devName') as string;
   const { user, isLoading, isError } = useGetUserProfilesQuery(devName);
-  console.log(user);
 
   const { tabMode } = useProfilesTabModeStore();
 

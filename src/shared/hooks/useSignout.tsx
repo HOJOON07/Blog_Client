@@ -1,7 +1,7 @@
 'use client';
 
 import { useUserState } from '@/app/_store/useUserState';
-import { deleteCookieAction } from './delete-cookie-action';
+import { deleteCookieAction } from '../lib/delete-cookie-action';
 
 export const useSignout = () => {
   const { resetData } = useUserState();

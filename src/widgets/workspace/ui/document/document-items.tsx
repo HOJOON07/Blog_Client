@@ -1,15 +1,14 @@
 import { Icon } from '@/shared';
 import { WorkspaceArticlesType } from '../../model/get-workspace-response.type';
 import { format } from 'date-fns';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-export const DocumentItem = ({
-  id,
-  title,
-  updatedAt,
-  createdAt,
-}: WorkspaceArticlesType) => {
+interface DocumentItemProps {
+  article: WorkspaceArticlesType;
+}
+
+export const DocumentItem = ({ article }: DocumentItemProps) => {
+  const { id, title, createdAt, updatedAt } = article;
   return (
     <Link href={`/workspace/${id}`}>
       <div className='className="w-full h-16 hover:bg-accent hover:text-accent-foreground cursor-pointer"'>

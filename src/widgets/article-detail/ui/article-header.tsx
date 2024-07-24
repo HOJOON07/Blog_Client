@@ -18,10 +18,7 @@ export const ArticleHeader = () => {
   const articleCreatedAt = articlesDetail?.createdAt as string;
 
   return (
-    <div
-      className="flex flex-col gap-4 px-4 mt-20"
-      // onClick={() => window.location.reload()}
-    >
+    <div className="flex flex-col gap-4 px-4 pt-10">
       <p className="text-4xl">{articlesDetail?.title}</p>
       <div className="flex">
         <p className="text-xl text-zinc-500">{articlesDetail?.description}</p>

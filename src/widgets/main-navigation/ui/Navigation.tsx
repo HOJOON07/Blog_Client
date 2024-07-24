@@ -20,9 +20,10 @@ import {
   DropdownMenuTrigger,
   Icon,
   Skeleton,
+  useSignout,
 } from '@/shared';
 import { deleteCookie } from '@/shared/api/delete-cookie';
-import { useSignout } from '@/shared/lib/useSignout';
+
 import { Logo } from '@/widgets/main-navigation/index';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
