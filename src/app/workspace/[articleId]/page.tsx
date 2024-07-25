@@ -5,7 +5,7 @@ import { TooltipProvider } from '@/components/plate-ui/tooltip';
 import DetailPlateEditor from '@/widgets/workspace/ui/detail/detail-editor';
 import { DetailSetting } from '@/widgets/workspace/ui/detail/detail-setting';
 import { useGetWorkspaceDetailsQuery } from '@/widgets/workspace/tanstack-query/useGetWorkspaceDetailsQuery';
-import { useParams, usePathname, useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 
 export default function WorkspaceDetailPage() {
   const { articleId } = useParams<{ articleId: string }>();

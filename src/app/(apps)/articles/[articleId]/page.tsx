@@ -3,15 +3,26 @@ import {
   ArticleUserInfo,
   FixedButtons,
 } from '@/widgets/article-detail';
-import { Suspense } from 'react';
+import { getArticleDetailApi } from '@/widgets/article-detail/api/get-article-detail-api';
+import { QueryClient } from '@tanstack/react-query';
 
-export default function Page() {
+export default async function Page({
+  params,
+}: {
+  params: { articleId: string };
+}) {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ['articles/details'],
+    queryFn: () => getArticleDetailApi(params.articleId),
+  });
   return (
     <>
       <FixedButtons />
-      <Suspense>
+      <div>
         <ArticleMainContents />
-      </Suspense>
+      </div>
     </>
   );
 }

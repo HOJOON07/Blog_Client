@@ -6,7 +6,7 @@ import { DevTool } from '@hookform/devtools';
 
 import { emailAuthSend } from '@/features/signup-signin';
 import { EmailFormData, EmailSchema } from '../model/email-auth-schema';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { useSignupProgressStore } from '@/app/_store/singup-form-progres-store';
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
@@ -15,8 +15,11 @@ import { useState } from 'react';
 
 export const EmailAuthForm = () => {
   const { toast } = useToast();
-  const { nextStep } = useSignupProgressStore();
+  const { nextStep, step, setStep } = useSignupProgressStore();
   const { setEmail } = useSignupFormDataStore();
+  const queryClient = useQueryClient();
+  const queryKey = ['emailAuthSend'];
+  const prevStep = step;
 
   const {
     register,
@@ -25,25 +28,46 @@ export const EmailAuthForm = () => {
     control,
   } = useForm<EmailFormData>({ resolver: zodResolver(EmailSchema) });
 
-  const { mutate: sendEmail, status } = useMutation({
+  const {
+    mutate: sendEmail,
+    status,
+    isError,
+    error,
+  } = useMutation({
     mutationFn: emailAuthSend,
+    onMutate: async (email) => {
+      await queryClient.cancelQueries({ queryKey: ['emailAuthSend'] });
+      const prevEmail = queryClient.getQueryData(queryKey);
+      queryClient.setQueryData(queryKey, email);
+
+      return { prevEmail };
+    },
     onSuccess: (data) => {
       toast({
         title: '인증번호를 전송했습니다. 메일을 확인하세요.',
       });
       setEmail(data);
-      nextStep();
+      queryClient.invalidateQueries({ queryKey: ['emailAuthSend'] });
     },
-    onError: (data: any) => {
+    onError: (error: any, variables, context) => {
+      setStep(prevStep);
+      if (context?.prevEmail) {
+        queryClient.setQueryData(queryKey, context.prevEmail);
+      }
+      console.log(error);
       toast({
         variant: 'destructive',
-        title: data.response.data.message,
+        title: error.response.data.message,
         action: <ToastAction altText="Try again">Try again</ToastAction>,
       });
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ['emailAuthSend'] });
     },
   });
 
   const onSubmit: SubmitHandler<EmailFormData> = (formData) => {
+    nextStep();
     sendEmail(formData.email);
   };
 

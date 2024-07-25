@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import { cn } from '@udecode/cn';
-import { Plate } from '@udecode/plate-common';
+import { Plate, useEditorState } from '@udecode/plate-common';
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
 import { Editor } from '@/components/plate-ui/editor';
 import { FloatingToolbar } from '@/components/plate-ui/floating-toolbar';
@@ -11,6 +11,7 @@ import { TooltipProvider } from '@/components/plate-ui/tooltip';
 import { CommentsFixedToolbar } from './comments-fixed-toolbar';
 import { CommentsFixedButtons } from './comments-buttons';
 import { Button } from '@/shared';
+import { CommentsWriteButton } from './comments-write-button';
 
 export default function CommentsEditor() {
   const containerRef = useRef(null);
@@ -51,9 +52,7 @@ export default function CommentsEditor() {
             <FloatingToolbarButtons />
           </FloatingToolbar>
         </div>
-        <div className="flex justify-end">
-          <Button className="ml-auto my-2">댓글 등록</Button>
-        </div>
+        <CommentsWriteButton />
       </Plate>
     </TooltipProvider>
   );

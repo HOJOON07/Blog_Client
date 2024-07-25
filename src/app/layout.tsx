@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider, QueryProvider } from './_providers';
 import { TailwindIndicator, Toaster } from '@/shared';
-import AuthProvider from './_providers/auth-provider';
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
+import { ProgressProviders } from './_providers/n-progress-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <ProgressProviders>{children}</ProgressProviders>
+          </QueryProvider>
         </ThemeProvider>
         <TailwindIndicator />
         <Toaster />

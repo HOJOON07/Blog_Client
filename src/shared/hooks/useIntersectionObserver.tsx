@@ -6,9 +6,11 @@ export const useIntersectionObserver = (
   { threshold = 0.1, root = null, rootMargin = '0%' },
 ) => {
   const [entry, setEntry] = useState<IntersectionObserverEntry>();
+  const [inView, setInView] = useState(false);
 
   const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
     setEntry(entry);
+    setInView(entry.isIntersecting);
   };
 
   useEffect(() => {
@@ -27,5 +29,5 @@ export const useIntersectionObserver = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [elementRef?.current, root, rootMargin, JSON.stringify(threshold)]);
 
-  return entry;
+  return { entry, inView };
 };

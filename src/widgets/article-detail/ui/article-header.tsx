@@ -4,7 +4,7 @@ import { Badge, Separator } from '@/shared';
 import { getArticleDetailsResponseType } from '../model/article-detail-response.type';
 import { format } from 'date-fns';
 import { useGetArticlesDetailsQuery } from '../tanstack-query/useGetArticleDetailsQuery';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
 type ArticleHeaderProps = Pick<
   getArticleDetailsResponseType,
@@ -16,10 +16,11 @@ export const ArticleHeader = () => {
   const { articlesDetail, isLoading, isError } =
     useGetArticlesDetailsQuery(articleId);
   const articleCreatedAt = articlesDetail?.createdAt as string;
+  const router = useRouter();
 
   return (
     <div className="flex flex-col gap-4 px-4 pt-10">
-      <p className="text-4xl">{articlesDetail?.title}</p>
+      <p className="text-4xl cursor-pointer">{articlesDetail?.title}</p>
       <div className="flex">
         <p className="text-xl text-zinc-500">{articlesDetail?.description}</p>
         <div className="flex flex-col justify-end ml-auto">

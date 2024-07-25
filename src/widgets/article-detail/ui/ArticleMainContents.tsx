@@ -12,8 +12,6 @@ export const ArticleMainContents = () => {
   const { articlesDetail, isError, isLoading } =
     useGetArticlesDetailsQuery(articleId);
 
-  console.log(articlesDetail);
-
   if (isError) {
     <div>에러가 생겼습니다.</div>;
   }
@@ -23,7 +21,7 @@ export const ArticleMainContents = () => {
   }
 
   return (
-    <div>
+    <>
       <ArticleHeader />
       <ArticleViewEditor />
       <div className="px-4 w-full">
@@ -34,10 +32,6 @@ export const ArticleMainContents = () => {
           댓글 {articlesDetail?.commentCount}개
         </p>
       </div>
-      <ArticleDetailComments />
-      <div className="px-4">
-        <CommentsEditor />
-      </div>
-    </div>
+    </>
   );
 };

@@ -22,8 +22,6 @@ import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-b
 import { MentionCombobox } from '@/components/plate-ui/mention-combobox';
 import { ELEMENT_H1 } from '@udecode/plate-heading';
 import { ELEMENT_HR } from '@udecode/plate-horizontal-rule';
-import { useGetWorkspaceDetailsQuery } from '@/widgets/workspace/tanstack-query/useGetWorkspaceDetailsQuery';
-import { useParams, usePathname } from 'next/navigation';
 
 const initialValue = [
   {

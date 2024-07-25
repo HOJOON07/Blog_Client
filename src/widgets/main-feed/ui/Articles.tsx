@@ -9,8 +9,8 @@ import { useGetArticlesQuery } from '../tanstack-query/useGetArticelsQuery';
 export const Articles = ({ className }: { className?: string }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const observerRef = useRef<HTMLDivElement | null>(null);
-  const pageRef = useIntersectionObserver(observerRef, {});
-  const isPageEnd = !!pageRef?.isIntersecting;
+  const { entry } = useIntersectionObserver(observerRef, {});
+  const isPageEnd = !!entry?.isIntersecting;
 
   const { articles, isError, isLoading, fetchNextPage, hasNextPage } =
     useGetArticlesQuery();
