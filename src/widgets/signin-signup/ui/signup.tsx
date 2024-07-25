@@ -17,7 +17,7 @@ export const SignUp = () => {
         {step === 'email_auth' && <EmailAuthForm />}
         {step === 'otp' && <EmailInputOTPForm />}
         {step === 'password' && <PassWordForm />}
-        <button onClick={nextStep}>버튼</button>
+        {/* <button onClick={nextStep}>버튼</button> */}
       </div>
     </div>
   );

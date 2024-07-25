@@ -1,10 +1,14 @@
 import { ArticleUserInfo } from '@/widgets/article-detail';
 import { Suspense } from 'react';
 
-export default function Page() {
+export default function AuthorPage({
+  params,
+}: {
+  params: { articleId: string };
+}) {
   return (
     <Suspense>
-      <ArticleUserInfo />;
+      <ArticleUserInfo articleId={params.articleId} />;
     </Suspense>
   );
 }

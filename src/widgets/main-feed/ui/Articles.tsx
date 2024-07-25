@@ -18,7 +18,7 @@ export const Articles = ({ className }: { className?: string }) => {
   const fetchNext = useCallback(async () => {
     const res = await fetchNextPage();
     if (res.isError) {
-      console.log(res.error);
+      throw res.isError;
     }
   }, [fetchNextPage]);
 

@@ -12,63 +12,24 @@ import { useSignupProgressStore } from '@/app/_store/singup-form-progres-store';
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
 import { useFormStatus } from 'react-dom';
 import { useState } from 'react';
+import { useEmailAuthMutaion } from '@/features/signup-signin/tanstack-query/useEmailAuthMutation';
 
 export const EmailAuthForm = () => {
-  const { toast } = useToast();
   const { nextStep, step, setStep } = useSignupProgressStore();
   const { setEmail } = useSignupFormDataStore();
-  const queryClient = useQueryClient();
-  const queryKey = ['emailAuthSend'];
-  const prevStep = step;
+  const { sendEmailMutation, status } = useEmailAuthMutaion();
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid, isDirty },
+    formState: { errors, isValid, isDirty },
     control,
   } = useForm<EmailFormData>({ resolver: zodResolver(EmailSchema) });
 
-  const {
-    mutate: sendEmail,
-    status,
-    isError,
-    error,
-  } = useMutation({
-    mutationFn: emailAuthSend,
-    onMutate: async (email) => {
-      await queryClient.cancelQueries({ queryKey: ['emailAuthSend'] });
-      const prevEmail = queryClient.getQueryData(queryKey);
-      queryClient.setQueryData(queryKey, email);
-
-      return { prevEmail };
-    },
-    onSuccess: (data) => {
-      toast({
-        title: '인증번호를 전송했습니다. 메일을 확인하세요.',
-      });
-      setEmail(data);
-      queryClient.invalidateQueries({ queryKey: ['emailAuthSend'] });
-    },
-    onError: (error: any, variables, context) => {
-      setStep(prevStep);
-      if (context?.prevEmail) {
-        queryClient.setQueryData(queryKey, context.prevEmail);
-      }
-      console.log(error);
-      toast({
-        variant: 'destructive',
-        title: error.response.data.message,
-        action: <ToastAction altText="Try again">Try again</ToastAction>,
-      });
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: ['emailAuthSend'] });
-    },
-  });
-
   const onSubmit: SubmitHandler<EmailFormData> = (formData) => {
+    sendEmailMutation(formData.email);
+    setEmail(formData.email);
     nextStep();
-    sendEmail(formData.email);
   };
 
   return (

@@ -21,7 +21,7 @@ export const ArticleMainContents = () => {
   }
 
   return (
-    <>
+    <div className="pt-24">
       <ArticleHeader />
       <ArticleViewEditor />
       <div className="px-4 w-full">
@@ -32,6 +32,6 @@ export const ArticleMainContents = () => {
           댓글 {articlesDetail?.commentCount}개
         </p>
       </div>
-    </>
+    </div>
   );
 };

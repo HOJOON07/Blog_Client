@@ -47,7 +47,7 @@ export const ArticleCard = ({
         <div>
           <p className="text-white text-sm font-medium">{author.devName}</p>
           <p className="text-zinc-500 text-[10px] font-medium">
-            {author.position}, {author.location}
+            {author.position ?? 'Position'}, {author.location ?? 'Location'}
           </p>
         </div>
         <Icon name="dots" className="ml-auto" />
@@ -64,26 +64,28 @@ export const ArticleCard = ({
           priority
         />
       </Link>
-      <div className="flex items-center text-white text-[18px] font-medium pt-2 pb-1 mt-1">
-        {title}
-      </div>
-      <div className="flex text-sm font-light text-zinc-300 flex-1 break-all text-ellipsis line-clamp-2">
-        {description}
-      </div>
-      <div className="mb-auto flex items-center gap-1 h-8 my-2">
-        <Icon name="star" size={5} color="text-neutral-700" />
-        <span className="text-zinc-500 text-[12px] font-medium">
-          {likeCount}
-        </span>
-        <Icon name="comments" size={4} color="text-neutral-700" />
-        <span className="text-zinc-500 text-[12px] font-medium">
-          {commentCount}
-        </span>
-        <span className="text-zinc-500 text-[12px] font-medium ml-auto">
-          {format(createdAt, 'yyyy년 MM월 dd일')}
-        </span>
-        <BookmarkFilledIcon className="text-neutral-700 w-[20px] h-[20px]" />
-      </div>
+      <Link href={`/articles/${id}`}>
+        <div className="flex items-center text-white text-[18px] font-medium pt-2 pb-1 mt-1">
+          {title}
+        </div>
+        <div className="flex text-sm font-light text-zinc-300 flex-1 break-all text-ellipsis line-clamp-2">
+          {description}
+        </div>
+        <div className="mb-auto flex items-center gap-1 h-8 my-2">
+          <Icon name="star" size={5} color="text-neutral-700" />
+          <span className="text-zinc-500 text-[12px] font-medium">
+            {likeCount}
+          </span>
+          <Icon name="comments" size={4} color="text-neutral-700" />
+          <span className="text-zinc-500 text-[12px] font-medium">
+            {commentCount}
+          </span>
+          <span className="text-zinc-500 text-[12px] font-medium ml-auto">
+            {format(createdAt, 'yyyy년 MM월 dd일')}
+          </span>
+          <BookmarkFilledIcon className="text-neutral-700 w-[20px] h-[20px]" />
+        </div>
+      </Link>
     </div>
   );
 };

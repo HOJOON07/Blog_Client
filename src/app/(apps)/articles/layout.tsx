@@ -13,7 +13,7 @@ export default function PageLayout({
 }>) {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
       {children}
     </>
   );

@@ -13,22 +13,26 @@ export default async function CommentsPage({
 }: {
   params: { articleId: string };
 }) {
-  // const queryClient = new QueryClient();
+  const queryClient = new QueryClient();
 
-  // await queryClient.prefetchQuery({
-  //   queryKey: ['articles/comments', params.articleId],
-  //   queryFn: () => getArticleCommentsApi(params.articleId),
-  // });
+  await queryClient.prefetchQuery({
+    queryKey: ['articles/comments', params.articleId],
+    queryFn: () => getArticleCommentsApi(params.articleId),
+  });
   return (
-    <Suspense>
-      <div className="flex flex-col">
-        {/* <HydrationBoundary state={dehydrate(queryClient)}> */}
-        <ArticleDetailComments />
-        {/* </HydrationBoundary> */}
-        <div className="px-4">
-          <CommentsEditor />
+    <>
+      <Suspense>
+        <div></div>
+        <div>
+          {/* <HydrationBoundary state={dehydrate(queryClient)}> */}
+          <ArticleDetailComments />
+          {/* </HydrationBoundary> */}
+          <div className="px-4">
+            <CommentsEditor />
+          </div>
         </div>
-      </div>
-    </Suspense>
+        <div></div>
+      </Suspense>
+    </>
   );
 }

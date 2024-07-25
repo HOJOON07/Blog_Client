@@ -41,7 +41,7 @@ export const Navigation = () => {
     setShowNotiCard((open) => !open);
   };
   return (
-    <nav className="w-full h-[60px] bg-black sticky top-0 z-20">
+    <nav className="w-full h-[60px] bg-black fixed top-0 z-20">
       <div className="w-full h-ful flex items-center px-6 justify-between relative">
         <div className="flex items-center gap-12">
           <Logo />

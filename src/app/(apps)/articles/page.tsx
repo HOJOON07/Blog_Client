@@ -19,7 +19,7 @@ export default async function ArticlesPage() {
     getNextPageParam: (lastPage: any) => lastPage.next || undefined,
   });
   return (
-    <div className="mt-10 px-6 bg-background">
+    <div className="mt-20 px-6 bg-background">
       <FeedTab />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <Articles />

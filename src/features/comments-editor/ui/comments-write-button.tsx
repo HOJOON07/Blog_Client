@@ -1,15 +1,18 @@
 import { Button } from '@/shared';
-import { useEditorState } from '@udecode/plate-common';
+import { TElement, useEditorState } from '@udecode/plate-common';
 import { useParams } from 'next/navigation';
 import { useCreateCommentsMutation } from '../tanstack-query/useCreateCommentsMutation';
+import { CommentsWriteEditorinitialValue } from '../model/comments-write-intial-value';
+import React, { useEffect } from 'react';
 
-export const CommentsWriteButton = () => {
+export const CommentsWriteButton = ({}: {}) => {
   const { articleId } = useParams() as { articleId: string };
   const editor = useEditorState();
   const { writeComments } = useCreateCommentsMutation();
 
   const handleWriteCommentsButton = () => {
     writeComments({ articleId, comment: editor.children });
+    editor.reset();
   };
 
   return (

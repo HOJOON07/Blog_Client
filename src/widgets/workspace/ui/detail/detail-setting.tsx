@@ -47,8 +47,6 @@ export const DetailSetting = ({
     parseInt(articleId),
   );
 
-  console.log(isPrivate, isPublish);
-
   const {
     register,
     handleSubmit,

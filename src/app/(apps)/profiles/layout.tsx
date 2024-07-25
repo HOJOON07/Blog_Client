@@ -19,10 +19,5 @@ export default function ProfileLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <Navigation />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

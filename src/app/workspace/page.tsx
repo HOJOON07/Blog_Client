@@ -4,8 +4,23 @@ import {
   TagFilter,
   WorkspaceHeader,
 } from '@/widgets/workspace';
+import { getWorkspaceArticlesApi } from '@/widgets/workspace/api/get-workspace-articles-api';
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query';
 
-export default function page() {
+const INITIAL_URL = 'http://localhost:5500/articles/workspace';
+
+export default async function WorkspacePage() {
+  const queryClient = new QueryClient();
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ['workspace'],
+    queryFn: ({ pageParam }) => getWorkspaceArticlesApi(pageParam),
+    initialPageParam: INITIAL_URL,
+    getNextPageParam: (lastPage: any) => lastPage.next || undefined,
+  });
   return (
     <div className="flex flex-col flex-1">
       <div className="border-l h-full relative">
@@ -15,7 +30,9 @@ export default function page() {
             <TagFilter />
           </div>
           <DocumentHeader />
-          <Documents />
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <Documents />
+          </HydrationBoundary>
         </div>
       </div>
     </div>

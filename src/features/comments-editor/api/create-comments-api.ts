@@ -10,7 +10,6 @@ export const CreateCommentsApi = async ({
   articleId,
   comment,
 }: CreateCommentsApiParams) => {
-  console.log(comment);
   try {
     const { data } = await instance.post(
       `http://localhost:5500/articles/${articleId}/comments`,

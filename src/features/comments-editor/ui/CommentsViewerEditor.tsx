@@ -47,7 +47,7 @@ export default function CommentsViewerEditor({
           )}
           <Editor
             className="p-2 bg-neutral-900"
-            autoFocus
+            autoFocus={false}
             focusRing={false}
             variant="ghost"
             size="sm"

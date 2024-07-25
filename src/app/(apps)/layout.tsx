@@ -1,3 +1,4 @@
+import { Navigation } from '@/widgets/main-navigation';
 import React from 'react';
 
 export default function GroupLayout({
@@ -9,6 +10,7 @@ export default function GroupLayout({
 }) {
   return (
     <>
+      <Navigation />
       {children}
       {modal}
     </>
