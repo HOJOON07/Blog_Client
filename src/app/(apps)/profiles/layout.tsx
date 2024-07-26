@@ -1,23 +1,35 @@
+import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { Metadata } from 'next';
-import { Navigation } from '@/widgets/main-navigation';
-// import { ProfileTabs, ProfileSection } from '@/widgets/profiles';
-import {
-  ProfileArticles,
-  ProfileSection,
-  ProfileTabs,
-} from '@/widgets/profiles';
-
-import { Overview } from '@/widgets/profiles/ui/overview/Overview';
 
 export const metadata: Metadata = {
-  title: 'Post',
+  title: 'DevWorld ',
   description: 'HoJoon Blog',
 };
 
 export default function ProfileLayout({
   children,
+  overview,
+  bookmark,
+  articles,
+  stars,
 }: Readonly<{
   children: React.ReactNode;
+  overview: React.ReactNode;
+  bookmark: React.ReactNode;
+  articles: React.ReactNode;
+  stars: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <main className="pt-10">
+      <div className="max-w-[1200px] w-full mx-auto">
+        <div className="py-12 px-6 grid grid-cols-[280px_1fr] gap-9">
+          {children}
+          {overview}
+          {bookmark}
+          {articles}
+          {stars}
+        </div>
+      </div>
+    </main>
+  );
 }

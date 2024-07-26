@@ -8,7 +8,6 @@ import {
 } from '@/widgets/profiles';
 import { useGetUserProfilesQuery } from '../lib/useGetUserProfiles';
 import { useSearchParams } from 'next/navigation';
-import { PlateController } from '@udecode/plate-common';
 import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 
 export default function ProfilesContents() {
@@ -30,18 +29,5 @@ export default function ProfilesContents() {
     return <div>No user profiles found</div>;
   }
 
-  return (
-    <div className="py-12 px-6 grid grid-cols-[280px_1fr] gap-9">
-      <ProfileSection user={user} />
-      <div className="flex flex-col gap-9">
-        <PlateController>
-          <ProfileTabs profileUserId={user?.id} />
-          {tabMode === 'Overview' && (
-            <Overview username={user?.github} readme={user?.readme} />
-          )}
-        </PlateController>
-        {tabMode === 'Articles' && <ProfileArticles />}
-      </div>
-    </div>
-  );
+  return <ProfileSection user={user} />;
 }

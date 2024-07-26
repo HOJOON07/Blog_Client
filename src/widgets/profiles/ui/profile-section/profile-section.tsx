@@ -11,6 +11,7 @@ import { UserProfileType } from '@/widgets/profiles';
 import { SocialIcons } from './profile-social-icons';
 import { useUserState } from '@/app/_store/useUserState';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface ProfileSectionProps {
   user: UserProfileType;
@@ -68,14 +69,9 @@ export const ProfileSection = ({ user }: ProfileSectionProps) => {
       </p>
 
       {user?.devName === myInfo?.devName ? (
-        <Button
-          className="w-full rounded-[6px] mb-4"
-          onClick={() => {
-            router.push(`/profiles/edit/${myInfo?.id}`);
-          }}
-        >
-          프로필 수정
-        </Button>
+        <Link href={`/profiles/edit/${myInfo?.id}`}>
+          <Button className="w-full rounded-[6px] mb-4">프로필 수정</Button>
+        </Link>
       ) : (
         <Button className="w-full rounded-[6px] mb-4">팔로우</Button>
       )}
