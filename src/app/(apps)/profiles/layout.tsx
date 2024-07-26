@@ -18,6 +18,7 @@ export default function ProfileLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
+  test: React.ReactNode;
 }>) {
   return <>{children}</>;
 }
