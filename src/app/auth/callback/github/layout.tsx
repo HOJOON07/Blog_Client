@@ -10,6 +10,7 @@ import { userInfo } from 'os';
 import { AuthGithub, localStorageSetToken } from './utils/auth-github';
 import { setCookie } from '@/shared/api/set-cookie';
 import { useUserState } from '@/app/_store/useUserState';
+import { setCookieAction } from '@/shared/lib/set-cookie-action';
 
 export default function RedirectComponent({
   children,
@@ -26,7 +27,8 @@ export default function RedirectComponent({
     onSuccess: async (userInfo) => {
       await AuthGithub(userInfo).then((jwt) => {
         localStorageSetToken(jwt);
-        setCookie(jwt.accessToken, jwt.refreshToken);
+        setCookieAction('accessToken', 'refreshToken');
+        // setCookie(jwt.accessToken, jwt.refreshToken);
       });
       resetData();
       router.push('/articles');

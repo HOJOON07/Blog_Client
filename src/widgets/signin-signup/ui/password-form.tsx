@@ -14,6 +14,7 @@ import { useRouter } from 'next/navigation';
 import { cookies } from 'next/headers';
 import { setCookie } from '@/shared/api/set-cookie';
 import { useUserState } from '@/app/_store/useUserState';
+import { setCookieAction } from '@/shared/lib/set-cookie-action';
 
 export const PassWordForm = () => {
   const { toast } = useToast();
@@ -45,7 +46,8 @@ export const PassWordForm = () => {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
       try {
-        await setCookie(accessToken, refreshToken);
+        await setCookieAction('accessToken', 'refreshToken');
+        // await setCookie(accessToken, refreshToken);
         console.log('쿠키 설정');
       } catch (err) {
         console.log('쿠키 설정 에러');

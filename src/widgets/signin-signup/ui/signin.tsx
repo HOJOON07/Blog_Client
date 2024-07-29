@@ -10,6 +10,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { setCookie } from '@/shared/api/set-cookie';
 import { useUserState } from '@/app/_store/useUserState';
+import { setCookieAction } from '@/shared/lib/set-cookie-action';
 
 export const SignIn = () => {
   const { resetData, setData, user } = useUserState();
@@ -24,7 +25,8 @@ export const SignIn = () => {
       localStorage.setItem('accessToken', data.accessToken);
       localStorage.setItem('refreshToken', data.refreshToken);
       try {
-        await setCookie(accessToken, refreshToken);
+        await setCookieAction('accessToken', 'refreshToken');
+        // await setCookie(accessToken, refreshToken);
       } catch (err) {}
       resetData();
       router.replace('/articles');

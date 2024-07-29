@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setCookie } from './set-cookie';
+import { setCookieAction } from '../lib/set-cookie-action';
 
 export const getLocalStorageAccessToken = () => {
   return localStorage.getItem('accessToken');
@@ -69,7 +70,8 @@ instance.interceptors.response.use(
       originalConfig._retry = true;
       try {
         const { accessToken } = await RotateAccessToken();
-        await setCookie(accessToken);
+        await setCookieAction('accessToken');
+        // await setCookie(accessToken);
         localStorage.setItem('accessToken', accessToken);
         instance.defaults.headers.common[
           'authorization'
