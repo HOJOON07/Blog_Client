@@ -142,6 +142,15 @@ import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { createTogglePlugin, ELEMENT_TOGGLE } from '@udecode/plate-toggle';
 import { createColumnPlugin } from '@udecode/plate-layout';
+import {
+  createCloudAttachmentPlugin,
+  createCloudImagePlugin,
+  createCloudPlugin,
+  ELEMENT_CLOUD_ATTACHMENT,
+  ELEMENT_CLOUD_IMAGE,
+} from '@udecode/plate-cloud';
+import { CloudAttachmentElement } from '@/components/plate-ui/cloud-attachment-element';
+import { CloudImageElement } from '@/components/plate-ui/cloud-image-element';
 
 const resetBlockTypesCommonRule = {
   types: [ELEMENT_BLOCKQUOTE, ELEMENT_TODO_LI],
@@ -156,6 +165,20 @@ const resetBlockTypesCodeBlockRule = {
 
 export const commentsPlugins = createPlugins(
   [
+    createCloudPlugin({
+      options: {
+        authToken: process.env.NEXT_PUBLIC_PORTIVE_TOKEN,
+      },
+    }),
+    createCloudAttachmentPlugin(),
+    createCloudImagePlugin({
+      options: {
+        maxInitialWidth: 400,
+        maxInitialHeight: 400,
+        minResizeWidth: 240,
+        maxResizeWidth: 1024,
+      },
+    }),
     createListPlugin(),
     // Nodes
     createParagraphPlugin(),
@@ -338,6 +361,8 @@ export const commentsPlugins = createPlugins(
   ],
   {
     components: withPlaceholders({
+      [ELEMENT_CLOUD_ATTACHMENT]: CloudAttachmentElement,
+      [ELEMENT_CLOUD_IMAGE]: CloudImageElement,
       [ELEMENT_BLOCKQUOTE]: BlockquoteElement,
       [ELEMENT_CODE_BLOCK]: CodeBlockElement,
       [ELEMENT_CODE_LINE]: CodeLineElement,

@@ -29,6 +29,8 @@ export {
   PopoverAnchor,
 } from './ui/popover';
 
+export { Input } from './ui/input';
+
 export { Icon } from './ui/icon/Icon';
 export { MovingBorderButton } from './ui/MovingBorderButton';
 export { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';

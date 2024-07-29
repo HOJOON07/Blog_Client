@@ -22,16 +22,15 @@ import {
   Skeleton,
   useSignout,
 } from '@/shared';
-import { deleteCookie } from '@/shared/api/delete-cookie';
 
 import { Logo } from '@/widgets/main-navigation/index';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Navigation = () => {
-  const { user, resetData } = useUserState();
+  const { user, resetData, setData } = useUserState();
   const { signOut } = useSignout();
 
   const router = useRouter();
@@ -41,6 +40,7 @@ export const Navigation = () => {
   const handleNotiCard = () => {
     setShowNotiCard((open) => !open);
   };
+
   return (
     <nav className="w-full h-[60px] bg-black fixed top-0 z-20">
       <div className="w-full h-ful flex items-center px-6 justify-between relative">
@@ -99,8 +99,6 @@ export const Navigation = () => {
             <Button
               variant="outline"
               onClick={() => {
-                // signout 할때 resetData넣어줘야 함.
-                resetData();
                 router.push('/signin');
               }}
             >

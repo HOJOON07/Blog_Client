@@ -16,9 +16,16 @@ export const ArticleHeader = () => {
 
   return (
     <div className="flex flex-col gap-4 px-4">
-      <Link href={`/articles/${articleId}`}>
-        <p className="text-4xl cursor-pointer">{articlesDetail?.title}</p>
-      </Link>
+      {/* <Link href={`/articles/details/${articleId}`} replace> */}
+      <p
+        className="text-4xl cursor-pointer"
+        onClick={() => {
+          router.replace(`/articles/details/${articleId}`);
+        }}
+      >
+        {articlesDetail?.title}
+      </p>
+      {/* </Link> */}
       <div className="flex">
         <p className="text-xl text-zinc-500">{articlesDetail?.description}</p>
         <div className="flex flex-col justify-end ml-auto">

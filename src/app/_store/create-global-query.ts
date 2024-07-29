@@ -16,9 +16,8 @@ export function createGlobalUserState<T>(
     } = useQuery({
       queryKey: [queryKey],
       queryFn: getMyInfo,
-      // refetchInterval: true,
       refetchOnMount: true,
-      refetchOnWindowFocus: false,
+      refetchOnWindowFocus: true,
       refetchOnReconnect: true,
       refetchIntervalInBackground: true,
       retry: 3,
@@ -32,8 +31,8 @@ export function createGlobalUserState<T>(
       queryClient.refetchQueries({
         queryKey: [queryKey],
       });
-      queryClient.removeQueries({ queryKey: [queryKey], exact: true });
-      queryClient.invalidateQueries({ queryKey: [queryKey] });
+      // queryClient.removeQueries({ queryKey: [queryKey], exact: true });
+      // queryClient.invalidateQueries({ queryKey: [queryKey] });
     }
     return { user, setData, resetData, isLoading, isError, isSuccess };
   };

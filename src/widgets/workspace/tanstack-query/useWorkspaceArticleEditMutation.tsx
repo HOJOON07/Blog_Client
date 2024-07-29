@@ -34,7 +34,10 @@ export const useWorkspaceArticleEditMutation = (articleId: number) => {
       queryClient.invalidateQueries({
         queryKey: ['workspace'],
       }),
-        router.push('/workspace');
+        queryClient.invalidateQueries({
+          queryKey: ['getArticles'],
+        });
+      router.push('/workspace');
     },
     onError: (data: any) => {
       toast({

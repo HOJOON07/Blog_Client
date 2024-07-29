@@ -17,6 +17,7 @@ import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-b
 import { MentionCombobox } from '@/components/plate-ui/mention-combobox';
 import { ELEMENT_H1 } from '@udecode/plate-heading';
 import { ELEMENT_HR } from '@udecode/plate-horizontal-rule';
+import { CloudToolbarButtons } from '@/components/plate-ui/cloud-toolbar-buttons';
 
 export default function PlateEditor() {
   const containerRef = useRef(null);

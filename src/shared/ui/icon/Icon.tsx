@@ -11,13 +11,7 @@ export const Icon = ({
 }: GenericIconComponentProps) => {
   const IconSVGComponent = iconMap[name];
 
-  return href ? (
-    <Link href={href}>
-      <IconSVGComponent
-        className={cn(`w-${size} h-${size} ${color} ${className}`)}
-      />
-    </Link>
-  ) : (
+  return (
     <IconSVGComponent
       className={cn(`w-${size} h-${size} ${color} ${className}`)}
       onClick={onClick}

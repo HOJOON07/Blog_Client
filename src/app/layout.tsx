@@ -5,6 +5,7 @@ import { ThemeProvider, QueryProvider } from './_providers';
 import { TailwindIndicator, Toaster } from '@/shared';
 import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 import { ProgressProviders } from './_providers/n-progress-provider';
+import AuthProvider from './_providers/auth-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +24,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           <QueryProvider>
-            <ProgressProviders>{children}</ProgressProviders>
+            <ProgressProviders>
+              {/* <AuthProvider> */}
+              {children}
+              {/* </AuthProvider> */}
+            </ProgressProviders>
           </QueryProvider>
         </ThemeProvider>
         <TailwindIndicator />

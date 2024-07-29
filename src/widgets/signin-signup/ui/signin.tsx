@@ -10,7 +10,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import { setCookie } from '@/shared/api/set-cookie';
 import { useUserState } from '@/app/_store/useUserState';
+
 export const SignIn = () => {
+  const { resetData, setData, user } = useUserState();
   const { toast } = useToast();
   const router = useRouter();
 
@@ -24,7 +26,8 @@ export const SignIn = () => {
       try {
         await setCookie(accessToken, refreshToken);
       } catch (err) {}
-      router.push('/articles');
+      resetData();
+      router.replace('/articles');
     },
     onError: (data: any) => {
       toast({
