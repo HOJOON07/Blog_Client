@@ -1,16 +1,11 @@
 'use client';
-import { useUserState } from '@/app/_store/useUserState';
-import {
-  ProfileArticles,
-  ProfileSection,
-  ProfileTabs,
-  Overview,
-} from '@/widgets/profiles';
+
+import { ProfileSection } from '@/widgets/profiles';
 import { useGetUserProfilesQuery } from '../lib/useGetUserProfiles';
 import { useSearchParams } from 'next/navigation';
 import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 
-export default function ProfilesContents() {
+export default function ProfileSideSectionContainer() {
   const searchParams = useSearchParams();
   const devName = searchParams?.get('devName') as string;
   const { user, isLoading, isError } = useGetUserProfilesQuery(devName);

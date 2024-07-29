@@ -8,7 +8,9 @@ import { useRef } from 'react';
 export const ArticleDetailComments = () => {
   const { articleId } = useParams() as { articleId: string };
   const componetRef = useRef<HTMLDivElement>(null);
-  const { inView } = useIntersectionObserver(componetRef, { threshold: 0.5 });
+  const { inView } = useIntersectionObserver(componetRef, { threshold: 0 });
+
+  console.log(inView);
 
   const { articlesComments, isError, isLoading, refetch } =
     useGetArticleCommentsQuery(articleId, inView);

@@ -9,7 +9,7 @@ export const SocialInfoIcon = ({
 }) => {
   return (
     <Button size="smallIcon" variant="secondary" className="rounded-sm">
-      <Icon name={name} href={href} color="text-zinc-500" size={5} />
+      <Icon name={name} color="text-zinc-500" size={5} />
     </Button>
   );
 };

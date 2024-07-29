@@ -6,9 +6,11 @@ import { useEditorState } from '@udecode/plate-common';
 import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { useUserState } from '@/app/_store/useUserState';
 import { useProfileReadmeMutation } from '../../lib/useProfileReadmeMutation';
+import { useSearchParams } from 'next/navigation';
 
-export const ProfileTabs = ({ profileUserId }: { profileUserId?: number }) => {
+export const ProfileTabs = () => {
   const { isReadOnly, setIsReadOnly } = useProfilesEditorReadOnlyStore();
+  const searchDevNameParams = useSearchParams().get('devName') as string;
   const { user: myInfo } = useUserState();
   const { tabMode } = useProfilesTabModeStore();
   const editor = useEditorState();
@@ -27,7 +29,7 @@ export const ProfileTabs = ({ profileUserId }: { profileUserId?: number }) => {
       <TabItem title="Articles" />
       <TabItem title="Stars" />
       <TabItem title="BookMarks" />
-      {profileUserId === myInfo?.id && tabMode === 'Overview' ? (
+      {searchDevNameParams === myInfo?.devName && tabMode === 'Overview' ? (
         <Button
           className="ml-auto"
           variant="ghost"

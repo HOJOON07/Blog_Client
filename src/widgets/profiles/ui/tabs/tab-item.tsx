@@ -7,8 +7,10 @@ type TabMode = 'Overview' | 'Articles' | 'Stars' | 'BookMarks';
 interface TabItemProps {
   title: TabMode;
 }
+
 export const TabItem = ({ title }: TabItemProps) => {
   const { tabMode, changeTabMode } = useProfilesTabModeStore();
+
   const chageTabTitle = (title: TabMode): TabMode => {
     if (title === 'Overview') return 'Overview';
     if (title === 'Articles') return 'Articles';
@@ -17,6 +19,7 @@ export const TabItem = ({ title }: TabItemProps) => {
 
     return 'Overview';
   };
+
   return (
     <div
       className={cn(

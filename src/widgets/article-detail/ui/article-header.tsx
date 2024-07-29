@@ -7,11 +7,6 @@ import { useGetArticlesDetailsQuery } from '../tanstack-query/useGetArticleDetai
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-type ArticleHeaderProps = Pick<
-  getArticleDetailsResponseType,
-  'description' | 'title' | 'createdAt'
->;
-
 export const ArticleHeader = () => {
   const { articleId } = useParams<{ articleId: string }>();
   const { articlesDetail, isLoading, isError } =
