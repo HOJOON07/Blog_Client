@@ -11,7 +11,7 @@ export { profileEditorPlugins } from './plugin/profile-editor-plugins';
 export { ProfilesInsertItems } from './model/insert-items';
 
 //editor
-export { ProfileEditor } from './ui/overview/profile-editor';
+export { ProfileReadmeEditor } from './ui/overview/profile-editor';
 
 // ui-Articles
 export { ProfileArticles } from './ui/articles/ProfileArticles';
@@ -22,8 +22,6 @@ export { ArticleItems } from './ui/articles/profile-article-items';
 export { UserInput } from './ui/edit/user-input';
 export { UserInfoBox } from './ui/edit/user-info-box';
 export { SocialInfoBox } from './ui/edit/social-info-box';
-
-export { Overview } from './ui/overview/Overview';
 
 //lib
 

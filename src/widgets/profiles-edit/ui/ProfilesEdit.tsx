@@ -5,7 +5,7 @@ import { useUserState } from '@/app/_store/useUserState';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export const ProfilesEdit = ({ params }: { params: { id: string } }) => {
+export const ProfilesEdit = ({ params }: { params?: { id: string } }) => {
   const router = useRouter();
   const { user } = useUserState();
   const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
@@ -13,7 +13,7 @@ export const ProfilesEdit = ({ params }: { params: { id: string } }) => {
   useEffect(() => {
     // user와 params.id가 모두 존재할 때만 로직을 실행
     if (user && params?.id) {
-      if (!user.id) {
+      if (!user?.id) {
         // 로그인하지 않은 사용자
         router.push('/signin');
       } else if (user.id !== parseInt(params?.id)) {
@@ -24,7 +24,7 @@ export const ProfilesEdit = ({ params }: { params: { id: string } }) => {
         setIsAuthorized(true);
       }
     }
-  }, [user, params.id, router]);
+  }, [user, params?.id, router]);
 
   if (!isAuthorized) {
     return <div>접근할 수 없는 프로필 페이지입니다.</div>;
@@ -33,7 +33,7 @@ export const ProfilesEdit = ({ params }: { params: { id: string } }) => {
   console.log(429000 / 2);
 
   return (
-    <main className="relative">
+    <main className="relative w-full">
       <div className="max-w-[1100px] w-full mx-auto my-0">
         <div className="py-12 grid grid-cols-1">
           <p className="text-4xl font-bold mb-10">프로필</p>

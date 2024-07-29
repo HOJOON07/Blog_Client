@@ -1,11 +1,28 @@
-import ProfilesContents from '@/widgets/profiles/ui/profile-contents';
+import { getUserInfoApi } from '@/widgets/profiles/lib/get-userInfo-api';
+import ProfileSideSectionContainer from '@/widgets/profiles/ui/profile-side-section-comtainer';
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from '@tanstack/react-query';
 
-export default function ProfilePage() {
+export default async function ProfilePage({
+  searchParams,
+}: {
+  searchParams: { devName: string };
+}) {
+  const { devName } = searchParams;
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ['users/info', devName],
+    queryFn: () => getUserInfoApi(devName),
+  });
+
   return (
-    <main className="pt-10">
-      <div className="max-w-[1200px] w-full mx-auto">
-        <ProfilesContents />
-      </div>
-    </main>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <ProfileSideSectionContainer />
+    </HydrationBoundary>
   );
 }

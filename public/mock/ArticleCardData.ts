@@ -2,7 +2,7 @@
 
 // export const MOCK_DATA: ArticleCardProps[] = [
 //   {
-//     author: {
+//     user: {
 //       avatarImage: '/avatar.jpeg',
 //       name: '김호준',
 //       addres: 'Seoul',

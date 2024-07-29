@@ -16,8 +16,7 @@ import { ProfileInitialValue } from '../../../../../public/mock/ProfileInitData'
 import { useProfilesEditorReadOnlyStore } from '@/app/_store/profiles-editor-store';
 import { useUserState } from '@/app/_store/useUserState';
 
-export const ProfileEditor = ({ readme }: { readme: TElement[] }) => {
-  const { user } = useUserState();
+export const ProfileReadmeEditor = ({ readme }: { readme?: TElement[] }) => {
   const containerRef = useRef(null);
   const { isReadOnly } = useProfilesEditorReadOnlyStore();
 

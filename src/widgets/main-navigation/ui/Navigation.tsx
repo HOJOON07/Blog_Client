@@ -26,6 +26,7 @@ import { deleteCookie } from '@/shared/api/delete-cookie';
 
 import { Logo } from '@/widgets/main-navigation/index';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -80,14 +81,11 @@ export const Navigation = () => {
                 <DropdownMenuContent className="w-full">
                   <DropdownMenuLabel>{user?.devName}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    className="cursor-pointer"
-                    onClick={() => {
-                      router.push(`/profiles?devName=${user?.devName}`);
-                    }}
-                  >
-                    My Profile
-                  </DropdownMenuItem>
+                  <Link href={`/profiles?devName=${user?.devName}`}>
+                    <DropdownMenuItem className="cursor-pointer">
+                      My Profile
+                    </DropdownMenuItem>
+                  </Link>
                   <DropdownMenuItem
                     className="cursor-pointer"
                     onClick={signOut}

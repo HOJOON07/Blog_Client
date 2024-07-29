@@ -1,24 +1,31 @@
+'use client';
+import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { Metadata } from 'next';
-import { Navigation } from '@/widgets/main-navigation';
-// import { ProfileTabs, ProfileSection } from '@/widgets/profiles';
-import {
-  ProfileArticles,
-  ProfileSection,
-  ProfileTabs,
-} from '@/widgets/profiles';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
-import { Overview } from '@/widgets/profiles/ui/overview/Overview';
-
-export const metadata: Metadata = {
-  title: 'Post',
-  description: 'HoJoon Blog',
-};
+// export const metadata: Metadata = {
+//   title: 'DevWorld ',
+//   description: 'HoJoon Blog',
+// };
 
 export default function ProfileLayout({
   children,
+  overview,
 }: Readonly<{
   children: React.ReactNode;
-  test: React.ReactNode;
+  overview: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  const segment = useSelectedLayoutSegment();
+
+  return (
+    <main className="pt-10">
+      <div className="max-w-[1200px] w-full mx-auto flex ">
+        <div className="py-12 px-6 gap-9 flex-1 flex">
+          {/* <div className="py-12 px-6 grid grid-cols-[280px_1fr] gap-9"> */}
+          {children}
+          {segment === 'edit' ? null : overview}
+        </div>
+      </div>
+    </main>
+  );
 }

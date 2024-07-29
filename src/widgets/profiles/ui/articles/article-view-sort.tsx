@@ -11,15 +11,27 @@ import {
 } from '@/shared';
 
 import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { useCallback, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 type SortedType = '최신순' | '인기순' | '오래된순';
 
 type Checked = DropdownMenuCheckboxItemProps['checked'];
 export const ArticleViewSort = () => {
-  const [selectedSort, setSelectedSort] = React.useState<SortedType>('최신순');
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const [selectedSort, setSelectedSort] = useState<SortedType>('최신순');
 
-  const [showStatusBar, setShowStatusBar] = React.useState<Checked>(true);
-  const [showActivityBar, setShowActivityBar] = React.useState<Checked>(false);
-  const [showPanel, setShowPanel] = React.useState<Checked>(false);
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set(name, value);
+
+      return params.toString();
+    },
+    [searchParams],
+  );
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -34,6 +46,9 @@ export const ArticleViewSort = () => {
       <DropdownMenuContent align="end">
         <DropdownMenuCheckboxItem
           onCheckedChange={() => {
+            router.replace(
+              pathname + '?' + createQueryString('order__createdAt', 'DESC'),
+            );
             setSelectedSort('최신순');
           }}
         >
@@ -48,6 +63,9 @@ export const ArticleViewSort = () => {
         </DropdownMenuCheckboxItem>
         <DropdownMenuCheckboxItem
           onCheckedChange={() => {
+            router.replace(
+              pathname + '?' + createQueryString('order__createdAt', 'ASC'),
+            );
             setSelectedSort('오래된순');
           }}
         >
