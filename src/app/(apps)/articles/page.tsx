@@ -6,6 +6,7 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query';
+import { Metadata } from 'next';
 
 const INITIAL_URL = 'http://localhost:5500/articles';
 

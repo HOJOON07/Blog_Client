@@ -10,18 +10,20 @@ import { commentsPlugins } from '../lib/create-plugin';
 import { TooltipProvider } from '@/components/plate-ui/tooltip';
 import { CommentsFixedToolbar } from './comments-fixed-toolbar';
 import { CommentsFixedButtons } from './comments-buttons';
-import { Button } from '@/shared';
+import { Button, useIntersectionObserver } from '@/shared';
 import { CommentsWriteButton } from './comments-write-button';
 import { CommentsWriteEditorinitialValue } from '../model/comments-write-intial-value';
 import { useUserState } from '@/app/_store/useUserState';
 
 export default function CommentsEditor() {
   const containerRef = useRef(null);
-  const { user } = useUserState();
+  const { inView } = useIntersectionObserver(containerRef, { threshold: 0 });
+  const { user } = useUserState(inView);
 
   if (!user) {
     return null;
   }
+
   return (
     <TooltipProvider
       disableHoverableContent

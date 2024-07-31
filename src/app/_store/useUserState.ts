@@ -31,4 +31,5 @@ export const UserInitialState: UserProfileType = {
 export const useUserState = createGlobalUserState<UserProfileType>(
   'user',
   UserInitialState,
+  true,
 );

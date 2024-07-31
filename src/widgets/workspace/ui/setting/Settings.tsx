@@ -80,7 +80,7 @@ export const Settings = () => {
 
   return (
     <div className="w-[330px] px-5 py-3 right-0 top-0 sticky h-screen flex flex-col">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col h-full">
         <div className="flex flex-col">
           <p className="w-full mb-5 text-primary">미리보기</p>
           <div className="flex items-center justify-center w-full">

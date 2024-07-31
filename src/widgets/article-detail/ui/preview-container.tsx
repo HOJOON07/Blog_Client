@@ -16,13 +16,14 @@ export const PreviewContainer = () => {
   const handleEscapePreview = () => {
     router.back();
   };
+  const isWindowLocation = true;
 
   useOnClickOutside([ref, headerRef], handleEscapePreview, 'mousedown');
   return (
     <div>
       <PreviewTopFixedHeader ref={headerRef} />
       <div className="max-w-[1000px] mx-auto px-14 bg-black relative" ref={ref}>
-        <ArticleHeader />
+        <ArticleHeader isWindowLocation={isWindowLocation} />
         <ArticleViewEditor />
       </div>
     </div>

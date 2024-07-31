@@ -8,9 +8,12 @@ import {
   Separator,
   Skeleton,
 } from '@/shared';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEscapePreview } from '../hooks/useEscapePreview';
 import { forwardRef } from 'react';
+import { useGetArticlesAuthorQuery } from '../tanstack-query/useGetArticlesAuthorQuery';
+import Link from 'next/link';
+import redirectURL from '@/app/(apps)/@modal/_action/redirect';
 
 export const PreviewTopFixedHeader = forwardRef<HTMLDivElement>(
   (props, ref) => {
@@ -18,6 +21,9 @@ export const PreviewTopFixedHeader = forwardRef<HTMLDivElement>(
     const handleClosePreview = () => {
       router.back();
     };
+    const { articleId } = useParams<{ articleId: string }>();
+    const { article, isError, isLoading } =
+      useGetArticlesAuthorQuery(articleId);
 
     useEscapePreview(() => {
       router.back();
@@ -26,14 +32,21 @@ export const PreviewTopFixedHeader = forwardRef<HTMLDivElement>(
     return (
       <div ref={ref} className="sticky top-0 h-12 z-50 bg-black">
         <div className="max-w-[1000px] mx-auto flex justify-between px-7 items-center h-14">
-          <div className="flex items-center gap-3">
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => {
+              redirectURL(
+                `/profiles?devName=${article?.author.devName}` as string,
+              );
+            }}
+          >
             <Avatar className="w-6 h-6">
               <AvatarImage src="/avatar.jpeg" alt="avatar" />
               <AvatarFallback>
                 <Skeleton className="h-6 w-6 rounded-full" />
               </AvatarFallback>
             </Avatar>
-            <p className="text-cyan-500">kimhojoon</p>
+            <p className="text-cyan-500">{article?.author.devName}</p>
           </div>
           <Icon
             name="close"

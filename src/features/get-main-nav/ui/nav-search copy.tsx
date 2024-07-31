@@ -26,42 +26,38 @@ import {
 import { useCustomSearchParams } from '@/widgets/profiles/hooks/useCustomSearchParams';
 import { useGetArticlesQuery } from '@/widgets/main-feed/tanstack-query/useGetArticelsQuery';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useSearchQueryStore } from '@/app/_store/search-all-articles-store';
 
 export const Search = () => {
   const [open, setOpen] = useState<boolean>(false);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { setSearchQuery, query } = useSearchQueryStore();
 
-  console.log(query, 'query');
+  const createQueryString = useCallback(
+    (params: URLSearchParams, name: string, value: string) => {
+      if (value) {
+        params.set(name, value);
+      } else {
+        params.delete(name);
+      }
 
-  // const createQueryString = useCallback(
-  //   (params: URLSearchParams, name: string, value: string) => {
-  //     if (value) {
-  //       params.set(name, value);
-  //     } else {
-  //       params.delete(name);
-  //     }
+      return params;
+    },
+    [searchParams],
+  );
+  const handleSearchArticle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    let params = new URLSearchParams(searchParams.toString());
+    params = createQueryString(params, 'where__title__i_like', value);
+    params = createQueryString(params, 'where__description__i_like', value);
+    router.push(pathname + '?' + params.toString());
+  };
 
-  //     return params;
-  //   },
-  //   [searchParams],
-  // );
-  // const handleSearchArticle = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = e.target;
-  //   let params = new URLSearchParams(searchParams.toString());
-  //   params = createQueryString(params, 'where__title__i_like', value);
-  //   params = createQueryString(params, 'where__description__i_like', value);
-  //   router.push(pathname + '?' + params.toString());
-  // };
-
-  // const [where__title__i_like, where__description__i_like] =
-  //   useCustomSearchParams([
-  //     'where__title__i_like',
-  //     'where__description__i_like',
-  //   ]);
+  const [where__title__i_like, where__description__i_like] =
+    useCustomSearchParams([
+      'where__title__i_like',
+      'where__description__i_like',
+    ]);
 
   const { articles, isError, isLoading, fetchNextPage, hasNextPage } =
     useGetArticlesQuery();
@@ -77,11 +73,7 @@ export const Search = () => {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  const handleInputOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearchQuery(value);
-  };
-
+  console.log(articles, '검색창');
   return (
     <>
       <div
@@ -96,7 +88,7 @@ export const Search = () => {
         <DialogTitle hidden>Searh Command Dialog</DialogTitle>
         <CommandInput
           placeholder="search articles by title and description..."
-          onChangeCapture={handleInputOnchange}
+          onChangeCapture={handleSearchArticle}
         />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>

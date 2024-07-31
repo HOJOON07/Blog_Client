@@ -1,26 +1,32 @@
 'use client';
 
-import { Badge, Separator } from '@/shared';
+import { Badge, Separator, cn } from '@/shared';
 import { getArticleDetailsResponseType } from '../model/article-detail-response.type';
 import { format } from 'date-fns';
 import { useGetArticlesDetailsQuery } from '../tanstack-query/useGetArticleDetailsQuery';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import redirectURL from '@/app/(apps)/@modal/_action/redirect';
 
-export const ArticleHeader = () => {
+export const ArticleHeader = ({
+  isWindowLocation,
+}: {
+  isWindowLocation?: true;
+}) => {
   const { articleId } = useParams<{ articleId: string }>();
   const { articlesDetail, isLoading, isError } =
     useGetArticlesDetailsQuery(articleId);
   const articleCreatedAt = articlesDetail?.createdAt as string;
-  const router = useRouter();
 
   return (
     <div className="flex flex-col gap-4 px-4">
       {/* <Link href={`/articles/details/${articleId}`} replace> */}
       <p
-        className="text-4xl cursor-pointer"
+        className={cn(`text-4xl ${isWindowLocation && `cursor-pointer`}`)}
         onClick={() => {
-          router.replace(`/articles/details/${articleId}`);
+          if (isWindowLocation) {
+            redirectURL(`/articles/details/${articleId}`);
+          }
         }}
       >
         {articlesDetail?.title}

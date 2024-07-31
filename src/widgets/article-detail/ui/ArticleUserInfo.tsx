@@ -15,6 +15,8 @@ export const ArticleUserInfo = ({ articleId }: { articleId: string }) => {
   const { article, isError, isLoading } = useGetArticlesAuthorQuery(articleId);
   const { user } = useUserState();
 
+  console.log(article);
+
   return (
     <section className="fixed h-screen w-[380px] right-0 px-10">
       <div className="pt-[72px]">

@@ -14,7 +14,7 @@ export default function WritePage() {
           delayDuration={200}
           skipDelayDuration={0}
         >
-          <div className="w-[820px] rounded-lg border bg-background shadow">
+          <div className="flex-1 rounded-lg border bg-background shadow">
             <PlateEditor />
           </div>
         </TooltipProvider>

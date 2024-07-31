@@ -11,7 +11,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/shared';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="flex">
+    <div className="grid grid-cols-[280px_1fr]">
       <WorkspaceSidebar />
       {children}
     </div>

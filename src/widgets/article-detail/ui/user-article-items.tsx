@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export const ArticleItems = ({
   title,
@@ -10,8 +11,10 @@ export const ArticleItems = ({
   description: string;
   id: number;
 }) => {
+  const { articleId } = useParams<{ articleId: string }>();
+  const href = id !== parseInt(articleId) ? `/articles/details/${id}` : null;
   return (
-    <Link href={`/articles/${id}`}>
+    <Link href={id !== parseInt(articleId) ? `/articles/details/${id}` : ''}>
       <div className="flex justify-between gap-4">
         <div className="flex flex-col justify-around">
           <p className="text-[18px] font-medium line-clamp-1 overflow-hidden leading-5">

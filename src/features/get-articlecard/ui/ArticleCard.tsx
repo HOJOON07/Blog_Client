@@ -55,6 +55,7 @@ export const ArticleCard = ({
       <Link
         href={`/articles/${id}`}
         className="relative w-full h-0 pb-[50%] overflow-hidden"
+        scroll={false}
       >
         <Image
           fill
@@ -64,7 +65,7 @@ export const ArticleCard = ({
           priority
         />
       </Link>
-      <Link href={`/articles/${id}`}>
+      <Link href={`/articles/${id}`} scroll={false}>
         <div className="flex items-center text-white text-[18px] font-medium pt-2 pb-1 mt-1">
           {title}
         </div>

@@ -1,3 +1,4 @@
+import { useGetArticlesQuery } from '@/widgets/main-feed/tanstack-query/useGetArticelsQuery';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React, { useCallback } from 'react';
 
@@ -7,26 +8,30 @@ export const ArticleSearch = () => {
   const searchParams = useSearchParams();
 
   const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+    (params: URLSearchParams, name: string, value: string) => {
       if (value) {
         params.set(name, value);
       } else {
         params.delete(name);
       }
 
-      return params.toString();
+      return params;
     },
     [searchParams],
   );
   const handleSearchArticle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const parmas = new URLSearchParams(searchParams);
     const { value } = e.target;
+    let params = new URLSearchParams(searchParams.toString());
+    params = createQueryString(params, 'where__title__i_like', value);
+    params = createQueryString(params, 'where__description__i_like', value);
 
-    router.push(
-      pathname + '?' + createQueryString('where__title__i_like', value),
-    );
+    router.push(pathname + '?' + params.toString());
+
+    // router.push(
+    //   pathname + '?' + createQueryString('where__title__i_like', value),
+    // );
   };
+
   return (
     <div className="inline-flex items-center rounded-lg border border-solid text-sm h-10 px-3 relative w-full text-zinc-400 focus-within:border-primary">
       <input
@@ -35,7 +40,7 @@ export const ArticleSearch = () => {
         maxLength={150}
         placeholder="아티클을 검색할 수 있어요"
         onChange={handleSearchArticle}
-        defaultValue={searchParams.get('where__title__i_like')?.toString()}
+        // defaultValue={searchParams.get('where__title__i_like')?.toString()}
       />
     </div>
   );

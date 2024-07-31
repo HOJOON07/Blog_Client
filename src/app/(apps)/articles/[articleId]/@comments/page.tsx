@@ -21,18 +21,20 @@ export default async function CommentsPage({
   });
   return (
     <>
-      <Suspense>
-        <div></div>
-        <div>
-          {/* <HydrationBoundary state={dehydrate(queryClient)}> */}
-          <ArticleDetailComments />
-          {/* </HydrationBoundary> */}
+      {/* 그리드 레이아웃을 위한 div */}
+      <div></div>
+      <div>
+        {/* <HydrationBoundary state={dehydrate(queryClient)}> */}
+        <ArticleDetailComments />
+        {/* </HydrationBoundary> */}
+        <Suspense>
           <div className="px-4">
             <CommentsEditor />
           </div>
-        </div>
-        <div></div>
-      </Suspense>
+        </Suspense>
+      </div>
+      {/* 그리드 레이아웃을 위한 div */}
+      <div></div>
     </>
   );
 }

@@ -4,8 +4,9 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 export function createGlobalUserState<T>(
   queryKey: unknown,
   initialData: T | undefined = undefined,
+  defaultEnabled: boolean,
 ) {
-  return function () {
+  return function (enabled: boolean = defaultEnabled) {
     const queryClient = useQueryClient();
 
     const {
@@ -21,6 +22,7 @@ export function createGlobalUserState<T>(
       refetchOnReconnect: true,
       refetchIntervalInBackground: true,
       retry: 3,
+      enabled,
     });
 
     function setData(data: Partial<T>) {
