@@ -1,71 +1,9 @@
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
-import { useCallback, useEffect, useState } from 'react';
-
-import {
-  CalendarIcon,
-  EnvelopeClosedIcon,
-  FaceIcon,
-  GearIcon,
-  PersonIcon,
-  RocketIcon,
-} from '@radix-ui/react-icons';
-
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-  DialogDescription,
-  DialogTitle,
-  Icon,
-} from '@/shared';
-import { useCustomSearchParams } from '@/widgets/profiles/hooks/useCustomSearchParams';
-import { useGetArticlesQuery } from '@/widgets/main-feed/tanstack-query/useGetArticelsQuery';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useSearchQueryStore } from '@/app/_store/search-all-articles-store';
+import { useEffect, useState } from 'react';
+import { SearchDialogContainer } from '@/features/search-article/ui/search-dialog-container';
 
 export const Search = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const { setSearchQuery, query } = useSearchQueryStore();
-
-  console.log(query, 'query');
-
-  // const createQueryString = useCallback(
-  //   (params: URLSearchParams, name: string, value: string) => {
-  //     if (value) {
-  //       params.set(name, value);
-  //     } else {
-  //       params.delete(name);
-  //     }
-
-  //     return params;
-  //   },
-  //   [searchParams],
-  // );
-  // const handleSearchArticle = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = e.target;
-  //   let params = new URLSearchParams(searchParams.toString());
-  //   params = createQueryString(params, 'where__title__i_like', value);
-  //   params = createQueryString(params, 'where__description__i_like', value);
-  //   router.push(pathname + '?' + params.toString());
-  // };
-
-  // const [where__title__i_like, where__description__i_like] =
-  //   useCustomSearchParams([
-  //     'where__title__i_like',
-  //     'where__description__i_like',
-  //   ]);
-
-  const { articles, isError, isLoading, fetchNextPage, hasNextPage } =
-    useGetArticlesQuery();
-
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
@@ -77,11 +15,6 @@ export const Search = () => {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  const handleInputOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setSearchQuery(value);
-  };
-
   return (
     <>
       <div
@@ -92,47 +25,11 @@ export const Search = () => {
         <p className="font-light tracking-wide flex-1">아티클 검색</p>
         <kbd className="">⌘ + K</kbd>
       </div>
-      <CommandDialog open={open} onOpenChange={setOpen}>
-        <DialogTitle hidden>Searh Command Dialog</DialogTitle>
-        <CommandInput
-          placeholder="search articles by title and description..."
-          onChangeCapture={handleInputOnchange}
-        />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            {articles?.pages.map(({ data }) =>
-              data.map((article) => (
-                <CommandItem key={article.id}>
-                  <Icon name="document" size={4} className="mr-2" />
-                  <span>{article.title}</span>
-                </CommandItem>
-              )),
-            )}
-          </CommandGroup>
-          <CommandSeparator />
-          {/* <CommandGroup heading="Settings">
-            <CommandItem>
-              <PersonIcon className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-              <CommandShortcut>⌘P</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <EnvelopeClosedIcon className="mr-2 h-4 w-4" />
-              <span>Mail</span>
-              <CommandShortcut>⌘B</CommandShortcut>
-            </CommandItem>
-            <CommandItem>
-              <GearIcon className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <CommandShortcut>⌘S</CommandShortcut>
-            </CommandItem>
-          </CommandGroup> */}
-        </CommandList>
-        <DialogDescription hidden>
-          search articles by title and description...
-        </DialogDescription>
-      </CommandDialog>
+      <SearchDialogContainer
+        open={open}
+        setOpen={setOpen}
+        path="public_articles"
+      />
     </>
   );
 };

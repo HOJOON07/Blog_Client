@@ -20,7 +20,7 @@ export const signin = async ({
     );
     return response.data;
   } catch (error) {
-    console.log('Error Response', error);
+    throw error;
     throw error;
   }
 };

@@ -100,3 +100,6 @@ export { useSignout } from './hooks/useSignout';
 export { useEventListener } from './hooks/useEventListener';
 export { useIsomorphicLayoutEffect } from './hooks/useIsomorphicLayoutEffect';
 export { useIntersectionObserver } from './hooks/useIntersectionObserver';
+export * from './hooks/useDebounceCallback';
+export * from './hooks/useDebounceValue';
+export * from './hooks/useUnmount';

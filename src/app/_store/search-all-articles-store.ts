@@ -12,6 +12,7 @@ interface State {
 
 interface Actions {
   setSearchQuery: (query: string | null) => void;
+  resetQuery: () => void;
 }
 
 export const useSearchQueryStore = create<State & Actions>((set) => ({
@@ -28,4 +29,12 @@ export const useSearchQueryStore = create<State & Actions>((set) => ({
         where__description__i_like: query,
       },
     })),
+  resetQuery: () =>
+    set({
+      query: {
+        where__description__i_like: null,
+        where__title__i_like: null,
+        take: '10',
+      },
+    }),
 }));

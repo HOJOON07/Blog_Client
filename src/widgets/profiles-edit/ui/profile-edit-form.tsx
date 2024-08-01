@@ -10,6 +10,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useDuplicateMutaion } from '@/widgets/profiles/lib/useDuplicateMutation';
 import { useProfileEditMutation } from '@/widgets/profiles/lib/useProfileEditMutaion';
 import { MyProfileType } from '../model/my-profile-type';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 
 const convertNullToUndefined = (obj: { [key: string]: any }) => {
   return Object.fromEntries(
@@ -21,6 +23,12 @@ const convertNullToUndefined = (obj: { [key: string]: any }) => {
 };
 
 export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
+  const profilesImageRef = useRef<HTMLInputElement>(null);
+  const [profilesImagePreview, setProfilesImagePreview] = useState<
+    string | null
+  >(
+    'https://devworld-bucket-seoul-hojoon.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%86%B7%E1%84%92%E1%85%A9%E1%84%8C%E1%85%AE%E1%86%AB.jpg',
+  );
   const { isDuplicateDevName } = useDuplicateMutaion();
   const { profileEditMutation } = useProfileEditMutation();
 
@@ -39,6 +47,8 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
     }),
   });
   const onSubmit: SubmitHandler<ProfileEditFormData> = (data) => {
+    console.log(data);
+
     const undefinedToNull = Object.fromEntries(
       Object.entries(data).map(([key, value]) => [key, value ?? null]),
     );
@@ -53,6 +63,25 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
     }
   };
 
+  const handleProfilesImageChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const file = e.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        if (typeof fileReader.result === 'string') {
+          setProfilesImagePreview(fileReader.result);
+        }
+      };
+      fileReader.readAsDataURL(file);
+    }
+  };
+
   return (
     <FormProvider {...methods}>
       <form
@@ -64,12 +93,25 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
           <div className="flex items-center justify-center w-20 h-20 rounded-full">
             <label
               htmlFor="profile-user-image"
-              className="flex flex-col items-center justify-center w-full h-full border-solid border rounded-full cursor-pointer bg-zinc-900"
+              className="flex flex-col items-center justify-center w-full h-full border-solid border rounded-full cursor-pointer bg-zinc-900 relative"
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                <Icon name="user" color="text-zinc-400" size={4} />
+                {profilesImagePreview ? (
+                  <Image
+                    className="w-full h-full rounded-full"
+                    src={
+                      'https://devworld-bucket-seoul-hojoon.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%86%B7%E1%84%92%E1%85%A9%E1%84%8C%E1%85%AE%E1%86%AB.jpg'
+                    }
+                    alt="유저 프로필 이미지"
+                    fill
+                  />
+                ) : (
+                  <Icon name="user" color="text-zinc-400" size={4} />
+                )}
               </div>
               <input
+                ref={profilesImageRef}
+                onChange={handleProfilesImageChange}
                 name="profileImage"
                 id="profile-user-image"
                 type="file"

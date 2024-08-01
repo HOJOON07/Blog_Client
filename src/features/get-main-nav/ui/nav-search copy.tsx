@@ -73,7 +73,6 @@ export const Search = () => {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
-  console.log(articles, '검색창');
   return (
     <>
       <div

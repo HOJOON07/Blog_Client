@@ -7,6 +7,17 @@ const nextConfig = {
     });
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname:
+          'devworld-bucket-seoul-hojoon.s3.ap-northeast-2.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
   reactStrictMode: false,
 };
 

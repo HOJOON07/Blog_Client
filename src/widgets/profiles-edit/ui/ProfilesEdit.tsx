@@ -30,8 +30,6 @@ export const ProfilesEdit = ({ params }: { params?: { id: string } }) => {
     return <div>접근할 수 없는 프로필 페이지입니다.</div>;
   }
 
-  console.log(429000 / 2);
-
   return (
     <main className="relative w-full">
       <div className="max-w-[1100px] w-full mx-auto my-0">

@@ -11,7 +11,7 @@ export const DocumentItem = ({ article }: DocumentItemProps) => {
   const { id, title, createdAt, updatedAt } = article;
   return (
     <Link href={`/workspace/${id}`}>
-      <div className='className="w-full h-16 hover:bg-accent hover:text-accent-foreground cursor-pointer"'>
+      <div className="cursor-pointerw-full h-16 hover:bg-accent hover:text-accent-foreground cursor-pointer">
         <div className="flex items-center w-full h-full px-4">
           <div className="flex items-center gap-5 w-1/2">
             <Icon name="document" size={6} />

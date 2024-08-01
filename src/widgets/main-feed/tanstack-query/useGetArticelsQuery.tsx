@@ -9,62 +9,37 @@ export type ParamsObjType = {
   take: string;
 };
 
-export const useGetArticlesQuery = () =>
-  // paramsObj: ParamsObjType = { take: '8' },
-  // searchQuery: boolean,
-  // enabled?: boolean,
-  {
-    // const queryParams = Object.keys(paramsObj).reduce(
-    //   (acc, key) => {
-    //     if (paramsObj[key] !== null) {
-    //       acc[key] = paramsObj[key];
-    //     }
-    //     return acc;
-    //   },
-    //   { take: '8' },
-    // );
+export const useGetArticlesQuery = () => {
+  const INITIAL_URL = 'http://localhost:5500/articles';
 
-    // const queryString = new URLSearchParams(queryParams).toString();
+  const {
+    data: articles,
+    isLoading,
+    isError,
+    fetchNextPage,
+    fetchPreviousPage,
+    hasNextPage,
+    hasPreviousPage,
+    isFetchingNextPage,
+    isFetchingPreviousPage,
 
-    // console.log(queryParams);
-    // console.log(queryString);
+    ...result
+  } = useInfiniteQuery<getArticlesApiResponseType, Error>({
+    queryKey: ['getArticles'],
+    queryFn: ({ pageParam }) => getArticlesApi(pageParam),
+    initialPageParam: INITIAL_URL,
+    getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) =>
+      lastPage.next || undefined,
+    // enabled,
+  });
 
-    // const INITIAL_URL = `http://localhost:5500/articles?${
-    //   searchQuery && queryString
-    // }`;
-
-    const INITIAL_URL = 'http://localhost:5500/articles';
-
-    // console.log(...Object.entries(queryParams).flat());
-
-    const {
-      data: articles,
-      isLoading,
-      isError,
-      fetchNextPage,
-      fetchPreviousPage,
-      hasNextPage,
-      hasPreviousPage,
-      isFetchingNextPage,
-      isFetchingPreviousPage,
-
-      ...result
-    } = useInfiniteQuery<getArticlesApiResponseType, Error>({
-      queryKey: ['getArticles'],
-      queryFn: ({ pageParam }) => getArticlesApi(pageParam),
-      initialPageParam: INITIAL_URL,
-      getNextPageParam: (lastPage, allPages, lastPageParam, allPageParams) =>
-        lastPage.next || undefined,
-      // enabled,
-    });
-
-    return {
-      articles,
-      isLoading,
-      isError,
-      fetchNextPage,
-      isFetchingNextPage,
-      hasNextPage,
-      ...result,
-    };
+  return {
+    articles,
+    isLoading,
+    isError,
+    fetchNextPage,
+    isFetchingNextPage,
+    hasNextPage,
+    ...result,
   };
+};

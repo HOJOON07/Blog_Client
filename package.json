@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.621.0",
     "@hookform/resolvers": "^3.6.0",
     "@portive/client": "^10.0.3",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -84,11 +85,13 @@
     "date-fns": "^3.6.0",
     "framer-motion": "^11.1.7",
     "input-otp": "^1.2.4",
+    "lodash.debounce": "^4.0.8",
     "lucide-react": "^0.378.0",
     "mini-svg-data-uri": "^1.4.4",
     "next": "14.1.4",
     "next-nprogress-bar": "^2.3.13",
     "next-themes": "^0.3.0",
+    "qs": "^6.12.3",
     "react": "^18.3.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -111,7 +114,9 @@
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
     "@svgr/webpack": "^8.1.0",
+    "@types/lodash.debounce": "^4",
     "@types/node": "^20",
+    "@types/qs": "^6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/scheduler": "^0",
