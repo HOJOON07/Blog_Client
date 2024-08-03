@@ -4,6 +4,7 @@ interface ArticleCardResponseType {
     devName: string;
     location: string;
     position: string;
+    image: string;
   };
   title: string;
   description: string;

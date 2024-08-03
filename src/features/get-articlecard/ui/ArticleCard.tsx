@@ -12,6 +12,7 @@ export interface ArticleCardProps {
     devName: string;
     location: string;
     position: string;
+    image: string;
   };
   title: string;
   description: string;
@@ -34,24 +35,28 @@ export const ArticleCard = ({
 }: ArticleCardProps) => {
   const thunbnailSrc =
     thumbnails && thumbnails.length > 0 ? thumbnails[0] : DEFAULT_THUMBNAIL_SRC;
-
+  const imageSrc =
+    author.image &&
+    `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${author.image}`;
   return (
     <div className="flex flex-col relative bg-background rounded-[10px] aspect-articleCard z-10">
-      <div className="flex items-center w-full h-14">
-        <Avatar className="w-8 h-8 mr-[10px]">
-          <AvatarImage src="/avatar.jpeg" alt="avatar" />
-          <AvatarFallback>
-            <Skeleton className="h-8 w-8 rounded-full" />
-          </AvatarFallback>
-        </Avatar>
-        <div>
-          <p className="text-white text-sm font-medium">{author.devName}</p>
-          <p className="text-zinc-500 text-[10px] font-medium">
-            {author.position ?? 'Position'}, {author.location ?? 'Location'}
-          </p>
+      <Link href={`/profiles?devName=${author?.devName}`}>
+        <div className="flex items-center w-full h-14">
+          <Avatar className="w-8 h-8 mr-[10px]">
+            <AvatarImage src={imageSrc ?? '/avatar.jpeg'} alt="avatar" />
+            <AvatarFallback>
+              <Skeleton className="h-8 w-8 rounded-full" />
+            </AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="text-white text-sm font-medium">{author.devName}</p>
+            <p className="text-zinc-500 text-[10px] font-medium">
+              {author.position ?? 'Position'}, {author.location ?? 'Location'}
+            </p>
+          </div>
+          <Icon name="dots" className="ml-auto" />
         </div>
-        <Icon name="dots" className="ml-auto" />
-      </div>
+      </Link>
       <Link
         href={`/articles/${id}`}
         className="relative w-full h-0 pb-[50%] overflow-hidden"

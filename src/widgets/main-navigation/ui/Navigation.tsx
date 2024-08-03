@@ -86,11 +86,12 @@ export const Navigation = () => {
                       My Profile
                     </DropdownMenuItem>
                   </Link>
+
                   <DropdownMenuItem
                     className="cursor-pointer"
                     onClick={signOut}
                   >
-                    Sign Out
+                    <Link href="/">Sign Out</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

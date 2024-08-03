@@ -12,6 +12,7 @@ export interface UserProfileType {
   role: string;
   socialEtc: string | null;
   github: string | null;
+  image: string | null;
 }
 
 export const UserInitialState: UserProfileType = {
@@ -26,6 +27,7 @@ export const UserInitialState: UserProfileType = {
   role: 'User',
   socialEtc: null,
   github: null,
+  image: null,
 };
 
 export const useUserState = createGlobalUserState<UserProfileType>(

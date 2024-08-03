@@ -12,6 +12,7 @@ export interface UserProfileType {
   github: string | null;
   followeeCount: number;
   followerCount: number;
+  image: string | null;
 }
 
 export const UserInitialState: UserProfileType = {
@@ -28,4 +29,5 @@ export const UserInitialState: UserProfileType = {
   github: null,
   followeeCount: 0,
   followerCount: 0,
+  image: null,
 };

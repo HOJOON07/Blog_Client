@@ -17,4 +17,5 @@ export interface getUserInfoApiResponseType {
   readme: TElement[] | null;
   followerCount: number;
   followeeCount: number;
+  image: string | null;
 }

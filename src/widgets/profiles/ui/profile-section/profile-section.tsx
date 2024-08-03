@@ -18,6 +18,7 @@ interface ProfileSectionProps {
 }
 
 export const ProfileSection = ({ user }: ProfileSectionProps) => {
+  const imageSrc = `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${user?.image}`;
   const router = useRouter();
   const { user: myInfo } = useUserState();
   const socials = {
@@ -32,7 +33,7 @@ export const ProfileSection = ({ user }: ProfileSectionProps) => {
     <section className="flex flex-col w-[280px]">
       <div>
         <Avatar className="w-[280px] h-[280px] mb-4`">
-          <AvatarImage src="/avatar.jpeg" alt="avatar" />
+          <AvatarImage src={imageSrc ?? '/avatar.jpeg'} alt="avatar" />
           <AvatarFallback>
             <Skeleton className="w-[240px] h-[240px] rounded-full" />
           </AvatarFallback>

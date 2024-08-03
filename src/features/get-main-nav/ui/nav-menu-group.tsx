@@ -1,6 +1,7 @@
 import { Button, Icon } from '@/shared';
 import { NavMenuIconList, NavMenuList } from '@/features/get-main-nav/';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 type NavMenuGroup = {
   name: NavMenuList;
@@ -23,14 +24,12 @@ export const NavMenuGroup = () => {
   return (
     <div className="flex items-center gap-[2px]">
       {NavMenu.map((menu) => (
-        <Button
-          variant="ghost"
-          key={menu.name}
-          onClick={() => router.push(menu.path)}
-        >
-          <Icon name={menu.icon} size={5} className="mr-2" />
-          {menu.name}
-        </Button>
+        <Link href={menu.path} key={menu.name}>
+          <Button variant="ghost">
+            <Icon name={menu.icon} size={5} className="mr-2" />
+            {menu.name}
+          </Button>
+        </Link>
       ))}
     </div>
   );

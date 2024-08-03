@@ -10,6 +10,7 @@ export interface MyProfileType {
   role: string;
   socialEtc: string | null;
   github: string | null;
+  image: string | null;
 }
 
 export const UserInitialState: MyProfileType = {
@@ -24,4 +25,5 @@ export const UserInitialState: MyProfileType = {
   role: 'User',
   socialEtc: null,
   github: null,
+  image: null,
 };

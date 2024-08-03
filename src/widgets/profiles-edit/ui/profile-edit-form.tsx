@@ -31,6 +31,7 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
   const { isDuplicateDevName } = useDuplicateMutaion();
   const { profileEditMutation } = useProfileEditMutation();
 
+  console.log(user);
   const methods = useForm<ProfileEditFormData>({
     resolver: zodResolver(ProfilesEditSchema),
     defaultValues: convertNullToUndefined({
@@ -67,12 +68,11 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
         onSubmit={methods.handleSubmit(onSubmit)}
       >
         <ProfilesImage
-          profilesImageFileToS3={profilesImageFileToS3}
-          setProfilesImageFileToS3={setProfilesImageFileToS3}
           uploading={uploading}
           setUploading={setUploading}
-          bio={user.bio ?? null}
+          bio={user?.bio ?? null}
           devName={user?.devName ?? null}
+          image={user?.image ?? null}
         />
         <UserInfoBox
           name="devName"
