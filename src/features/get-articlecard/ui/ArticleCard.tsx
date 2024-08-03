@@ -19,7 +19,7 @@ export interface ArticleCardProps {
   likeCount: number;
   commentCount: number;
   createdAt: string;
-  thumbnails?: string[];
+  articleImage: string;
   id: number;
 }
 
@@ -30,11 +30,13 @@ export const ArticleCard = ({
   likeCount,
   commentCount,
   createdAt,
-  thumbnails,
+  articleImage,
   id,
 }: ArticleCardProps) => {
-  const thunbnailSrc =
-    thumbnails && thumbnails.length > 0 ? thumbnails[0] : DEFAULT_THUMBNAIL_SRC;
+  console.log(articleImage);
+  const thunbnailSrc = articleImage
+    ? `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${articleImage}`
+    : DEFAULT_THUMBNAIL_SRC;
   const imageSrc =
     author.image &&
     `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${author.image}`;

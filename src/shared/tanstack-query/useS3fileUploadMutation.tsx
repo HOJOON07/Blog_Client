@@ -5,12 +5,16 @@ import {
   s3FileUploadApi,
   s3FileUploadApiResponseType,
 } from '../api/aws-s3-file-upload';
+import { useState } from 'react';
 export const useS3FileUploadMutation = () => {
   const queryClient = new QueryClient();
+  const [uploadedFileData, setUploadedFileData] =
+    useState<s3FileUploadApiResponseType | null>(null);
   const { toast } = useToast();
   const { mutate: fileUpladMutaion } = useMutation({
     mutationFn: (formData: formDataType) => s3FileUploadApi(formData),
     onSuccess: (data) => {
+      setUploadedFileData(data);
       toast({
         variant: 'default',
         title: '이미지를 업로드 했습니다.',
@@ -30,5 +34,5 @@ export const useS3FileUploadMutation = () => {
       });
     },
   });
-  return { fileUpladMutaion };
+  return { fileUpladMutaion, uploadedFileData };
 };

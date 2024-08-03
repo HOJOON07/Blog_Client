@@ -10,6 +10,8 @@ import {
 import { useCreateArticleMutation } from '@/features/write-editor/tanstack-query/useCreateArticleMutation';
 // import { useEditorValue } from '@/app/_store/editorValue';
 import { Button, Icon, Switch, cn } from '@/shared';
+import { formDataType } from '@/shared/api/aws-s3-file-upload';
+import { useS3FileUploadMutation } from '@/shared/tanstack-query/useS3fileUploadMutation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useEditorMounted, useEditorState } from '@udecode/plate-common';
 import { FileSpreadsheet } from 'lucide-react';
@@ -24,7 +26,13 @@ export const Settings = () => {
     useState<isPrivateType>('private');
   const thumbnailsRef = useRef<HTMLInputElement>(null);
   const [thumbnailPreiew, setThumbnailPreview] = useState<string | null>();
+  const [profilesImageFileToS3, setProfilesImageFileToS3] =
+    useState<File | null>(null);
+  const [uploading, setUploading] = useState<boolean>(false);
   const { createArticleMutation } = useCreateArticleMutation();
+  const { fileUpladMutaion, uploadedFileData } = useS3FileUploadMutation();
+
+  console.log(uploadedFileData);
 
   const {
     register,
@@ -43,6 +51,7 @@ export const Settings = () => {
     };
     const { name } = submitEvent.nativeEvent.submitter as HTMLButtonElement;
     const { title, description } = formData;
+    const articleImage = uploadedFileData?.key;
 
     let publish: isPublishType = 'temporary';
 
@@ -52,12 +61,15 @@ export const Settings = () => {
       publish = 'publish';
     }
 
+    console.log(articleImage, '서브밋 핸들러 이미지');
+    console.log(uploadedFileData, '서브밋 핸들러 폼 데이터');
     createArticleMutation({
       title,
       contents: editor.children,
       description,
       isPrivate: isPrivateState,
       isPublish: publish,
+      articleImage,
     });
   };
 
@@ -72,9 +84,32 @@ export const Settings = () => {
       fileReader.onload = () => {
         if (typeof fileReader.result === 'string') {
           setThumbnailPreview(fileReader.result);
+          setProfilesImageFileToS3(file);
         }
       };
       fileReader.readAsDataURL(file);
+    }
+  };
+
+  const uploadImageToS3 = async (e: React.MouseEvent<HTMLParagraphElement>) => {
+    e.preventDefault();
+
+    if (!profilesImageFileToS3) {
+      return;
+    }
+    const formData: formDataType = {
+      file: profilesImageFileToS3,
+      isPublic: 'true',
+      type: 'article',
+    };
+
+    try {
+      setUploading(true);
+      fileUpladMutaion(formData);
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    } finally {
+      setUploading(false);
     }
   };
 
@@ -82,7 +117,17 @@ export const Settings = () => {
     <div className="w-[330px] px-5 py-3 right-0 top-0 sticky h-screen flex flex-col">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col h-full">
         <div className="flex flex-col">
-          <p className="w-full mb-5 text-primary">미리보기</p>
+          <div className="w-full flex justify-between">
+            <p className="mb-5 text-primary">미리보기</p>
+            {profilesImageFileToS3 && (
+              <p
+                className="mb-5 text-cyan-400 underline underline-offset-4 cursor-pointer"
+                onClick={uploadImageToS3}
+              >
+                업로드
+              </p>
+            )}
+          </div>
           <div className="flex items-center justify-center w-full">
             <label
               htmlFor="dropzone-file"

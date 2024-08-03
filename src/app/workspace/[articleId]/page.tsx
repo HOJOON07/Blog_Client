@@ -35,6 +35,7 @@ export default function WorkspaceDetailPage() {
             isPrivate={document?.isPrivate}
             isPublish={document?.isPublish}
             description={document?.description}
+            articleImage={document?.articleImage}
           />
         </PlateController>
       </div>

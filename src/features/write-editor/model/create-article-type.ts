@@ -10,4 +10,5 @@ export interface CreateArticleType {
   isPrivate: isPrivateType;
   isPublish: isPublishType;
   thumbnails?: string;
+  articleImage?: string;
 }

@@ -16,7 +16,9 @@ export const useCreateArticleMutation = () => {
       isPrivate,
       isPublish,
       thumbnails,
+      articleImage,
     }: CreateArticleType) => {
+      console.log(articleImage, '!!! 뮤테이션');
       if (thumbnails) {
         return createArticleApi({
           title,
@@ -25,6 +27,7 @@ export const useCreateArticleMutation = () => {
           isPrivate,
           isPublish,
           thumbnails,
+          articleImage,
         });
       } else {
         return createArticleApi({
@@ -33,6 +36,7 @@ export const useCreateArticleMutation = () => {
           description,
           isPrivate,
           isPublish,
+          articleImage,
         });
       }
     },

@@ -15,6 +15,8 @@ export const Articles = ({ className }: { className?: string }) => {
   const { articles, isError, isLoading, fetchNextPage, hasNextPage } =
     useGetArticlesQuery();
 
+  console.log(articles);
+
   const fetchNext = useCallback(async () => {
     const res = await fetchNextPage();
     if (res.isError) {
@@ -51,6 +53,7 @@ export const Articles = ({ className }: { className?: string }) => {
               createdAt,
               thumbnails,
               id,
+              articleImage,
             },
             idx,
           ) => (
@@ -84,7 +87,7 @@ export const Articles = ({ className }: { className?: string }) => {
                 description={description}
                 commentCount={commentCount}
                 createdAt={createdAt}
-                thumbnails={thumbnails}
+                articleImage={articleImage}
                 id={id}
               />
             </div>

@@ -9,5 +9,5 @@ export interface getWorkspaceDetailsArticleResponseType {
   description: string;
   isPrivate: isPrivateType;
   isPublish: isPublishType;
-  thumbnails?: string;
+  articleImage?: string;
 }

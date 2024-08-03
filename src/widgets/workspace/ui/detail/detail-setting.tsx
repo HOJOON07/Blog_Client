@@ -26,13 +26,19 @@ export const DetailSetting = ({
   description,
   isPrivate,
   isPublish,
+  articleImage,
 }: {
   title?: string;
   description?: string;
   isPrivate?: isPrivateType;
   isPublish?: isPublishType;
+  articleImage?: string;
 }) => {
   const editor = useEditorState();
+  const thunbnailSrc =
+    articleImage &&
+    `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${articleImage}`;
+
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const [isPrivateState, setIsPrivateState] = useState<
     isPrivateType | undefined
@@ -41,7 +47,7 @@ export const DetailSetting = ({
     isPublishType | undefined
   >(isPublish);
   const thumbnailsRef = useRef<HTMLInputElement>(null);
-  const [thumbnailPreiew, setThumbnailPreview] = useState<string | null>();
+  const [thumbnailPreview, setThumbnailPreview] = useState<string | null>();
   const { articleId } = useParams<{ articleId: string }>();
   const { editWorkspaceArticle } = useWorkspaceArticleEditMutation(
     parseInt(articleId),
@@ -121,8 +127,10 @@ export const DetailSetting = ({
               className="flex flex-col items-center justify-center w-full h-64 border-solid border rounded-lg cursor-pointer hover:bg-zinc-900 relative"
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                {thumbnailPreiew ? (
-                  <Image src={thumbnailPreiew} alt="썸네일 미리보기" fill />
+                {thunbnailSrc ? (
+                  <Image src={thunbnailSrc} alt="썸네일 미리보기" fill />
+                ) : thumbnailPreview ? (
+                  <Image src={thumbnailPreview} alt="썸네일 미리보기" fill />
                 ) : (
                   <Icon name="document" color="text-zinc-400" />
                 )}

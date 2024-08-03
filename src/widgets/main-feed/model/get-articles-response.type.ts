@@ -13,6 +13,7 @@ interface ArticleCardResponseType {
   createdAt: string;
   thumbnails?: [];
   id: number;
+  articleImage: string;
 }
 
 export interface getArticlesApiResponseType {
