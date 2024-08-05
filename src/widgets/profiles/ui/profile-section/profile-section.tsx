@@ -18,7 +18,10 @@ interface ProfileSectionProps {
 }
 
 export const ProfileSection = ({ user }: ProfileSectionProps) => {
-  const imageSrc = `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${user?.image}`;
+  const imageSrc =
+    user?.image &&
+    `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${user?.image}`;
+
   const router = useRouter();
   const { user: myInfo } = useUserState();
   const socials = {
