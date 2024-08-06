@@ -1,13 +1,11 @@
+import { BASE_URL } from '@/shared/api/base-url';
 import axios from 'axios';
 
 export const getGithubUserInfo = async (githubCode: string) => {
   try {
-    const response = await axios.post(
-      'http://localhost:5500/auth/callback/github',
-      {
-        code: githubCode,
-      },
-    );
+    const response = await axios.post(`${BASE_URL}/auth/callback/github`, {
+      code: githubCode,
+    });
 
     // 응답 상태 코드 검사
     return response.data.userInfo;

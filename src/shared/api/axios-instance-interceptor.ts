@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setCookie } from './set-cookie';
 import { setCookieAction } from '../lib/set-cookie-action';
+import { BASE_URL } from './base-url';
 
 export const getLocalStorageAccessToken = () => {
   return localStorage.getItem('accessToken');
@@ -11,7 +12,7 @@ export const getLoalStorageRefreshToken = () => {
 };
 
 export const instance = axios.create({
-  baseURL: 'http://localhost:5500',
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -36,7 +37,7 @@ export const RotateAccessToken = async () => {
   const refreshToken = getLoalStorageRefreshToken();
   try {
     const response = await axios.post(
-      'http://localhost:5500/auth/token/access',
+      `${BASE_URL}/auth/token/access`,
       {},
       {
         headers: {

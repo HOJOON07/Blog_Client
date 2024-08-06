@@ -2,6 +2,7 @@ import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { getArticlesApi, getArticlesApiParams } from '../api/get-articles-api';
 import { getArticlesApiResponseType } from '../model/get-articles-response.type';
 import { useState } from 'react';
+import { BASE_URL } from '@/shared/api/base-url';
 
 export type ParamsObjType = {
   where__title__i_like?: string;
@@ -10,7 +11,7 @@ export type ParamsObjType = {
 };
 
 export const useGetArticlesQuery = () => {
-  const INITIAL_URL = 'http://localhost:5500/articles';
+  const INITIAL_URL = `${BASE_URL}/articles`;
 
   const {
     data: articles,

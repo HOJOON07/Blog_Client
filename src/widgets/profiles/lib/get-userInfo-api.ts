@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { getUserInfoApiResponseType } from '../model/user-info-response.type';
+import { BASE_URL } from '@/shared/api/base-url';
 
 export const getUserInfoApi = async (devName: string) => {
   const response = await axios.get<getUserInfoApiResponseType>(
-    `http://localhost:5500/users/info?devName=${devName}`,
+    `${BASE_URL}/users/info?devName=${devName}`,
     {},
   );
 

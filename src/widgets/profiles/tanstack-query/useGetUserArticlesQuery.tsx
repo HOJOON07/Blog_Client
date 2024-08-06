@@ -4,6 +4,7 @@ import {
   getUserArticlesApiResponseType,
 } from '../model/get-user-articles-api.type';
 import { getUserArticlesApi } from '../api/get-user-articles-api';
+import { BASE_URL } from '@/shared/api/base-url';
 
 export const useGetUserArticlesQuery = (paramsObj: ParamsObjType) => {
   const queryParams = Object.keys(paramsObj).reduce(
@@ -18,7 +19,7 @@ export const useGetUserArticlesQuery = (paramsObj: ParamsObjType) => {
 
   const queryString = new URLSearchParams(queryParams).toString();
 
-  const INITIAL_URL = `http://localhost:5500/articles/users?${queryString}`;
+  const INITIAL_URL = `${BASE_URL}/articles/users?${queryString}`;
 
   const {
     data: articles,

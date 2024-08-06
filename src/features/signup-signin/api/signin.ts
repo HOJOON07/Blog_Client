@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/shared/api/base-url';
 import axios from 'axios';
 
 export const signin = async ({
@@ -10,7 +11,7 @@ export const signin = async ({
   try {
     const base64EmailPassword = btoa(`${email}:${password}`);
     const response = await axios.post(
-      'http://localhost:5500/auth/login/email',
+      `${BASE_URL}/auth/login/email`,
       {},
       {
         headers: {

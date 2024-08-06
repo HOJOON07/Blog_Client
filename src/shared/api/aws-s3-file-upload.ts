@@ -1,5 +1,6 @@
 import { error } from 'console';
 import instance from './axios-instance-interceptor';
+import { BASE_URL } from './base-url';
 
 export interface formDataType {
   file: File;
@@ -16,7 +17,7 @@ export interface s3FileUploadApiResponseType {
 export const s3FileUploadApi = async (formData: formDataType) => {
   try {
     const { data } = await instance.post<s3FileUploadApiResponseType>(
-      'http://localhost:5500/aws-s3-upload/file',
+      `${BASE_URL}/aws-s3-upload/file`,
       formData,
       {
         headers: {

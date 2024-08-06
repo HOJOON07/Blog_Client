@@ -1,12 +1,13 @@
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { getArticleCommentsApi } from '../api/get-article-comments-api';
 import { ArticleCommentsResponseType } from '../model/article-comments-response.type';
+import { BASE_URL } from '@/shared/api/base-url';
 
 export const useGetArticleCommentsQuery = (
   articleId: string,
   enabled: boolean,
 ) => {
-  const INITIAL_URL = `http://localhost:5500/articles/${articleId}/comments`;
+  const INITIAL_URL = `${BASE_URL}/articles/${articleId}/comments`;
   const {
     data: articlesComments,
     isLoading,

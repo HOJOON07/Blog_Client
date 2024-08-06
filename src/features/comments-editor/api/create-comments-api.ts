@@ -1,4 +1,5 @@
 import instance from '@/shared/api/axios-instance-interceptor';
+import { BASE_URL } from '@/shared/api/base-url';
 import { TElement } from '@udecode/plate-common';
 
 export interface CreateCommentsApiParams {
@@ -12,7 +13,7 @@ export const CreateCommentsApi = async ({
 }: CreateCommentsApiParams) => {
   try {
     const { data } = await instance.post(
-      `http://localhost:5500/articles/${articleId}/comments`,
+      `${BASE_URL}/articles/${articleId}/comments`,
       {
         comment,
       },

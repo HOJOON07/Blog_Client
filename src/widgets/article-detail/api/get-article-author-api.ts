@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { getArticleAuthorResponseType } from '../model/artcile-author-response.type';
+import { BASE_URL } from '@/shared/api/base-url';
 
 export const getArticlesAuthorApi = async (articleId: string) => {
   try {
     const response = await axios.get<getArticleAuthorResponseType>(
-      `http://localhost:5500/articles/author/${articleId}`,
+      `${BASE_URL}/articles/author/${articleId}`,
     );
     return {
       author: response.data.author.author,

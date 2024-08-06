@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/shared/api/base-url';
 import {
   DocumentHeader,
   Documents,
@@ -11,7 +12,7 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 
-const INITIAL_URL = 'http://localhost:5500/articles/workspace';
+const INITIAL_URL = `${BASE_URL}/articles/workspace`;
 
 export default async function WorkspacePage() {
   const queryClient = new QueryClient();

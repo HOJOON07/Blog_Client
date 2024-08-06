@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/shared/api/base-url';
 import axios from 'axios';
 
 export const signupDevWorld = async ({
@@ -12,15 +13,12 @@ export const signupDevWorld = async ({
   devName: string;
 }) => {
   try {
-    const response = await axios.post(
-      'http://localhost:5500/auth/register/email',
-      {
-        email,
-        password,
-        passwordConfirm,
-        devName,
-      },
-    );
+    const response = await axios.post(`${BASE_URL}/auth/register/email`, {
+      email,
+      password,
+      passwordConfirm,
+      devName,
+    });
     return response.data;
   } catch (err) {
     console.log('Error response', err);

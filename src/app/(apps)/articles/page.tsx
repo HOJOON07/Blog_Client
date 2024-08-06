@@ -1,4 +1,5 @@
 import { FeedTab } from '@/features/get-feedTab';
+import { BASE_URL } from '@/shared/api/base-url';
 import { Articles } from '@/widgets/main-feed';
 import { getArticlesApi } from '@/widgets/main-feed/api/get-articles-api';
 import {
@@ -8,7 +9,7 @@ import {
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
 
-const INITIAL_URL = 'http://localhost:5500/articles';
+const INITIAL_URL = `${BASE_URL}/articles`;
 
 export default async function ArticlesPage() {
   const queryClient = new QueryClient();

@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/shared/api/base-url';
 import axios from 'axios';
 
 export const authNumberVerify = async ({
@@ -8,7 +9,7 @@ export const authNumberVerify = async ({
   authNumber: string;
 }) => {
   try {
-    const response = await axios.post('http://localhost:5500/mail/verify', {
+    const response = await axios.post(`${BASE_URL}/mail/verify`, {
       email,
       authNumber,
     });

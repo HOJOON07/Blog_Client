@@ -5,9 +5,11 @@ import {
 } from '../api/get-search-articles.api';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import qs from 'qs';
+import { BASE_URL } from '@/shared/api/base-url';
 
-const PublicUrl = 'http://localhost:5500/articles?';
-const WorkspaceUrl = 'http://localhost:5500/articles/workspace?';
+const PublicUrl = `${BASE_URL}/articles?`;
+
+const WorkspaceUrl = `${BASE_URL}/articles/workspace?`;
 
 export const useGetSearchArticles = (
   path: string,
