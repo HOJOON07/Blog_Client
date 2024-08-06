@@ -13,6 +13,8 @@ import {
   ChevronsUpDown,
   CircleCheck,
   Clapperboard,
+  Cloud,
+  CloudDownload,
   Code2,
   Combine,
   Edit2,
@@ -233,6 +235,8 @@ export const Icons = {
   embed: Clapperboard,
   todo: CircleCheck,
   textStyles: Type,
+  attachment: Cloud,
+  downloadCloud: CloudDownload,
   // www
   gitHub: (props: LucideProps) => (
     <svg viewBox="0 0 438.549 438.549" {...props}>
