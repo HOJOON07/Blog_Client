@@ -31,7 +31,6 @@ export const ProfileEditForm = ({ user }: { user: MyProfileType }) => {
   const { isDuplicateDevName } = useDuplicateMutaion();
   const { profileEditMutation } = useProfileEditMutation();
 
-  console.log(user);
   const methods = useForm<ProfileEditFormData>({
     resolver: zodResolver(ProfilesEditSchema),
     defaultValues: convertNullToUndefined({

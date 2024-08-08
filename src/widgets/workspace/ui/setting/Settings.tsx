@@ -32,8 +32,6 @@ export const Settings = () => {
   const { createArticleMutation } = useCreateArticleMutation();
   const { fileUpladMutaion, uploadedFileData } = useS3FileUploadMutation();
 
-  console.log(uploadedFileData);
-
   const {
     register,
     handleSubmit,
@@ -61,8 +59,6 @@ export const Settings = () => {
       publish = 'publish';
     }
 
-    console.log(articleImage, '서브밋 핸들러 이미지');
-    console.log(uploadedFileData, '서브밋 핸들러 폼 데이터');
     createArticleMutation({
       title,
       contents: editor.children,

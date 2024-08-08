@@ -33,7 +33,6 @@ export const ArticleCard = ({
   articleImage,
   id,
 }: ArticleCardProps) => {
-  console.log(articleImage);
   const thunbnailSrc = articleImage
     ? `https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${articleImage}`
     : DEFAULT_THUMBNAIL_SRC;

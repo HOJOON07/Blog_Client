@@ -1,21 +1,17 @@
 'use client';
-import { Button, ToastAction, useToast } from '@/shared';
+import { Button } from '@/shared';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DevTool } from '@hookform/devtools';
 
-import { emailAuthSend } from '@/features/signup-signin';
 import { EmailFormData, EmailSchema } from '../model/email-auth-schema';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { useSignupProgressStore } from '@/app/_store/singup-form-progres-store';
 import { useSignupFormDataStore } from '@/app/_store/signup-form-data-store';
-import { useFormStatus } from 'react-dom';
-import { useState } from 'react';
 import { useEmailAuthMutaion } from '@/features/signup-signin/tanstack-query/useEmailAuthMutation';
 
 export const EmailAuthForm = () => {
-  const { nextStep, step, setStep } = useSignupProgressStore();
+  const { nextStep } = useSignupProgressStore();
   const { setEmail } = useSignupFormDataStore();
   const { sendEmailMutation, status } = useEmailAuthMutaion();
 

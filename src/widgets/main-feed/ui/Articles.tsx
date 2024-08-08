@@ -15,8 +15,6 @@ export const Articles = ({ className }: { className?: string }) => {
   const { articles, isError, isLoading, fetchNextPage, hasNextPage } =
     useGetArticlesQuery();
 
-  console.log(articles);
-
   const fetchNext = useCallback(async () => {
     const res = await fetchNextPage();
     if (res.isError) {

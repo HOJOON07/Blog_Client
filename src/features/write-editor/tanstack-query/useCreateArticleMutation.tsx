@@ -18,7 +18,6 @@ export const useCreateArticleMutation = () => {
       thumbnails,
       articleImage,
     }: CreateArticleType) => {
-      console.log(articleImage, '!!! 뮤테이션');
       if (thumbnails) {
         return createArticleApi({
           title,
