@@ -58,7 +58,6 @@ export const Settings = () => {
     } else if (name === 'publish') {
       publish = 'publish';
     }
-
     createArticleMutation({
       title,
       contents: editor.children,

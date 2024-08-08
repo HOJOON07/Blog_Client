@@ -7,7 +7,7 @@ import { TooltipProvider } from '@/components/plate-ui/tooltip';
 
 export default function WritePage() {
   return (
-    <div className="flex flex-1 relative">
+    <div className="flex relative">
       <PlateController>
         <TooltipProvider
           disableHoverableContent

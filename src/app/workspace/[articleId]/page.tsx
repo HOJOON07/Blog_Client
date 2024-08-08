@@ -26,7 +26,7 @@ export default function WorkspaceDetailPage() {
             delayDuration={200}
             skipDelayDuration={0}
           >
-            <div className="w-[820px] rounded-lg border bg-background shadow">
+            <div className="flex-1 rounded-lg border bg-background shadow">
               <DetailPlateEditor contents={document?.contents} />
             </div>
           </TooltipProvider>
