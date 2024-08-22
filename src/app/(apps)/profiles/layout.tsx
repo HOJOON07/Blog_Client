@@ -3,11 +3,6 @@ import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { Metadata } from 'next';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
-// export const metadata: Metadata = {
-//   title: 'DevWorld ',
-//   description: 'HoJoon Blog',
-// };
-
 export default function ProfileLayout({
   children,
   overview,

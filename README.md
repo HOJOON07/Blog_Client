@@ -1,5 +1,11 @@
 # Dev World
 
+## 배포 사이트
+
+- 현재 백엔드 서버 문제로 에러가 있어 고치는 중입니다.(2024.08.22)
+
+[DevWorld 사이트 주소](https://blog-client-pink-rho.vercel.app/)
+
 ## 기술 블로그를 작성하고 공유하는 개발자들의 SNS 플랫폼
 
 ## 기술 스택

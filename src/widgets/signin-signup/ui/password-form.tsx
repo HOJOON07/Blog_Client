@@ -47,7 +47,6 @@ export const PassWordForm = () => {
       localStorage.setItem('refreshToken', refreshToken);
       try {
         await setCookieAction('accessToken', 'refreshToken');
-        // await setCookie(accessToken, refreshToken);
         console.log('쿠키 설정');
       } catch (err) {
         console.log('쿠키 설정 에러');

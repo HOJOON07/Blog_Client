@@ -26,10 +26,6 @@ export const ArticleSearch = () => {
     params = createQueryString(params, 'where__description__i_like', value);
 
     router.push(pathname + '?' + params.toString());
-
-    // router.push(
-    //   pathname + '?' + createQueryString('where__title__i_like', value),
-    // );
   };
 
   return (

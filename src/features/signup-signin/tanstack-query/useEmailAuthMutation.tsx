@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { emailAuthSend } from '../api/emailAuthSend';
 export const useEmailAuthMutaion = () => {
   const { toast } = useToast();
-  const { nextStep, step, setStep } = useSignupProgressStore();
+  const { step, setStep } = useSignupProgressStore();
   const { setEmail } = useSignupFormDataStore();
   const queryClient = useQueryClient();
   const queryKey = ['emailAuthSend'];

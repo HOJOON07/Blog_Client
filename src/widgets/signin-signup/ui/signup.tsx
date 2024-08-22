@@ -7,7 +7,7 @@ import { EmailInputOTPForm } from './email-otp';
 import { PassWordForm } from './password-form';
 
 export const SignUp = () => {
-  const { step, progress, nextStep } = useSignupProgressStore();
+  const { step, progress } = useSignupProgressStore();
 
   return (
     <div className="flex h-full w-full items-center justify-center px-2">
@@ -17,7 +17,6 @@ export const SignUp = () => {
         {step === 'email_auth' && <EmailAuthForm />}
         {step === 'otp' && <EmailInputOTPForm />}
         {step === 'password' && <PassWordForm />}
-        {/* <button onClick={nextStep}>버튼</button> */}
       </div>
     </div>
   );
