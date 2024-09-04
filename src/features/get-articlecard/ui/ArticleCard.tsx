@@ -68,7 +68,7 @@ export const ArticleCard = ({
           src={thunbnailSrc}
           alt="post-thumbnail"
           sizes="300px"
-          priority
+          // priority
         />
       </Link>
       <Link href={`/articles/${id}`} scroll={false}>

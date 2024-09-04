@@ -10,8 +10,8 @@ import AuthProvider from './_providers/auth-provider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Dev World.com',
-  description: "HoJoon's Dev World",
+  title: 'Dev World',
+  description: '기술 블로그를 작성하고 공유하는 개발자들의 SNS 플랫폼',
 };
 
 export default function RootLayout({
