@@ -1,5 +1,6 @@
-<img width="1439" alt="아티클 작성" src="https://github.com/user-attachments/assets/9f516b0b-e7b3-4781-84bc-c4aef9ecd471"># Dev World
+# Dev World
 > 기술블로그를 작성하고 공유하는 개발자들의 SNS 플랫폼
+![랜딩 페이지 ](https://velog.velcdn.com/images/ghwns1007/post/78678dde-3dc3-4d48-b35e-8169e15118a9/image.gif)
 
 # 배포 사이트
 [DevWorld 사이트 주소](https://blog-client-pink-rho.vercel.app/)
