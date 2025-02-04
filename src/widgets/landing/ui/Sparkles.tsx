@@ -431,3 +431,4 @@ export const Sparkles = (props: ParticlesProps) => {
     </motion.div>
   );
 };
+
