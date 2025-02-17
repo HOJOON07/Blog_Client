@@ -1,6 +1,6 @@
 import { useProfilesTabModeStore } from '@/app/_store/profiles-tab-store';
 import { cn } from '@/shared';
-import { ReactNode } from 'react';
+
 
 type TabMode = 'Overview' | 'Articles' | 'Stars' | 'BookMarks';
 
